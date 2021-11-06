@@ -1,11 +1,19 @@
 const LOAD_STOCK = "stocks/LOAD_STOCK";
+const LOAD_STOCK_NEWS = "stocks/LOAD_STOCK_NEWS"
 
 const setStock = (stock) => ({
 	type: LOAD_STOCK,
 	payload: stock,
 });
+const loadStockNews = (stock_news) => ({
+	type: LOAD_STOCK_NEWS,
+	payload: stock_news,
+});
 
-const initialState = { stock: null };
+const initialState = {
+     stock: null,
+     stock_news: null
+ };
 
 export const getStock = (stockId) => async (dispatch) => {
 	const response = await fetch(`/api/stocks/${stockId}`);

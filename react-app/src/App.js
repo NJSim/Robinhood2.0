@@ -8,7 +8,7 @@ import HomePage from "./components/Home/HomePage";
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
-import Stock from './components/Stock';
+import Stock from './components/Stocks/Stock';
 import { authenticate } from './store/session';
 
 function App() {
