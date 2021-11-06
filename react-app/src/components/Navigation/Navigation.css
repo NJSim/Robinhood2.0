@@ -31,10 +31,7 @@ body {
 .navigation-item{
   width: 200px;
   margin: 10px;
-  /* border: 3px solid #333; */
   background-color: white;
-
-
 }
 
 .navigation-item1{
@@ -54,28 +51,21 @@ nav{
 }
 
 
-nav:after{
+/* nav:after{
   content:"";
   clear: both;
   display: table;
-}
+} */
 
 nav ul{
-  /* float: left; */
   list-style: none;
   margin-top: -.9rem;
-
-
 }
 
 nav ul li{
-  /* float: left; */
   display: inline-block;
   background: white;
   margin: 0 23px;
-  /* background: red; */
-
-
 }
 
 nav ul li a{
@@ -84,36 +74,24 @@ nav ul li a{
   line-height: 70px;
   font-size: 18px;
   padding: 8px 15px;
-  /* display: flex; */
-
-  /* text-align: center; */
-  /* margin-left: 10px; */
 }
 
 nav ul li a:hover{
   color: rgb(0, 185, 5);
-  /* border-radius: 5px;
-  box-shadow: 0 0 5px blue,
-              0 0 5px red; */
 }
 
 nav ul ul{
   position: absolute;
-  /* display:inline-flex; */
   top: 70px;
   opacity: 0;
   visibility: hidden;
   transition: top .3s;
-  /* right: 5rem; */
-  /* width: 5000rem; */
-  /* margin-right: 12rem; */
 }
 
 nav ul li:hover > ul{
   opacity: 1;
   visibility: visible;
 }
-
 
 nav ul ul li{
   position: relative;
@@ -122,14 +100,11 @@ nav ul ul li{
   float: none;
   display: list-item;
   border-bottom: 1px solid rgba(0, 0, 0, 0.3);
-
 }
-
 
 .navSignUpButton{
   border: none;
   outline: none;
-  /* background-color:white; */
   margin-left: -1rem;
   margin-right: 1rem;
 }
@@ -141,14 +116,12 @@ nav ul ul li{
 .navSignUpText{
   text-decoration: none;
   align-items: center;
-  /* box-sizing: border-box; */
   display: inline-flex;
   color: inherit;
   -webkit-box-align: center;
   -webkit-box-pack: center;
   justify-content: center;
   overflow: hidden;
-  /* position: relative; */
   text-align: center;
   white-space: nowrap;
   min-width: 100px;
@@ -167,9 +140,6 @@ nav ul ul li{
 
 .navLogInText:hover{
   color: rgb(0, 185, 5);
-  /* border-radius: 5px;
-  box-shadow: 0 0 5px blue,
-              0 0 5px red; */
 }
 
 .navLogInButton{
@@ -218,7 +188,6 @@ nav ul ul li{
   top: 3px;
 
 }
-
 
 .arrowNav:hover{
   color: rgb(0, 185, 5);
