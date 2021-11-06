@@ -1,0 +1,129 @@
+
+.HomePageContainer{
+  background-color: rgb(195,245,60);
+  display: flex;
+  justify-content:space-evenly;
+  position: relative;
+  height: 41rem;
+  flex-wrap: wrap;
+  border-bottom-color: rgb(0,0,0);
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-top-color: lightgreen;
+  border-top-style: solid;
+  border-top-width: 1px;
+  transform: translate3d(0,0,0);
+  overflow: hidden;
+}
+
+.HomePageItem1{
+  width: 30rem;
+  position: relative;
+}
+
+.HomePageItem2{
+  margin-top: 2rem;
+  width: 45rem;
+  position: relative;
+  flex-shrink: 1;
+}
+
+.robinpic1{
+  position: absolute;
+}
+
+.robinpic2{
+  z-index:10;
+  right: 1.8rem;
+}
+
+.HomeLeftContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: -5;
+  padding: 100px 0;
+}
+
+.HomeSpanText{
+  font-family: "Capsule Sans Display",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 36px;
+  -webkit-letter-spacing: -0.24px;
+  -moz-letter-spacing: -0.24px;
+  -ms-letter-spacing: -0.24px;
+  letter-spacing: -0.24px;
+  -webkit-text-decoration: unset;
+  text-decoration: unset;
+  margin-bottom: 2rem;
+  z-index: 2;
+}
+
+
+.HomeH1{
+  font-family: "Capsule Sans Display",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-size: 52px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 60px;
+  -webkit-letter-spacing: -1.75px;
+  -moz-letter-spacing: -1.75px;
+  -ms-letter-spacing: -1.75px;
+  letter-spacing: -1.75px;
+  -webkit-text-decoration: unset;
+  text-decoration: unset;
+  margin-bottom: 2rem;
+  width:20rem;
+}
+
+.SignUpHomeButton{
+  margin-top: 2rem;
+  color: white;
+  text-decoration: none;
+  align-items: center;
+  box-sizing: border-box;
+  justify-content: center;
+  text-align: center;
+  padding: 0 36px;
+  height: 48px;
+  border-radius: 24px;
+  cursor: pointer;
+  background-color: rgb(0,0,0);
+  border: none;
+  outline: none;
+  font-family: "Capsule Sans Text",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 28px;
+}
+
+.SignUpHomeButton:hover {
+  background-color: rgb(70, 70, 70);
+}
+
+.HomeH3{
+  margin-top: 2rem;
+  cursor: pointer;
+}
+
+.HomeH3:hover{
+  color: rgb(0, 185, 5);
+}
+
+.circle{
+  position: relative;
+  top: 7px;
+  color: red;
+}
+
+.circle:hover{
+  fill: rgb(0, 185, 5);
+}
+
+.homeSignUpText{
+  text-decoration: none;
+  color: white;
+}
