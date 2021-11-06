@@ -59,6 +59,7 @@ websocket-client = "==1.2.1"
 Pillow = "==8.4.0"
 Pygments = "==2.10.0"
 socketIO-client-nexus = "==0.7.6"
+finnhub-python = "*"
 
 [dev-packages]
 psycopg2-binary = "==2.8.6"

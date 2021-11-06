@@ -1,0 +1,22 @@
+#stock-news-card{
+    display: flex;
+    width: 30vw;
+    padding: 10px;
+}
+#stock-news-img{
+    max-height: 50px;
+}
+
+#stock-news-card h1{
+    font-size: .5em;
+}
+#stock-news-card h2{
+    font-size: .5em;
+}
+#main-stock-div{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
