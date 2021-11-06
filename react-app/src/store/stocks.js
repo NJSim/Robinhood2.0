@@ -1,6 +1,6 @@
-const LOAD_STOCK = "session/LOAD_STOCK";
+const LOAD_STOCK = "stocks/LOAD_STOCK";
 
-const setStock= (stock) => ({
+const setStock = (stock) => ({
 	type: LOAD_STOCK,
 	payload: stock,
 });
