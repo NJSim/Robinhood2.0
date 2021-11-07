@@ -107,6 +107,7 @@ nav ul ul li{
   outline: none;
   margin-left: -1rem;
   margin-right: 1rem;
+  background-color: white;
 }
 
 .navSignUpText:hover{
