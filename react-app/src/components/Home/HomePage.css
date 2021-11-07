@@ -161,13 +161,17 @@
 }
 
 
+
+
 .HomePageContainer3{
   /* background-color: hotpink; */
   display: flex;
   justify-content: center;
   /* justify-content: space-evenly; */
-  height: 20rem;
+  height: 50rem;
   flex-wrap:wrap;
+  overflow:scroll;
+
 }
 
 .HomePage3Item1{
@@ -179,6 +183,8 @@
 .HomePage3Item2{
   /* background-color: grey; */
   width: 40rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .robinpic3{
@@ -194,6 +200,7 @@
   flex-direction: column;
   justify-content:space-evenly;
   width: 35rem;
+
 }
 
 .hp31{
@@ -275,6 +282,7 @@
   letter-spacing: -0.25px;
   -webkit-text-decoration: unset;
   text-decoration: unset;
+  margin-bottom: 1rem;
 }
 
 .IPO:hover{
@@ -285,4 +293,159 @@
   margin-right: 10px;
   position: relative;
   top: 8px;
+}
+
+.HomePageContainer4{
+  /* background-color: hotpink; */
+  height: 31rem;
+  display: flex;
+  flex-wrap:wrap;
+  justify-content: space-evenly;
+  overflow:scroll;
+  border-top-color: rgb(0,0,0);
+  border-top-style: solid;
+  border-top-width: 1px;
+}
+
+.hpI2{
+  background-repeat: no-repeat;
+  /* width: 100%; */
+  max-width: 370px;
+  margin-top: 1rem;
+  /* flex: 1 1 0%; */
+  /* position: absolute; */
+  /* top: 0px; */
+  /* height: 100%; */
+  /* background-position: center  */
+}
+
+.hp41{
+  /* background-color: indigo; */
+  width: 70rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  overflow: hidden;
+}
+
+.hp42{
+  /* background-color: khaki; */
+  float: right;
+}
+
+.hp411{
+  /* background-color: ivory; */
+  height: 5rem;
+  margin-top: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+
+.hp412{
+  /* background-color: lawngreen; */
+  height: 15rem;
+  display: flex;
+  justify-content: space-between;
+  /* justify-items: left; */
+  padding-top:1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.hp411Span{
+  font-family: "Capsule Sans Display",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 40px;
+  -webkit-letter-spacing: -0.32px;
+  -moz-letter-spacing: -0.32px;
+  -ms-letter-spacing: -0.32px;
+  letter-spacing: -0.32px;
+  -webkit-text-decoration: unset;
+  text-decoration: unset;
+  float: left;
+  clear: left;
+  margin-bottom: 1rem;
+}
+
+.hp412Span{
+  /* display: inline-flex; */
+  float: left;
+  clear: left;
+  font-family: "Capsule Sans Text",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 28px;
+  -webkit-letter-spacing: -0.25px;
+  -moz-letter-spacing: -0.25px;
+  -ms-letter-spacing: -0.25px;
+  letter-spacing: -0.25px;
+  -webkit-text-decoration: unset;
+  text-decoration: unset;
+  color: rgb(106,114,120);
+}
+
+.hp41one{
+  /* background-color: brown; */
+
+}
+
+.hp41two{
+  /* background-color: cadetblue; */
+}
+
+.hp41three{
+  /* background-color: crimson; */
+}
+
+.hp413Span{
+  float: left;
+  clear: left;
+  /* margin: 0; */
+  color: rgb(0,0,0);
+  font-family: "Capsule Sans Text",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  -webkit-letter-spacing: -0.1px;
+  -moz-letter-spacing: -0.1px;
+  -ms-letter-spacing: -0.1px;
+  letter-spacing: -0.1px;
+  -webkit-text-decoration: unset;
+  text-decoration: unset;
+}
+
+.hp414Span{
+  float: left;
+  clear: left;
+  margin-top: 1rem;
+  /* margin: 0; */
+  color: rgb(0,0,0);
+  font-family: "Capsule Sans Text",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 24px;
+  -webkit-letter-spacing: -0.1px;
+  -moz-letter-spacing: -0.1px;
+  -ms-letter-spacing: -0.1px;
+  letter-spacing: -0.1px;
+  -webkit-text-decoration: unset;
+  text-decoration: unset;
+  /* width: 7rem; */
+  /* padding-left: 1rem; */
+  padding-right: 1rem;
+}
+
+.a12{
+  color: rgb(106,114,120);
+  position: relative;
+  position: relative;
+  /* bottom: 5px; */
+  /* margin-top: -2rem; */
+  /* display: inline-flex; */
 }
