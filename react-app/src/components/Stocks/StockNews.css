@@ -1,22 +1,49 @@
-#stock-news-card{
-    display: flex;
-    width: 30vw;
-    padding: 10px;
-}
-#stock-news-img{
-    max-height: 50px;
+#stock-info {
+  margin-bottom: 50px;
 }
 
-#stock-news-card h1{
-    font-size: .5em;
+#stock-news-card {
+  width: 50vw;
+  padding: 25px;
+  text-decoration: none;
+  color: black;
+  margin-bottom: 20px;
+  border: 4px solid greenyellow;
 }
-#stock-news-card h2{
-    font-size: .5em;
+#stock-news-card a {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: black;
+  font-size: 20pt;
+  align-items: center;
 }
-#main-stock-div{
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+
+#stock-news-img {
+  max-height: 400px;
+  margin-bottom: 25px;
+}
+
+#stock-news-card h1 {
+  font-size: 0.5em;
+  text-align: left;
+}
+#stock-news-card h2 {
+  font-size: 0.5em;
+  text-align: left;
+}
+#main-stock-div {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#news-container {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
