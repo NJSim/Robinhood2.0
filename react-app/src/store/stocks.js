@@ -5,14 +5,10 @@ const setStock = (stock) => ({
 	type: LOAD_STOCK,
 	payload: stock,
 });
-const loadStockNews = (stock_news) => ({
-	type: LOAD_STOCK_NEWS,
-	payload: stock_news,
-});
+
 
 const initialState = {
-     stock: null,
-     stock_news: null
+     stock: null
  };
 
 export const getStock = (stockId) => async (dispatch) => {

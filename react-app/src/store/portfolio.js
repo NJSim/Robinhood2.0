@@ -1,10 +1,13 @@
-const UPDATE = "portfolios/UPDATE";
-const LOAD = 'portfolios/LOAD'
+
+const LOAD_PORTFOLIO = 'portfolios/LOAD'
 
 const initialState = {
 	portfolio: null,
 };
-
+const loadPortfolio = (portfolio) => ({
+	type: LOAD_PORTFOLIO,
+	payload: portfolio,
+});
 export const updatePortfolio = (transactionId, userId) => async (dispatch) => {
     const response = await fetch(`/api/portfolios/update`, {
 		method: "POST",
@@ -26,9 +29,27 @@ export const updatePortfolio = (transactionId, userId) => async (dispatch) => {
 	}
 };
 
+export const getPortfolio = () => async (dispatch) => {
+	const response = await fetch(`/api/portfolios/`);
+
+	if (response.ok) {
+		const portfolio = await response.json();
+        dispatch(loadPortfolio(portfolio))
+        return null;
+	} else if (response.status < 500) {
+		const data = await response.json();
+		if (data.errors) {
+			return data.errors;
+		}
+	} else {
+		return ["An error occurred. Please try again."];
+	}
+};
+
 export default function reducer(state = initialState, action) {
 	switch (action.type) {
-
+        case LOAD_PORTFOLIO:
+            return{ portfolio: action.payload}
 		default:
 			return state;
 	}
