@@ -6,10 +6,10 @@ import "./authForm.css";
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [repeatPassword, setRepeatPassword] = useState('');
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [repeatPassword, setRepeatPassword] = useState("");
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
@@ -23,8 +23,7 @@ const SignUpForm = () => {
     }
   };
 
-
-  const updateName = (e) => {
+  const updateName = e => {
     setName(e.target.value);
   };
 
@@ -151,6 +150,7 @@ const SignUpForm = () => {
             © 2020 To the Moon. All rights reserved.
           </p>
         </div>
+      </div>
       <div id="right-split-signup">
         <div>
           <h6>Commission-free trading</h6>
