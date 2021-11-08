@@ -1,6 +1,10 @@
-from app.models import db, Asset
+from app.models import db, Watchlist, Asset
+from datetime import date
 
-def seed_assets():
+today = date.today()
+
+# Adds a demo user, you can add other users here if you want
+def seed_assetsAndWatchlists():
     asset1 = Asset(
         symbol='AAPL')
     asset2 = Asset(
@@ -35,12 +39,30 @@ def seed_assets():
 
     db.session.commit()
 
+    watchlist1 = Watchlist(name="First List",user_id=1,created_at=today, updated_at=today )
+    watchlist2 = Watchlist(name="First List",user_id=2,created_at=today, updated_at=today )
+
+    db.session.add(watchlist1)
+    db.session.add(watchlist2)
+
+    db.session.commit()
+
+    asset1.watched_assets.append(watchlist1)
+    asset2.watched_assets.append(watchlist1)
+    asset3.watched_assets.append(watchlist1)
+    asset1.watched_assets.append(watchlist2)
+    asset2.watched_assets.append(watchlist2)
+    asset4.watched_assets.append(watchlist2)
+    asset7.watched_assets.append(watchlist2)
+    db.session.commit()
 
 # Uses a raw SQL query to TRUNCATE the users table.
 # SQLAlchemy doesn't have a built in function to do this
 # TRUNCATE Removes all the data from the table, and RESET IDENTITY
 # resets the auto incrementing primary key, CASCADE deletes any
 # dependent entities
-def undo_assets():
+def undo_assetsAndWatchlists():
     db.session.execute('TRUNCATE assets RESTART IDENTITY CASCADE;')
+    db.session.execute('TRUNCATE watchlists RESTART IDENTITY CASCADE;')
+    db.session.execute('TRUNCATE watched_assets RESTART IDENTITY CASCADE;')
     db.session.commit()

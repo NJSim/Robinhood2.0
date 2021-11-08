@@ -6,25 +6,26 @@ import "./authForm.css";
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [repeatPassword, setRepeatPassword] = useState("");
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [repeatPassword, setRepeatPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
   const onSignUp = async e => {
     e.preventDefault();
     if (password === repeatPassword) {
-      const data = await dispatch(signUp(username, email, password));
+      const data = await dispatch(signUp(name, email, password));
       if (data) {
         setErrors(data);
       }
     }
   };
 
-  const updateUsername = e => {
-    setUsername(e.target.value);
+
+  const updateName = (e) => {
+    setName(e.target.value);
   };
 
   const updateEmail = e => {
@@ -66,9 +67,9 @@ const SignUpForm = () => {
             {/* <label>Name</label> */}
             <input
               type="text"
-              name="username"
-              onChange={updateUsername}
-              value={username}
+              name="name"
+              onChange={updateName}
+              value={name}
               placeholder="Name"
               className="signup-input"
             ></input>
@@ -150,7 +151,6 @@ const SignUpForm = () => {
             © 2020 To the Moon. All rights reserved.
           </p>
         </div>
-      </div>
       <div id="right-split-signup">
         <div>
           <h6>Commission-free trading</h6>

@@ -1,5 +1,5 @@
 import "./HomePage.css"
-
+import Footer from "../Footer/Footer";
 
 
 
@@ -30,11 +30,9 @@ function HomePage(){
 
     <div className="HomePageContainer3" >
       <div className="HomePage3Item1">
-      <img src={"https://robinhood.com/us/en/_next/static/images/balloon__ef7d8a9bb1c7845fcb7a6799c35d513e.svg"} alt="" className='robinpic3'></img>
+        <img src={"https://robinhood.com/us/en/_next/static/images/balloon__ef7d8a9bb1c7845fcb7a6799c35d513e.svg"} alt="" className='robinpic3'></img>
       </div>
-
       <div className="HomePage3Item2">
-
         <div><h2 className="hp31">Introducing IPO Access</h2>
           <span className="hp32">Get in at the IPO price. Now, you can become one of the first public investors in upcoming IPOs.</span>
         </div>
@@ -57,6 +55,37 @@ function HomePage(){
       </div>
     </div>
 
+
+    <div className="HomePageContainer4">
+
+      <div className="hp41">
+        <div className="hp411">
+        <span className="hp411Span" > Introducing Fractional Shares </span>
+          <span className="hp412Span" > Invest in thousands of stocks with as little as $1. </span>
+        </div>
+        <div className="hp412">
+          <div className="hp41one">
+            <span className="hp413Span">Invest Any Amount</span>
+            <span className="hp414Span">Choose how much you want to invest, and we’ll convert from dollars to parts of a whole share.</span>
+          </div>
+          <div className="hp41two">
+            <span className="hp413Span">Build a Balanced Portfolio</span>
+            <span className="hp414Span">Customize your portfolio with pieces of different companies and funds to help reduce risk.</span>
+          </div>
+          <div className="hp41three">
+            <span className="hp413Span">Trade in Real Time</span>
+            <span className="hp414Span">Trades placed during market hours are executed at that time, so you’ll always know the share price.</span>
+          </div>
+
+        </div>
+        <span className="IPO a12"> <img src="https://img.icons8.com/ios/50/000000/info--v1.png" alt='' width="30"  height="30" className='circle2'/>Fractional Shares Disclosure</span>
+      </div>
+
+
+      <div className="hp42"><img className="hpI2" src={"https://robinhood.com/us/en/_next/static/images/3x__e61985cb13c119a29374ade4e7a49a47.png"} alt=""></img></div>
+    </div>
+
+    <Footer/>
   </>
   )
 }
