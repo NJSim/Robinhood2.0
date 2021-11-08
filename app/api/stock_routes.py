@@ -22,7 +22,9 @@ lastWeek = lastWeek.strftime("%Y-%m-%d")
 def getStock(id):
     sym=Asset.query.get(id)
     stock = stockAPI.quote(symbol=sym.symbol)
+    stock_chart = pyEX.chart(symbol=sym.symbol, timeframe="1d", date=None, exactDate=None, last=-1, closeOnly=False, byDay=False, simplify=False, interval=15, changeFromClose=False, displayPercent=False, sort="asc", includeToday=False, token="Tpk_3d1d43f8163d48718ee23f604dc69c83", version="sandbox", filter="", format="json")
     stock_news = stockNewsApi.company_news(sym.symbol, _from=lastWeek, to=today)
     stock_news = stock_news[0:10]
     stock["news"] = stock_news
+    stock["chart"] = stock_chart
     return stock

@@ -193,3 +193,102 @@ nav ul ul li{
 .arrowNav:hover{
   color: rgb(0, 185, 5);
 }
+
+/* Logged in Dashboard CSS */
+
+.dashboard-container{
+  position:sticky;
+  top: 0;
+  width: 100%;
+  z-index: 105;
+}
+
+.dashboard-wrapper{
+  display: flex;
+  align-items: center;
+}
+
+.dashboard-logo{
+  height: 48px;
+  min-height: 32px;
+  min-width: 32px;
+  width: 48px;
+}
+
+.dashboard-logo-2{
+  fill: black;
+}
+.dashboard-logo-2:hover{
+  fill:rgb(0, 200, 5);
+  cursor: pointer;
+}
+
+.search{
+  background-color: rgba(242,242,242,1);
+  border: (216,221,225,1);
+  border-radius: 4px;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  transition: border-color 300ms ease 0s, box-shadow 300ms ease 0s;;
+}
+
+.search:hover{
+  box-shadow: 0px 12px 24px;
+}
+
+.search-items{
+
+}
+
+.dashboard-search{
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
+.search-logo{
+  fill:rgb(106,114,120);
+  height:24;
+  width:24;
+}
+
+.searchbar{
+  text-decoration: unset;
+  background: none;
+  border: none;
+  outline: none;
+  color: black;
+  width: 100%;
+}
+
+/* logged in user nav list bar */
+
+.dashboard-list{
+
+}
+
+.dashboard-list-container{
+  display: flex;
+  align-items: center;
+}
+
+.dashboard-list-container > :not(:first-child){
+  margin-left: 33px;
+}
+
+.nav-hyper{
+  color: black;
+}
+
+.nav-hyper:hover{
+  cursor: pointer;
+  color:rgb(0, 200, 5);
+
+}
+
+.nav-messages:hover{
+  cursor: pointer;
+  color:rgb(0, 200, 5);
+
+}
