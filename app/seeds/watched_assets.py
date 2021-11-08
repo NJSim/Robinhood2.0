@@ -48,7 +48,7 @@ def seed_assetsAndWatchlists():
     asset21 = Asset(
         symbol='WMT')
     asset22 = Asset(
-        symbol='BA')
+        symbol='BABA')
     asset23 = Asset(
         symbol='JNJ')
     asset24 = Asset(

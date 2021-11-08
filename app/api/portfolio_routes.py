@@ -1,6 +1,6 @@
 from flask import Blueprint, json, jsonify, request
 from app.models import db, Portfolio, Transaction
-from flask_login import login_required
+from flask_login import login_required, current_user
 from operator import itemgetter
 from datetime import date, datetime, timedelta
 
@@ -41,3 +41,13 @@ def updatePortfolio():
         db.session.commit()
         db.session.expire_all()
         return "Successful"
+
+@portfolio_routes.route('/')
+@login_required
+def getPortfolio():
+    userId = current_user.id
+    portfolioItems = Portfolio.query.filter(Portfolio.user_id==userId).all()
+    if portfolioItems:
+        pass
+    else:
+        return None

@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify
 from app.models import Asset, db
-from flask_login import login_required
+from flask_login import login_required, current_user
 import pyEX
 import finnhub
 from datetime import date, datetime, timedelta
