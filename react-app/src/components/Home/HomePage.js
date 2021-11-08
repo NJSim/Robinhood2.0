@@ -1,5 +1,6 @@
 import "./HomePage.css"
 import Footer from "../Footer/Footer";
+import List from "../Lists/List"
 import { useSelector } from "react-redux";
 
 
@@ -11,14 +12,29 @@ function HomePage(){
   if (sessionUser) {
     return(
       <>
-        <div className="dashboardContainer">
-          <div className="mainContainer">
-            Graph Goes here
-          </div>
-          <div className="listsContainer">
-            Lists go here
-          </div>
+        <div className="flex1">
+          <div className="flex2">
+            <div className="dashboardContainer">
+              <div className="row">
 
+                <div className="mainContainer">
+                  Graph Goes here
+                </div>
+                <div className="listsContainer">
+                  <div className="lists-Nav">
+                    Lists +
+                  </div>
+                  <div>
+                    <List/>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
         </div>
       </>
     )
