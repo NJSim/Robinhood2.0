@@ -1,9 +1,29 @@
 import "./HomePage.css"
 import Footer from "../Footer/Footer";
+import { useSelector } from "react-redux";
 
 
 
 function HomePage(){
+
+  const sessionUser = useSelector(state => state.session.user);
+
+  if (sessionUser) {
+    return(
+      <>
+        <div className="dashboardContainer">
+          <div className="mainContainer">
+            Graph Goes here
+          </div>
+          <div className="listsContainer">
+            Lists go here
+          </div>
+
+        </div>
+      </>
+    )
+  }
+
   return(
     <>
     <div className="HomePageContainer">

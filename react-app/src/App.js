@@ -31,8 +31,8 @@ function App() {
 			<Navigation/>
 			<Switch>
 				<Route exact path='/'>
-          <HomePage />
-        </Route>
+          			<HomePage />
+        		</Route>
 				<Route path="/login" exact={true}>
 					<LoginForm />
 				</Route>
