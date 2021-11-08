@@ -1,4 +1,5 @@
 
+from datetime import timezone
 from sqlalchemy.orm import relationship
 from .db import db
 
@@ -9,8 +10,8 @@ class Portfolio(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     asset_id = db.Column(db.Integer, db.ForeignKey("assets.id"), nullable=False)
     qty_owned = db.Column(db.Integer, nullable=False)
-    created_at = db.Column(db.Date, nullable=False)
-    updated_at = db.Column(db.Date, nullable=False)
+    created_at = db.Column(db.DateTime(timezone=True), nullable=False)
+    updated_at = db.Column(db.DateTime(timezone=True), nullable=False)
 
     user = relationship("User")
     asset = relationship("Asset")
