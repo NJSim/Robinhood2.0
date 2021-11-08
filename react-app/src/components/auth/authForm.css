@@ -29,35 +29,53 @@
   width: 70%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .auth-input {
   width: 100%;
-  border: 1px solid grey;
+  border: 1px solid rgb(212, 212, 212);
   padding: 12px 16px;
   min-width: 7.4rem;
   min-height: 1.33rem;
   border-radius: 7px;
 }
 
+.form-label {
+  font-size: 10pt;
+  font-weight: 400;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 #login-form-bottom {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: 100px;
+}
+
+h2 {
+  margin-bottom: 25px;
+  font-weight: 400;
 }
 
 #login-button {
   background-color: #00c805;
   color: #fff;
   border: none;
-  border-radius: 7px;
+  border-radius: 4px;
   font-size: 10pt;
   font-weight: 400;
-  min-width: 7.83rem;
-  min-height: 2.67rem;
+  min-width: 8.83rem;
+  min-height: 3.17rem;
 }
 
 #login-button:hover {
   background-color: #018f06;
+}
+
+#create-account-link {
+  text-decoration: none;
+  color: #00c805;
 }

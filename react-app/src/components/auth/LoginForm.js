@@ -39,28 +39,31 @@ const LoginForm = () => {
       </div>
       <div id="right-split">
         <form id="login-form" onSubmit={onLogin}>
+          <h2>Welcome To the Moon</h2>
           <div>
             {errors.map((error, ind) => (
               <div key={ind}>{error}</div>
             ))}
           </div>
-          <label htmlFor="email">Email</label>
+          <label className="form-label" htmlFor="email">
+            Email
+          </label>
           <div>
             <input
               name="email"
               type="text"
-              placeholder="Email"
               value={email}
               onChange={updateEmail}
               className="auth-input"
             />
           </div>
-          <label htmlFor="password">Password</label>
+          <label className="form-label" htmlFor="password">
+            Password
+          </label>
           <div>
             <input
               name="password"
               type="password"
-              placeholder="Password"
               value={password}
               onChange={updatePassword}
               className="auth-input"
@@ -71,7 +74,9 @@ const LoginForm = () => {
               Sign in
             </button>
             <p>Not on To the Moon?</p>
-            <a href="/signup">create an account</a>
+            <a id="create-account-link" href="/signup">
+              create an account
+            </a>
           </div>
         </form>
       </div>
