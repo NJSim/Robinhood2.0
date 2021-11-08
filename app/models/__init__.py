@@ -1,3 +1,4 @@
+from datetime import timezone
 from .db import db
 from sqlalchemy.orm import relationship
 from .user import User
@@ -15,9 +16,8 @@ class Watchlist(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name= db.Column(db.String(100), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
-    created_at = db.Column(db.Date, nullable=False)
-    updated_at = db.Column(db.Date, nullable=False)
-    watched_stocks = db.relationship('Asset', secondary=watched_assets, lazy="subquery", backref=db.backref('watched_assets', lazy=True))
+    created_at = db.Column(db.DateTime(timezone=True), nullable=False)
+    updated_at = db.Column(db.DateTime(timezone=True), nullable=False)
     user = relationship("User")
 
 class Asset(db.Model):
@@ -25,6 +25,8 @@ class Asset(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     symbol = db.Column(db.String(4), nullable=False, unique=True)
+
+    watched_stocks = db.relationship('Watchlist', secondary=watched_assets, lazy="subquery", backref=db.backref('watched_assets', lazy=True))
 
     transactions = relationship("Transaction")
     portfolios = relationship("Portfolio")
