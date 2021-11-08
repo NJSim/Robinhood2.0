@@ -1,0 +1,149 @@
+.buy-stock-div1{
+  border: solid black 1px;
+  width: 19rem;
+  height: 25rem;
+  display: flex;
+  justify-content: space-between;
+  /* padding: 1rem; */
+  justify-content: center;
+
+
+}
+
+.buy-stock-div{
+
+}
+
+.buy-stock-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.spanBuy{
+  margin: 0px;
+  color: var(--rh__text-color);
+  font-style: normal;
+  font-weight: bold;
+  text-decoration: unset;
+  font-family: "Capsule Sans Display",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+}
+
+.InvestLabel{
+  font-family: "Capsule Sans Display",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  width: auto;
+  /* overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; */
+}
+
+
+.reviewOrder{
+  appearance: none;
+  color: white;
+  font-weight: bold;
+    border: 0px;
+    font-size: 13px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    text-align: unset;
+    -webkit-box-align: center;
+    align-items: center;
+    box-sizing: border-box;
+    display: inline-flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: var(--rh__size-palette__borderRadius);
+    background-color: rgb(253, 111, 45);
+    height: var(--rh__size-palette__cellHeight);
+    max-width: 420px;
+    min-width: 120px;
+    padding-left: calc(4 * var(--rh__size-palette__gutterWidth));
+    padding-right: calc(4 * var(--rh__size-palette__gutterWidth));
+    white-space: nowrap;
+    width: 14rem;
+    height: 2.8rem;
+    border-radius: .2rem;
+}
+.reviewOrder:hover{
+  background-color: rgb(209, 67, 1);
+}
+.addTolist{
+  width: 18rem;
+  height: 2.5rem;
+  border-radius: .2rem;
+  border: 1px solid;
+  border-color:  rgb(255, 80, 0, 1);
+  color: rgb(255, 80, 0, 1);
+  font-weight: bold;
+  background-color: white;
+  float: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.buyInput{
+  border-width: 1px;
+  border-color:  black;
+  border-radius: .2rem;
+  width: 4.5rem;
+  height: 2rem;
+  float: right;
+  text-align: right;
+  padding: 5px;
+}
+.buyInput:focus{
+  outline: 1px solid rgb(255, 80, 0, 1);
+  border: none;
+
+}
+
+.il4{
+  color: rgb(255, 80, 0, 1);
+  font-weight: bold;
+  font-size: 14px;
+  float: left;
+}
+.il4s{
+  color: black;
+  float: right;
+  font-weight: bold;
+  font-size: 14px;
+
+}
+
+.il5{
+  color: rgb(255, 80, 0, 1);
+  font-weight: bold;
+  font-size: 12px;
+  text-align: center;
+}
+
+.assestSymboldiv{
+  /* background-color: red; */
+  width: 100%;
+}
+
+.il4div{
+  border-bottom: solid 1px grey;
+  width: 100%;
+  padding-bottom: 1rem;
+}
+
+.InvestLabelSpan{
+  float: right;
+}
+
+.ES1{
+  font-weight: bold;
+
+}
+
+.ES2{
+  float: right;
+  overflow: hidden;
+  text-overflow:hidden;
+  /* text-overflow: ellipsis; */
+}
