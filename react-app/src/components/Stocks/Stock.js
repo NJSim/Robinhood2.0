@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getStock } from "../../store/stocks";
 import StockNews from "./StockNews";
+import Chart from "./Chart";
+
 function Stock() {
   const { stockId } = useParams();
   const stock = useSelector(state => state.stocks.stock);
@@ -33,6 +35,11 @@ function Stock() {
           <strong>Market Cap</strong> {stock["marketCap"]}
         </li>
       </ul>
+      <Chart
+        stock={stock["chart"]}
+        stockName={stock["companyName"]}
+        color={"green"}
+      />
       <div id="news-container">
         <h1 style={{ textAlign: "center", marginBottom: "50px" }}>
           Recent News
