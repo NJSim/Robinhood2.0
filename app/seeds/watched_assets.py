@@ -100,7 +100,7 @@ def seed_assetsAndWatchlists():
     db.session.commit()
 
     watchlist1 = Watchlist(name="First List",user_id=1,created_at=today, updated_at=today )
-    watchlist2 = Watchlist(name="First List",user_id=2,created_at=today, updated_at=today )
+    watchlist2 = Watchlist(name="Second List",user_id=2,created_at=today, updated_at=today )
 
     db.session.add(watchlist1)
     db.session.add(watchlist2)

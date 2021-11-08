@@ -9,6 +9,8 @@ function HomePage(){
 
   const sessionUser = useSelector(state => state.session.user);
 
+  const trendingListsTest = ["IPO Access", "Crypto", "Altcoins", "100 Most Popular"];
+
   if (sessionUser) {
     return(
       <>
@@ -18,7 +20,57 @@ function HomePage(){
               <div className="row">
 
                 <div className="mainContainer">
-                  Graph Goes here
+                  <div className="dashboard-graph">
+                    Graph
+                  </div>
+                  <div className="buyingPower">
+                    <div className="buyingText">
+                      Buying Power
+                    </div>
+                    <div className="buyingNumber">
+                      {sessionUser.buying_pwr}
+                    </div>
+                  </div>
+                  <div className="taxStatus">
+                    <div className="taxHeader">
+                      Confirm your tax status
+
+                    </div>
+                    <div className="taxMain">
+                      Please accept the following agreement to make sure that your tax information is up to date.
+                    </div>
+
+                    <div>
+                      <a href="/tax-certification">Review agreement</a>
+                    </div>
+
+                  </div>
+
+                  <div className="trendingLists">
+                    <div className="trendingLists-header">
+                      <div>
+                        Trending Lists
+                      </div>
+                      <div>
+                        i
+                      </div>
+                      <div>
+                        Show More
+                      </div>
+                    </div>
+                    <div className="trendingLists-main">
+                      {trendingListsTest.map(list => (
+                        <div>{list}</div>
+                      ))}
+                    </div>
+
+                  </div>
+
+                  <div className="dashboardNews">
+                    News Test
+
+                  </div>
+
                 </div>
                 <div className="listsContainer">
                   <div className="lists-Nav">
