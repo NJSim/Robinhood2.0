@@ -1,4 +1,6 @@
-//import { useSelector } from "react-redux";
+
+import { useSelector } from "react-redux";
+import "./List.css"
 
 
 function List(){
@@ -9,9 +11,10 @@ function List(){
     return(
         <div className="allLists">
             {testLists.map(list => (
-                <li key={list.id}>{list.name}</li>
+                <>
+                    <li className="listItems2" key={list.user_id}>{list.name}</li>
+                </>
             ))}
-
 
 
         </div>

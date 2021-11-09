@@ -496,8 +496,47 @@
   flex: 0 0 28%;
 }
 
+/* start of list on home page */
 
 .listsContainer{
-  
+  display:flex;
+  flex-direction: column;
+  background-color: grey;
+  height: 30rem;
+  width: 17rem;
+  align-content: stretch;
+  padding:0;
+  border-radius: 5px;
+  padding-left: 1rem;
+  padding-right: 1rem;
 
+}
+
+.Stocks-Nav{
+  display: flex;
+  justify-content: left;
+  align-content: flex-end;
+  align-items: center;
+  height: 3rem;
+  background-color: blueviolet;
+  /* padding-left: 1rem; */
+
+}
+
+
+.lists-Nav{
+  background-color: yellow;
+  height: 3rem;
+  display: flex;
+  justify-content: left;
+  align-content: flex-end;
+  align-items: center;
+
+}
+
+.listItems{
+  background-color: aqua;
+  border-bottom: solid black 1px;
+  list-style:none;
+  /* margin: 10px 0; */
 }
