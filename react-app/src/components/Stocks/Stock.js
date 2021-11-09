@@ -101,139 +101,148 @@ function Stock() {
 
 	return (
 		<div id="main-stock-div">
-			<div className="buy-stock-div">
+			<div id="stock-graph-trans">
 				<div>
-					<div className="buy-stock-div1">
-						<div className="buy-stock-form">
-							<div className="assestSymboldiv">
-								<span className="turnOrange spanBuy" onClick={showBuyForm}>
-									{" "}
-									Buy {stock["symbol"]}{" "}
-								</span>
-								<span className="turnOrange spanSell" onClick={showSellForm}>
-									{" "}
-									Sell {stock["symbol"]}{" "}
-								</span>
-							</div>
-							<div>
-								<label className="InvestLabel"> Invest In</label>
-								<span className="InvestLabel InvestLabelSpan"> Shares </span>
-							</div>
-
-							<div>
-								<label className="InvestLabel">
-									Shares
-									<input
-										maxlength="8"
-										className="buyInput"
-										type="integer"
-										required
-										value={share}
-										onChange={(e) => {
-											setShare(e.target.value);
-										}}
-										spellcheck="false"
-										placeholder="0"
-										onKeyPress={(e) => {
-											if (!/[0-9.]/.test(e.key)) {
-												e.preventDefault();
-											}
-										}}
-									/>
-								</label>
-							</div>
-
-							<div className="il4div">
-								<span className="InvestLabel il4">Market Price</span>
-								<span className="InvestLabel il4s">
-									${stock["latestPrice"].toLocaleString("en")}
-								</span>
-							</div>
-
-							<div>
-								{showSell ? (
-									<span className="InvestLabel ES1">Estimated Credit</span>
-								) : (
-									<span className="InvestLabel ES1">Estimated Cost</span>
-								)}
-								<span className="InvestLabel ES2">
-									{" "}
-									$
-									{share * stock.latestPrice > 0
-										? share * stock.latestPrice
-										: "0".toLocaleString("en")}{" "}
-								</span>
-							</div>
-							{showSell ? (
-								<div>
-									<button
-										disabled={!share}
-										className="reviewOrder"
-										onClick={sellStock}
-									>
-										Complete Order
-									</button>
-								</div>
-							) : (
-								<div>
-									<button
-										disabled={!share}
-										className="reviewOrder"
-										onClick={purchaseStock}
-									>
-										Complete Order
-									</button>
-								</div>
-							)}
-							<div>
-								{errors.map((error, ind) => (
-									<div key={ind}>{error}</div>
-								))}
-							</div>
-							{showSell ? (
-								<div>
-									<span className="InvestLabel il5">{stock['shares_owned'] !== 'null'?stock['shares_owned']:0} Share(s) Owned</span>
-								</div>
-							) : (
-								<div>
-									<span className="InvestLabel il5">
-										${user["buying_pwr"].toLocaleString("en")} buying power
-										available
-									</span>
-								</div>
-							)}
-						</div>
-					</div>
-					<div>
-						<button className="addTolist">Add to Lists</button>
+					<Chart
+						timeFrame={timeFrame}
+						stock={stock}
+						stockName={stock["companyName"]}
+						color={"#00a806"}
+					/>
+					<div id="timeFrameDiv">
+						<button
+							className="timeFrameButton"
+							onClick={(e) => setTimeFrame("chart_1d")}
+						>
+							daily
+						</button>
+						<button
+							className="timeFrameButton"
+							onClick={(e) => setTimeFrame("chart_1m")}
+						>
+							monthly
+						</button>
+						<button
+							className="timeFrameButton"
+							onClick={(e) => setTimeFrame("chart_1y")}
+						>
+							yearly
+						</button>
 					</div>
 				</div>
-			</div>
-			<Chart
-				timeFrame={timeFrame}
-				stock={stock}
-				stockName={stock["companyName"]}
-				color={"#00a806"}
-			/>
-			<div id="timeFrameDiv">
-				<button
-					className="timeFrameButton"
-					onClick={(e) => setTimeFrame("chart_1d")}
-				>
-					daily
-				</button>
-				<button
-					className="timeFrameButton"
-					onClick={(e) => setTimeFrame("chart_1m")}
-				>
-					monthly
-				</button>
-				<button
-					className="timeFrameButton"
-					onClick={(e) => setTimeFrame("chart_1y")}
-				>
-					yearly
-				</button>
+				<div className="buy-stock-div">
+					<div>
+						<div className="buy-stock-div1">
+							<div className="buy-stock-form">
+								<div className="assestSymboldiv">
+									<span className="turnOrange spanBuy" onClick={showBuyForm}>
+										{" "}
+										Buy {stock["symbol"]}{" "}
+									</span>
+									<span className="turnOrange spanSell" onClick={showSellForm}>
+										{" "}
+										Sell {stock["symbol"]}{" "}
+									</span>
+								</div>
+								<div>
+									<label className="InvestLabel"> Invest In</label>
+									<span className="InvestLabel InvestLabelSpan"> Shares </span>
+								</div>
+
+								<div>
+									<label className="InvestLabel">
+										Shares
+										<input
+											maxlength="8"
+											className="buyInput"
+											type="integer"
+											required
+											value={share}
+											onChange={(e) => {
+												setShare(e.target.value);
+											}}
+											spellcheck="false"
+											placeholder="0"
+											onKeyPress={(e) => {
+												if (!/[0-9.]/.test(e.key)) {
+													e.preventDefault();
+												}
+											}}
+										/>
+									</label>
+								</div>
+
+								<div className="il4div">
+									<span className="InvestLabel il4">Market Price</span>
+									<span className="InvestLabel il4s">
+										${stock["latestPrice"].toLocaleString("en")}
+									</span>
+								</div>
+
+								<div>
+									{showSell ? (
+										<span className="InvestLabel ES1">Estimated Credit</span>
+									) : (
+										<span className="InvestLabel ES1">Estimated Cost</span>
+									)}
+									<span className="InvestLabel ES2">
+										{" "}
+										$
+										{share * stock.latestPrice > 0
+											? share * stock.latestPrice
+											: "0".toLocaleString("en")}{" "}
+									</span>
+								</div>
+								{showSell ? (
+									<div>
+										<button
+											disabled={!share}
+											className="reviewOrder"
+											onClick={sellStock}
+										>
+											Complete Order
+										</button>
+									</div>
+								) : (
+									<div>
+										<button
+											disabled={!share}
+											className="reviewOrder"
+											onClick={purchaseStock}
+										>
+											Complete Order
+										</button>
+									</div>
+								)}
+								<div>
+									{errors.map((error, ind) => (
+										<div key={ind}>{error}</div>
+									))}
+								</div>
+								{showSell ? (
+									<div>
+										<span className="InvestLabel il5">
+											{stock["shares_owned"] !== "null"
+												? stock["shares_owned"]
+												: 0}{" "}
+											Share(s) Owned
+										</span>
+									</div>
+								) : (
+									<div>
+										<span className="InvestLabel il5">
+											${user["buying_pwr"].toLocaleString("en")} buying power
+											available
+										</span>
+									</div>
+								)}
+							</div>
+						</div>
+						<div>
+							<button className="addTolist">Add to Lists</button>
+						</div>
+					</div>
+				</div>
 			</div>
 			<div id="news-container">
 				<h1 style={{ textAlign: "center", marginBottom: "50px" }}>
