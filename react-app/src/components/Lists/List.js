@@ -1,5 +1,4 @@
 
-import { useSelector } from "react-redux";
 import "./List.css"
 
 import { useEffect } from "react";
