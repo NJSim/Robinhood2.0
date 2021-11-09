@@ -211,7 +211,7 @@ function Stock() {
 			</div>
 			<Chart
 				timeFrame={timeFrame}
-				stock={stock[timeFrame]}
+				stock={stock}
 				stockName={stock["companyName"]}
 				color={"#00a806"}
 			/>
