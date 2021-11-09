@@ -73,6 +73,23 @@ h2 {
   min-height: 3.17rem;
 }
 
+.demo-login{
+  background-color: #00c805;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 10pt;
+  font-weight: 400;
+  min-width: 8.83rem;
+  min-height: 3.17rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.demo-login:hover{
+  background-color: #018f06;
+}
+
 #login-button:hover {
   background-color: #018f06;
 }
