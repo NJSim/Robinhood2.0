@@ -29,7 +29,7 @@ const Chart = ({ timeFrame, stock, stockName, color }) => {
             marker: { color: color },
           },
         ]}
-        layout={{ width: 1220, height: 840, title: stockName }}
+        layout={{ width: 700, title: stockName }}
         options={{ displaylogo: "false" }}
       />
     </Fragment>

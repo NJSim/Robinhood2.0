@@ -33,13 +33,7 @@
   font-size: 0.5em;
   text-align: left;
 }
-#main-stock-div {
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
+
 
 #news-container {
   width: 100vw;

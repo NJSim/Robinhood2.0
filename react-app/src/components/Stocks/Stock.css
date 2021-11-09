@@ -1,5 +1,12 @@
-
-
+#main-stock-div {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+#stock-graph-trans{
+  display: flex;
+  justify-content: center;
+}
 div.content { width: auto; }
 
 .buy-stock-div1{
