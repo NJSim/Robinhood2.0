@@ -1,0 +1,10 @@
+.listItems2{
+  line-height: 35px;
+}
+
+.allLists{
+  display: flex;
+  flex-direction: column;
+  float: left;
+}
+

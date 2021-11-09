@@ -81,15 +81,24 @@ function HomePage(){
                   </div>
 
                 </div>
+
                 <div className="listsContainer">
-                  <div className="lists-Nav">
-                    Lists +
-                  </div>
-                  <div>
-                    <List/>
+
+                  <div className="Stocks-Nav">
+                    Stocks
                   </div>
 
+                  <div className='listItems'>
+                    <List />
+                  </div>
+
+                  <div className="lists-Nav">
+                    Lists
+                  </div>
+                  
                 </div>
+
+
 
               </div>
 
