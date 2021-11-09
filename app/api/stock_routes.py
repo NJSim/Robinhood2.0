@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify
-from app.models import Asset, db
+from app.models import Asset, db, Portfolio
 from flask_login import login_required, current_user
 import pyEX
 import finnhub
@@ -31,4 +31,9 @@ def getStock(id):
     stock["chart_1d"] = stock_chart_1d
     stock["chart_1m"] = stock_chart_1m
     stock["chart_1y"] = stock_chart_1y
+    port_instance = Portfolio.query.filter(Portfolio.user_id==current_user.id, Portfolio.asset_id==id).first()
+    if port_instance:
+        stock['shares_owned'] = port_instance.qty_owned
+    else:
+        stock['shares_owned'] = "null"
     return stock
