@@ -66,7 +66,7 @@ function Stock() {
     const data = {
       user_id: userId,
       asset_id: stockId,
-      shares: 5,
+      shares: share,
       order_price: stock["latestPrice"],
       buy: true,
       sell: false,
@@ -119,7 +119,7 @@ function Stock() {
                   <span className="InvestLabel ES1">Estimated Cost</span>
                   <span className="InvestLabel ES2"> ${(share * stock.latestPrice).toLocaleString('en')} </span>
                 </div>
-                <div><button className="reviewOrder">Review Order</button></div>
+                <div><button className="reviewOrder" onClick={purchaseStock}>Review Order</button></div>
 
                 <div><span className="InvestLabel il5">${user["buying_pwr"].toLocaleString('en')} buying power available</span></div>
 
