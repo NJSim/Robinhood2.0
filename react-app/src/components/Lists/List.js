@@ -1,4 +1,6 @@
-//import { useSelector } from "react-redux";
+
+import { useSelector } from "react-redux";
+import "./List.css"
 
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
@@ -23,12 +25,12 @@ function List(){
     return(
         <div className="allLists">
 
+
             {Object.keys(watchlists).map( (key, index) => (
 
                 <h2 key={watchlists[key].id}>{watchlists[key].name}</h2>
 
             ))}
-
 
         </div>
     )
