@@ -100,7 +100,8 @@ def seed_assetsAndWatchlists():
     db.session.commit()
 
     watchlist1 = Watchlist(name="First List",user_id=1,created_at=today, updated_at=today )
-    watchlist2 = Watchlist(name="Second List",user_id=2,created_at=today, updated_at=today )
+    watchlist3 = Watchlist(name="Second List",user_id=1,created_at=today, updated_at=today )
+    watchlist2 = Watchlist(name="First List",user_id=2,created_at=today, updated_at=today )
 
     db.session.add(watchlist1)
     db.session.add(watchlist2)
@@ -114,6 +115,7 @@ def seed_assetsAndWatchlists():
     watchlist2.watched_assets.append(asset2)
     watchlist2.watched_assets.append(asset4)
     watchlist2.watched_assets.append(asset7)
+    watchlist3.watched_assets.append(asset1)
     db.session.commit()
 
 # Uses a raw SQL query to TRUNCATE the users table.
