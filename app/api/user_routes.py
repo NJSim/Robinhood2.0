@@ -22,7 +22,4 @@ def user(id):
 @login_required
 def user_watchlists(id):
     user = User.query.get(id)
-    userWatchlists = Watchlist.query.filter(Watchlist.user_id==user.id).all()
-    # print(userWatchlists[0])
-    # return userWatchlists[0].to_dict()
-    return {'watchlists': [list.to_dict() for list in userWatchlists ]}
+    return {watchlist.id:watchlist.to_dict() for watchlist in Watchlist.query.filter(Watchlist.user_id==user.id).all()}

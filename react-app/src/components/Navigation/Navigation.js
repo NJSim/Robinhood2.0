@@ -105,15 +105,15 @@ function Navigation(){
               <div className="dashboard-search">
 
                 <svg className="search-logo" fill="none" height="24" role="img" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                  <path clip-rule="evenodd" d="M15.3201 16.7344C14.0741 17.5354 12.5913 18 11 18C6.58172 18 3 14.4183 3 10C3
+                  <path clipRule="evenodd" d="M15.3201 16.7344C14.0741 17.5354 12.5913 18 11 18C6.58172 18 3 14.4183 3 10C3
                   5.58172 6.58172 2 11 2C15.4183 2 19 5.58172 19 10C19 12.1038 18.1879 14.0179 16.8601 15.446L21.7071
                   20.293L20.2928 21.7072L15.3201 16.7344ZM17 10C17 13.3137 14.3137 16 11 16C7.68629 16 5 13.3137 5 10C5 6.68629
-                  7.68629 4 11 4C14.3137 4 17 6.68629 17 10Z" fill-rule="evenodd">
+                  7.68629 4 11 4C14.3137 4 17 6.68629 17 10Z" fillRule="evenodd">
                   </path>
                 </svg>
 
                 <div className="searchbar">
-                  <input placeholder="Search" type="search" autocomplete="off">
+                  <input placeholder="Search" type="search" autoComplete="off">
                   </input>
                 </div>
               </div>
@@ -124,27 +124,27 @@ function Navigation(){
 
           <div className="dashboard-list">
             <div className="dashboard-list-container">
-              <a className="nav-hyper">
+              <a href="/rewards" className="nav-hyper">
                 <span>
                   Rewards
                 </span>
               </a>
-              <a className="nav-hyper">
+              <a href="/portfolio" className="nav-hyper">
                 <span>
                   Portfolio
                 </span>
               </a>
-              <a className="nav-hyper">
+              <a href="/cash" className="nav-hyper">
                 <span>
                   Cash
                 </span>
               </a>
-              <div className="nav-messages">
+              <div href="/messages" className="nav-messages">
                 <span>
                   Messages
                 </span>
               </div>
-              <a className="nav-hyper">
+              <a href="/account" className="nav-hyper">
                 <span>
                   Account
                 </span>

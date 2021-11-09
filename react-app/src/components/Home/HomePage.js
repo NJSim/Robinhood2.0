@@ -17,7 +17,7 @@ function HomePage(){
     }
   },[dispatch,sessionUser])
 
-  const trendingListsTest = ["IPO Access", "Crypto", "Altcoins", "100 Most Popular"];
+  const trendingListsTest = [{"id":1, "name": "Tech"}, {"id":2, "name": "Crypto"}, {"id":3, "name": "IPO"}];
 
 
   if (sessionUser) {
@@ -69,7 +69,7 @@ function HomePage(){
                     </div>
                     <div className="trendingLists-main">
                       {trendingListsTest.map(list => (
-                        <div>{list}</div>
+                        <li key={list.id}>{list.name}</li>
                       ))}
                     </div>
 
