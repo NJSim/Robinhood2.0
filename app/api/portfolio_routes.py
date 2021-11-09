@@ -1,10 +1,15 @@
 from flask import Blueprint, json, jsonify, request
+from sqlalchemy.orm.strategy_options import joinedload
 from app.models import db, Portfolio, Transaction
 from flask_login import login_required, current_user
 from operator import itemgetter
+from sqlalchemy.orm import joinedload
 from datetime import date, datetime, timedelta
+import pyEX
 
 portfolio_routes = Blueprint('portfolios', __name__)
+
+stockAPI = pyEX.Client(api_token='Tpk_3d1d43f8163d48718ee23f604dc69c83', version='sandbox')
 
 today = datetime.now()
 
@@ -43,11 +48,29 @@ def updatePortfolio():
         return "Successful"
 
 @portfolio_routes.route('/')
-@login_required
+# @login_required
 def getPortfolio():
+    portfolio = {}
+    portfolio['positions'] = {}
+    total_market_value = 0
+    total_shares = 0;
     userId = current_user.id
-    portfolioItems = Portfolio.query.filter(Portfolio.user_id==userId).all()
+    portfolioItems = Portfolio.query.filter(Portfolio.user_id==userId).options(joinedload(Portfolio.port_asset)).all()
     if portfolioItems:
-        pass
+        for item in portfolioItems:
+            stock_price = stockAPI.quote(symbol=item.port_asset.symbol)['latestPrice']
+            market_value = item.qty_owned * stock_price
+            total_market_value += market_value
+            total_shares += item.qty_owned
+            portfolio['positions'][item.port_asset.symbol] = {
+                "asset_id": item.asset_id,
+                "total_shares": item.qty_owned,
+                "market_value": market_value
+            }
+        portfolio['totalMarketValue'] = total_market_value
+        if total_shares == 0:
+            return "null"
+        else:
+            return portfolio
     else:
-        return None
+        return "null"

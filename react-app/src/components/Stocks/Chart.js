@@ -38,10 +38,10 @@ const Chart = ({ stock, stockName, color }) => {
           {
             x: xValues,
             y: yValues,
-            type: "scatter",
+            type: "ohlc",
             mode: "lines+markers",
             marker: { color: color },
-          },
+          }
         ]}
         layout={{ width: 1220, height: 840, title: stockName }}
         options={{ displaylogo: "false" }}

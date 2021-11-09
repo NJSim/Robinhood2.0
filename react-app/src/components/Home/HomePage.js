@@ -1,15 +1,24 @@
 import "./HomePage.css"
 import Footer from "../Footer/Footer";
 import List from "../Lists/List"
-import { useSelector } from "react-redux";
-
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { getPortfolio } from "../../store/portfolio";
 
 
 function HomePage(){
-
+  const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
 
+
+  useEffect(() => {
+    if(sessionUser){
+      dispatch(getPortfolio())
+    }
+  },[dispatch,sessionUser])
+
   const trendingListsTest = ["IPO Access", "Crypto", "Altcoins", "100 Most Popular"];
+
 
   if (sessionUser) {
     return(

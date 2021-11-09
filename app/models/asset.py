@@ -8,6 +8,6 @@ class Asset(db.Model):
     symbol = db.Column(db.String(4), nullable=False, unique=True)
 
     transactions = relationship("Transaction")
-    portfolios = relationship("Portfolio")
+    portfolios = db.relationship("Portfolio", back_populates="port_asset", lazy=False)
 
     # watchlists = relationship("Watchlist", secondary=assetsToWatchlists, back_populates="assets")
