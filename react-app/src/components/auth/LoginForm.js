@@ -4,6 +4,7 @@ import { Redirect } from "react-router-dom";
 import { login } from "../../store/session";
 import "./authForm.css";
 import image from "./Robinhood-login-image.jpeg";
+import * as sessionActions from '../../store/session';
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
@@ -11,6 +12,16 @@ const LoginForm = () => {
   const [password, setPassword] = useState("");
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+
+
+  const demo = (e) => {
+    e.preventDefault();
+    setEmail("demo@aa.io");
+    setPassword("password")
+    return dispatch(sessionActions.login("demo@aa.io", "password"))
+  }
+
+
 
   const onLogin = async e => {
     e.preventDefault();
@@ -35,7 +46,7 @@ const LoginForm = () => {
   return (
     <div id="split-width">
       <div id="left-split">
-        <img id="login-picture" src={image} />
+        <img id="login-picture" src={image} alt=""/>
       </div>
       <div id="right-split">
         <form id="login-form" onSubmit={onLogin}>
@@ -73,9 +84,10 @@ const LoginForm = () => {
             <button id="login-button" type="submit">
               Sign in
             </button>
+            <button className="demo-login" onMouseDown={demo}>Demo</button>
             <p>Not on To the Moon?</p>
             <a id="create-account-link" href="/signup">
-              create an account
+              Create an account
             </a>
           </div>
         </form>

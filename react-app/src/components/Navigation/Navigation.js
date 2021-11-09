@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
+import React, { useState } from "react";
 import * as sessionActions from '../../store/session'
 import './Navigation.css';
 
@@ -9,12 +10,20 @@ function Navigation(){
 
   const sessionUser = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const logout = (e) => {
     e.preventDefault();
     dispatch(sessionActions.logout())
   }
 
+  const demo = (e) => {
+    e.preventDefault();
+    setEmail("demo@aa.io");
+    setPassword("password")
+    return dispatch(sessionActions.login("demo@aa.io", "password"))
+  }
 
   let isRegistered = (
 
@@ -53,6 +62,7 @@ function Navigation(){
         </nav>
       </div>
       <div className="navigation-item navigation-item2">
+        <button className="demo-loginNav" onMouseDown={demo}>Demo</button>
         <button className='navLogInButton'><a href="/login" className='navLogInText'> Log In </a> </button>
         <button className='navSignUpButton'><a href="/sign-up" className='navSignUpText'> Sign Up </a> </button>
       </div>
