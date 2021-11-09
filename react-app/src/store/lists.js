@@ -2,20 +2,20 @@
 const LOAD_LIST = 'lists/LOAD'
 
 const initialState = {
-    lists: null,
+    watchlists: null,
 }
 const loadWatchlists = (watchlists) => ({
     type: LOAD_LIST,
     payload: watchlists,
 })
 
-export const getList = () => async(dispatch) => {
+export const getList = (userId) => async(dispatch) => {
     const response = await fetch(`/api/users/${userId}/watchlists`);
 
     if (response.ok) {
-        const lists = await response.json();
-        console.log(lists);
-        dispatch(loadWatchlists(lists))
+        const watchlists = await response.json();
+        console.log(watchlists);
+        dispatch(loadWatchlists(watchlists))
         return null;
     } else if (response.status < 500) {
         const data = await response.json();
@@ -30,7 +30,7 @@ export const getList = () => async(dispatch) => {
 export default function listReducer(state = initialState, action) {
     switch (action.type) {
         case LOAD_LIST:
-            return{ watchlist: action.payload }
+            return{ watchlists: action.payload }
         default:
             return state;
     }
