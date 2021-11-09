@@ -20,6 +20,13 @@ class Watchlist(db.Model):
     updated_at = db.Column(db.DateTime(timezone=True), nullable=False)
     user = relationship("User")
 
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'user_id': self.user.id
+        }
+
 class Asset(db.Model):
     __tablename__ = 'assets'
 

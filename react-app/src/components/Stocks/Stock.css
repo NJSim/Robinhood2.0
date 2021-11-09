@@ -1,6 +1,8 @@
-.buy-stock-div1 {
-  border: solid black 1px;
-  width: 19rem;
+div.content { width: auto; }
+
+.buy-stock-div1{
+  border: solid grey 1px;
+  width: 18rem;
   height: 25rem;
   display: flex;
   justify-content: space-between;
@@ -9,7 +11,11 @@
 }
 
 .buy-stock-div {
+  border-radius: 5px;
+  box-shadow: 1px 1px #888888;
+
 }
+
 
 .buy-stock-form {
   display: flex;
@@ -19,12 +25,32 @@
 
 .spanBuy {
   margin: 0px;
-  color: var(--rh__text-color);
+  color: rgb(255, 80, 0, 1);
   font-style: normal;
   font-weight: bold;
   text-decoration: unset;
-  font-family: "Capsule Sans Display", system-ui, -apple-system,
-    BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-family: "Capsule Sans Display",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  cursor: pointer;
+}
+.spanBuy:hover{
+  color: rgb(255, 80, 0, 1);
+
+}
+
+
+.spanSell{
+  margin-left: 1rem;
+  /* margin: 0px; */
+  color: black;
+  font-style: normal;
+  font-weight: bold;
+  text-decoration: unset;
+  font-family: "Capsule Sans Display",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  cursor: pointer;
+}
+.spanSell:hover{
+  color: rgb(255, 80, 0, 1);
+
 }
 
 .InvestLabel {
@@ -82,7 +108,14 @@
   margin-bottom: 1rem;
 }
 
-.buyInput {
+
+.addTolist:hover{
+  background-color: rgb(255, 80, 0, .8);
+  color: white;
+  cursor: pointer;
+}
+
+.buyInput{
   border-width: 1px;
   border-color: black;
   border-radius: 0.2rem;
@@ -117,9 +150,30 @@
   text-align: center;
 }
 
-.assestSymboldiv {
+
+
+.il6{
+  color: rgb(255, 80, 0, 1);
+  font-weight: bold;
+  font-size: 12px;
+  text-align: center;
+}
+
+.assestSymboldiv{
   /* background-color: red; */
-  width: 100%;
+  /* background-color: blue; */
+  /* align-content: center; */
+  /* border-top: solid black 1px;
+  border-left: solid black 1px;
+  border-right: solid black 1px;
+  width: 19rem;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  padding: .4rem; */
+  border-bottom: solid black 1px;
+  border-color: grey;
 }
 
 .il4div {
