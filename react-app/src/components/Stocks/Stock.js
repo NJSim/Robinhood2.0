@@ -11,6 +11,7 @@ import loadingSpinner from "../Stocks/green-loading-spinner.gif";
 import { executeTransaction } from "../../store/transactions";
 
 function Stock() {
+
 	const { stockId } = useParams();
 	const stock = useSelector((state) => state.stocks.stock);
 	const userId = useSelector((state) => state.session.user.id);
@@ -56,6 +57,7 @@ function Stock() {
       setErrors(trans.errors)
     } else {
       setErrors([]);
+
     }
     dispatch(authenticate())
     dispatch(getStock(stockId));
@@ -70,6 +72,7 @@ function Stock() {
 			sell: true,
 		};
     const trans = await dispatch(executeTransaction(data));
+
 		if (trans.errors) {
 			setErrors(trans.errors);
 		} else {
@@ -242,5 +245,6 @@ function Stock() {
 			</div>
 		</div>
 	);
+
 }
 export default Stock;
