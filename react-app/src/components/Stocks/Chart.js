@@ -10,8 +10,8 @@ const Chart = ({ timeFrame, stock, stockName, color }) => {
     let dummyPrice;
     let increase = 1;
 
-    for (let i = 0; i < stock.length; i++) {
-      const point = stock[i];
+    for (let i = 0; i < stock[timeFrame].length; i++) {
+      const point = stock[timeFrame][i];
       if (point.average) {
         if (increase) {
           dummyPrice = point.average * 1.02;
@@ -25,21 +25,20 @@ const Chart = ({ timeFrame, stock, stockName, color }) => {
       if (!point.average) {
         yValues.push(dummyPrice);
       }
-      console.log(dummyPrice);
-      console.log(increase);
     }
 
-    xValues = stock.map(point => {
-      return point.minute;
-    });
+    for (let i = 0; i < stock[timeFrame].length; i++) {
+      const point = stock[timeFrame][i];
+      xValues.push(stock[timeFrame][i].minute);
+    }
   }
 
   if (timeFrame === "chart_1m" || timeFrame === "chart_1y") {
     let dummyPrice;
     let increase = 1;
 
-    for (let i = 0; i < stock.length; i++) {
-      const point = stock[i];
+    for (let i = 0; i < stock[timeFrame].length; i++) {
+      const point = stock[timeFrame][i];
       if (point.uClose) {
         if (increase) {
           dummyPrice = point.uClose * 1.02;
@@ -55,26 +54,28 @@ const Chart = ({ timeFrame, stock, stockName, color }) => {
       }
     }
 
-    xValues = stock.map(point => {
-      return point.date;
-    });
+    for (let i = 0; i < stock[timeFrame].length; i++) {
+      const point = stock[timeFrame][i];
+      xValues.push(stock[timeFrame][i].date);
+    }
 
-    yValues = stock.map(point => {
+    yValues = stock[timeFrame].map(point => {
       return point.uClose;
     });
   }
 
   return (
     <Fragment>
+      {console.log(xValues, yValues)}
       <Plot
         data={[
           {
             x: xValues,
             y: yValues,
-            type: "ohlc",
-            mode: "lines+markers",
+            type: "scatter",
+            mode: "lines",
             marker: { color: color },
-          }
+          },
         ]}
         layout={{ width: 1220, height: 840, title: stockName }}
         options={{ displaylogo: "false" }}
