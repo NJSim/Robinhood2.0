@@ -14,7 +14,7 @@ function HomePage() {
   const sessionUser = useSelector(state => state.session.user);
   const portfolio = useSelector(state => state.portfolio.portfolio);
   const stock = useSelector(state => state.stocks.stock);
-  const [mainStock, setMainStock] = useState(1);
+  const [mainStock, setMainStock] = useState(23);
   const [chartPrice, setChartPrice] = useState();
 
   function numberWithCommas(x) {
@@ -30,10 +30,10 @@ function HomePage() {
 
   console.log(portfolio);
 
-  useEffect(() => {
+  useEffect(async () => {
     if (sessionUser) {
-      dispatch(getPortfolio());
-      dispatch(getStock(mainStock));
+      await dispatch(getPortfolio());
+      await dispatch(getStock(mainStock));
     }
   }, [dispatch, sessionUser, mainStock]);
 
