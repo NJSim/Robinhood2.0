@@ -2,9 +2,13 @@ from app.forms import WatchlistForm
 from app.models import User, db, Watchlist, Asset
 from flask_login import login_required
 from flask import Blueprint, request
+from operator import itemgetter
+from datetime import date, datetime, timedelta
+
 
 watchlist_routes = Blueprint('watchlists', __name__)
 
+today = datetime.now()
 
 
 # get a users watchlists (read)
@@ -19,19 +23,23 @@ def user_watchlists(id):
 @watchlist_routes.route('/add', methods=["POST"])
 @login_required
 def add_watchlists():
-    user = User.query.get(watchlist.user_id)
+    print(request.json)
+    name, user_id = itemgetter("name", "user_id")(request.json)
+    user = User.query.get(user_id)
     form = WatchlistForm()
 
     if(form.validate_on_submit):
         watchlist = Watchlist(
             name = form.data["name"],
-            user_id = form.data["user_id"]
+            user_id = form.data["user_id"],
+            created_at=today,
+            updated_at=today
         )
         db.session.add(watchlist)
         db.session.commit()
-        return user.to_dict()
+        return watchlist.to_dict()
     else:
-        return None
+        return None 
 
 
 # edit watchlists (update)
