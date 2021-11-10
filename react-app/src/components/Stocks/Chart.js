@@ -76,7 +76,6 @@ const Chart = ({ timeFrame, stock,  color, childToParent }) => {
 
 Chart.propTypes = {
   stock: PropTypes.object.isRequired,
-  stockName: PropTypes.string.isRequired,
   color: PropTypes.string.isRequired,
 };
 export default Chart;

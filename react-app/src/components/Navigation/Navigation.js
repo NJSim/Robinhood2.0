@@ -125,7 +125,7 @@ function Navigation(){
                 </svg>
 
                 <div className="searchbar">
-                  <input placeholder="Search" type="search" autoComplete="off">
+                  <input style={{width: "100%", height:25, border: "none", outline:"none", fontSize: 15}} placeholder="Search" type="search">
                   </input>
                 </div>
               </div>
@@ -136,34 +136,21 @@ function Navigation(){
 
           <div className="dashboard-list">
             <div className="dashboard-list-container">
-              <a href="/rewards" className="nav-hyper">
-                <span>
-                  Rewards
-                </span>
-              </a>
-              <a href="/portfolio" className="nav-hyper">
+
+              <a href="/" className="nav-hyper">
                 <span>
                   Portfolio
                 </span>
               </a>
-              <a href="/cash" className="nav-hyper">
-                <span>
-                  Cash
-                </span>
-              </a>
-              <div className="nav-messages">
-                <span>
-                  Messages
-                </span>
-              </div>
-              <a href="/account" className="nav-hyper">
+
+              <a href="/account" className="nav-hyper" style={{marginRight: 20}}>
                 <span>
                   Account
                 </span>
               </a>
             </div>
           </div>
-            <button onClick={logout}> Log Out </button>
+            <button onClick={logout} style={{marginRight: 30}}> Log Out </button>
 
         </div>
       </div>
