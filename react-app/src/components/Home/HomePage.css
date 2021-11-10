@@ -12,7 +12,7 @@
   border-top-style: solid;
   border-top-width: 1px;
   transform: translate3d(0, 0, 0);
-  overflow: scroll;
+  overflow: hidden;
 }
 
 .HomePageItem1 {
@@ -167,7 +167,7 @@
   /* justify-content: space-evenly; */
   height: 50rem;
   flex-wrap: wrap;
-  overflow: scroll;
+  overflow:scroll;
 }
 
 .HomePage3Item1 {
