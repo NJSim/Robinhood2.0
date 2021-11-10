@@ -188,7 +188,9 @@ function HomePage() {
                       <td className="table-row-ele">
                         {`$${numberWithCommas(asset.current_stock_price)}`}
                       </td>
-                      <td className="table-row-ele">{`$${asset.avg_purchase_price}`}</td>
+                      <td className="table-row-ele">{`$${numberWithCommas(
+                        asset.avg_purchase_price
+                      )}`}</td>
                       {asset.current_stock_price - asset.avg_purchase_price >
                       0 ? (
                         <td
