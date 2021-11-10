@@ -146,10 +146,9 @@ function HomePage() {
                 <div className="listsContainer">
                   <div className="Stocks-Nav">Stocks</div>
                   <div className="listItems">
-                    <List />
-                  </div>
+                    <List assetID={stock["id"]}/>
 
-                  <div className="lists-Nav">Lists</div>
+                  </div>
                 </div>
               </div>
             </div>

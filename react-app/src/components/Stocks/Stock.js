@@ -11,6 +11,7 @@ import "./Stock.css";
 import Chart from "./Chart";
 import loadingSpinner from "../Stocks/green-loading-spinner.gif";
 import { executeTransaction } from "../../store/transactions";
+import List from "../Lists/List";
 
 function Stock() {
   const { stockId } = useParams();
@@ -295,7 +296,7 @@ function Stock() {
             >
               <>
                 <h2 className="addNewList"> + Create New List </h2>
-                <ModalList />
+                <List assetID={stockId}/>
               </>
             </Modal>
           </div>
