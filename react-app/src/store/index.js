@@ -4,12 +4,14 @@ import session from './session'
 import stocks from './stocks'
 import portfolio from "./portfolio"
 import watchlists from "./lists"
+import search from "./search"
 
 const rootReducer = combineReducers({
   session,
   stocks,
   portfolio,
-  watchlists
+  watchlists,
+  search
 });
 
 

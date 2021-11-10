@@ -1,7 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as sessionActions from '../../store/session'
 import './Navigation.css';
+import { getQuery } from '../../store/search';
 
 
 
@@ -9,9 +10,15 @@ import './Navigation.css';
 function Navigation(){
 
   const sessionUser = useSelector(state => state.session.user);
+  // const queryResults = useState(state => state.search.query)
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [query, setQuery] = useState("");
+
+  useEffect(() => {
+    dispatch(getQuery(query))
+  }, [dispatch, query])
 
   const logout = (e) => {
     e.preventDefault();
@@ -125,8 +132,12 @@ function Navigation(){
                 </svg>
 
                 <div className="searchbar">
-                  <input style={{width: "100%", height:25, border: "none", outline:"none", fontSize: 15}} placeholder="Search" type="search">
+                  <input type="search" onChange={e => setQuery(e.target.value)} style={{width: "100%", height:25, border: "none", outline:"none", fontSize: 15}} placeholder="Search" type="search">
                   </input>
+                  {/* {Object.keys(queryResults).map((key) => {
+                    return <div value={key}>{queryResults[key]}</div>
+                  })
+                  } */}
                 </div>
               </div>
 
