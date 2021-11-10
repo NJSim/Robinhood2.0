@@ -82,8 +82,6 @@ export const addWatchList = (name, userId) => async dispatch => {
         },
         body:JSON.stringify({name, user_id: userId })
     })
-    const data = await res.json()
-    dispatch(addToList(data))
 }
 
 

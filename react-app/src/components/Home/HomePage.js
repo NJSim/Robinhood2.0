@@ -145,7 +145,6 @@ function HomePage() {
 
                 <div className="listsContainer">
                   <div className="Stocks-Nav">Stocks</div>
-                  <button>Delete List</button>
                   <div className="listItems">
                     <List />
                   </div>
