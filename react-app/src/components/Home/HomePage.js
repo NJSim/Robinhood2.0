@@ -16,6 +16,11 @@ function HomePage() {
   const stock = useSelector(state => state.stocks.stock);
   const [mainStock, setMainStock] = useState(23);
 
+  function numberWithCommas(x) {
+    x = x.toFixed(2);
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
   let assets;
   if (portfolio) {
     assets = Object.values(portfolio.positions);
@@ -110,30 +115,69 @@ function HomePage() {
             </div>
           </div>
         </div>
-        <div>
+
+        <table id="portfolio-ticker">
+          <thead>
+            <tr id="ticker-headings">
+              <th className="ticker-headings-ele">Total Value</th>
+              <th className="ticker-headings-ele">Change Today</th>
+              <th className="ticker-headings-ele">Buying Power</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr className="ticker-number">
+              <td className="ticker-number">
+                {`$${numberWithCommas(
+                  +sessionUser.buying_pwr + +portfolio.totalMarketValue
+                )}`}
+              </td>
+              {+portfolio["overallProfit/Loss"] > 0 ? (
+                <td
+                  className="ticker-number"
+                  style={{ color: "#00a806" }}
+                >{`$${+portfolio["overallProfit/Loss"].toFixed(2)}`}</td>
+              ) : (
+                <td
+                  className="ticker-number"
+                  style={{ color: "red" }}
+                >{`-$${Math.abs(
+                  +portfolio["overallProfit/Loss"].toFixed(2)
+                )}`}</td>
+              )}
+
+              <td className="ticker-number">
+                {`$${numberWithCommas(+sessionUser.buying_pwr)}`}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        {/* <div id="ticker-headings">
           <h1>
             This is where we will put the total portfolio balance and daily
             percent change
           </h1>
-        </div>
+        </div> */}
         <div>
           <table id="portfolio-table-heading">
             <thead id="table-row-head">
               <tr>
-                <th>Symbol</th>
-                <th>Shares</th>
-                <th>Current price</th>
-                <th>Average purchase price</th>
-                <th>ROI/Share</th>
-                <th>Profit/Loss</th>
-                <th>Market value</th>
-                <th>Sell</th>
+                <th className="portfolio-table-heading-ele">Symbol</th>
+                <th className="portfolio-table-heading-ele">Shares</th>
+                <th className="portfolio-table-heading-ele">Current price</th>
+                <th className="portfolio-table-heading-ele">
+                  Average purchase price
+                </th>
+                <th className="portfolio-table-heading-ele">ROI/Share</th>
+                <th className="portfolio-table-heading-ele">Profit/Loss</th>
+                <th className="portfolio-table-heading-ele">Market value</th>
               </tr>
             </thead>
             <tbody>
               {assets
                 ? assets.map(asset => (
                     <tr
+                      id="table-row-pointer"
                       onClick={e => setMainStock(asset.asset_id)}
                       key={asset.asset_id}
                     >
@@ -142,14 +186,14 @@ function HomePage() {
                       </td>
                       <td className="table-row-ele">{asset.total_shares}</td>
                       <td className="table-row-ele">
-                        {`$${asset.current_stock_price}`}
+                        {`$${numberWithCommas(asset.current_stock_price)}`}
                       </td>
                       <td className="table-row-ele">{`$${asset.avg_purchase_price}`}</td>
                       {asset.current_stock_price - asset.avg_purchase_price >
                       0 ? (
                         <td
                           className="table-row-ele"
-                          style={{ color: "green" }}
+                          style={{ color: "#00a806" }}
                         >
                           {`$${(
                             asset.current_stock_price - asset.avg_purchase_price
@@ -163,10 +207,10 @@ function HomePage() {
                         </td>
                       )}
 
-                      {asset["profit/loss"].toFixed(2) > 0 ? (
+                      {asset["profit/loss"] > 0 ? (
                         <td
                           className="table-row-ele"
-                          style={{ color: "green" }}
+                          style={{ color: "#00a806" }}
                         >
                           {`$${asset["profit/loss"].toFixed(2)}`}
                         </td>
@@ -176,10 +220,8 @@ function HomePage() {
                         </td>
                       )}
                       <td className="table-row-ele">
-                        {asset.market_value.toFixed(2)}
+                        {`$${numberWithCommas(asset.market_value)}`}
                       </td>
-
-                      <td className="table-row-ele">sell</td>
                     </tr>
                   ))
                 : "something not workind"}
