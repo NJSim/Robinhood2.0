@@ -10,4 +10,3 @@ class Asset(db.Model):
     transactions = relationship("Transaction")
     portfolios = db.relationship("Portfolio", back_populates="port_asset", lazy=False)
 
-    # watchlists = relationship("Watchlist", secondary=assetsToWatchlists, back_populates="assets")

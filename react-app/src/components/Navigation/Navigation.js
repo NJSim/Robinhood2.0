@@ -1,7 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as sessionActions from '../../store/session'
 import './Navigation.css';
+import { getQuery } from '../../store/search';
 
 
 
@@ -9,9 +10,27 @@ import './Navigation.css';
 function Navigation(){
 
   const sessionUser = useSelector(state => state.session.user);
+  const queryResults = useSelector(state => state.search.query)
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [query, setQuery] = useState("")
+
+
+  const mockData = {
+    "1": "AAPL",
+    "2": "TSLA",
+    "4": "AAP",
+    "5": "ADBE",
+    "11": "BA",
+    "22": "BABA",
+    "28": "AXP",
+    "30": "CAT"
+  }
+
+  useEffect(() => {
+    dispatch(getQuery(query))
+  }, [dispatch, query])
 
   const logout = (e) => {
     e.preventDefault();
@@ -125,8 +144,12 @@ function Navigation(){
                 </svg>
 
                 <div className="searchbar">
-                  <input placeholder="Search" type="search" autoComplete="off">
+                  <input placeholder="Search" type="search" autoComplete="off" onChange={e => setQuery(e.target.value)}>
                   </input>
+                  {Object.keys(queryResults).map((key) => {
+                    return <div value={key}>{queryResults[key]}</div>
+                  })
+                  }
                 </div>
               </div>
 
