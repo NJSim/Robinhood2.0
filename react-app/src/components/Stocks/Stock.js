@@ -23,7 +23,7 @@ function Stock() {
 
 	// working on
 	const user = useSelector((state) => state.session.user);
-	const [share, setShare] = useState();
+	const [share, setShare] = useState("");
 	const [showSell, setShowSell] = useState(false);
 	const [showBuy, setShowBuy] = useState(true);
 	const [errors, setErrors] = useState([]);
@@ -178,7 +178,7 @@ function Stock() {
 					</div>
 				</div>
 				<div className="buy-stock-div">
-					<div style={{float:"right", margin:0, position: "sticky", top:50}}>
+					<div style={{float:"right", margin:0, position: "sticky", top:75}}>
 						<div className="buy-stock-div1">
 							<div className="buy-stock-form">
 								<div className="assestSymboldiv">
@@ -200,7 +200,7 @@ function Stock() {
 									<label className="InvestLabel">
 										Shares
 										<input
-											maxlength="8"
+											maxLength="8"
 											className="buyInput"
 											type="integer"
 											required
@@ -208,7 +208,7 @@ function Stock() {
 											onChange={(e) => {
 												setShare(e.target.value);
 											}}
-											spellcheck="false"
+											spellCheck="false"
 											placeholder="0"
 											onKeyPress={(e) => {
 												if (!/[0-9.]/.test(e.key)) {
