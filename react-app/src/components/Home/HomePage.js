@@ -47,7 +47,7 @@ function HomePage() {
     setChartPrice(data);
   };
 
-  if (sessionUser && portfolio) {
+  if (sessionUser && portfolio && stock) {
     return (
       <>
         <div className="flex1">
