@@ -104,25 +104,6 @@ div.content { width: auto; }
 .reviewOrder:hover{
   background-color: rgb(209, 67, 1);
 }
-.addTolist{
-  width: 18rem;
-  height: 2.5rem;
-  border-radius: .2rem;
-  border: 1px solid;
-  border-color:  rgb(255, 80, 0, 1);
-  color: rgb(255, 80, 0, 1);
-  font-weight: bold;
-  background-color: white;
-  float: center;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
-
-.addTolist:hover{
-  background-color: rgb(255, 80, 0, .8);
-  color: white;
-  cursor: pointer;
-}
 
 .buyInput{
   border-width: 1px;
