@@ -1,43 +1,42 @@
-
-.HomePageContainer{
-  background-color: rgb(195,245,60);
+.HomePageContainer {
+  background-color: rgb(195, 245, 60);
   display: flex;
-  justify-content:space-evenly;
+  justify-content: space-evenly;
   position: relative;
   height: 41rem;
   flex-wrap: wrap;
-  border-bottom-color: rgb(0,0,0);
+  border-bottom-color: rgb(0, 0, 0);
   border-bottom-style: solid;
   border-bottom-width: 1px;
   border-top-color: lightgreen;
   border-top-style: solid;
   border-top-width: 1px;
-  transform: translate3d(0,0,0);
+  transform: translate3d(0, 0, 0);
   overflow: scroll;
 }
 
-.HomePageItem1{
+.HomePageItem1 {
   width: 30rem;
   position: relative;
 }
 
-.HomePageItem2{
+.HomePageItem2 {
   margin-top: 2rem;
   width: 45rem;
   position: relative;
   flex-shrink: 1;
 }
 
-.robinpic1{
+.robinpic1 {
   position: absolute;
 }
 
-.robinpic2{
-  z-index:10;
+.robinpic2 {
+  z-index: 10;
   right: 1.8rem;
 }
 
-.HomeLeftContainer{
+.HomeLeftContainer {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -45,8 +44,9 @@
   padding: 100px 0;
 }
 
-.HomeSpanText{
-  font-family: "Capsule Sans Display",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+.HomeSpanText {
+  font-family: "Capsule Sans Display", system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
   font-size: 24px;
   font-style: normal;
   font-weight: 500;
@@ -61,9 +61,9 @@
   z-index: 2;
 }
 
-
-.HomeH1{
-  font-family: "Capsule Sans Display",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+.HomeH1 {
+  font-family: "Capsule Sans Display", system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
   font-size: 52px;
   font-style: normal;
   font-weight: 500;
@@ -75,10 +75,10 @@
   -webkit-text-decoration: unset;
   text-decoration: unset;
   margin-bottom: 2rem;
-  width:20rem;
+  width: 20rem;
 }
 
-.SignUpHomeButton{
+.SignUpHomeButton {
   margin-top: 2rem;
   color: white;
   text-decoration: none;
@@ -90,10 +90,11 @@
   height: 48px;
   border-radius: 24px;
   cursor: pointer;
-  background-color: rgb(0,0,0);
+  background-color: rgb(0, 0, 0);
   border: none;
   outline: none;
-  font-family: "Capsule Sans Text",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-family: "Capsule Sans Text", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Helvetica, Arial, sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
@@ -104,50 +105,49 @@
   background-color: rgb(70, 70, 70);
 }
 
-.HomeH3{
+.HomeH3 {
   margin-top: 2rem;
   cursor: pointer;
 }
 
-.HomeH3:hover{
+.HomeH3:hover {
   color: rgb(0, 185, 5);
 }
 
-.circle{
+.circle {
   position: relative;
   top: 7px;
   color: red;
 }
 
-.circle:hover{
+.circle:hover {
   fill: rgb(0, 185, 5);
 }
 
-.homeSignUpText{
+.homeSignUpText {
   text-decoration: none;
   color: white;
 }
 
-
-
-.HomePageContainer2{
+.HomePageContainer2 {
   display: flex;
   /* background-color: red; */
-  border-bottom-color: rgb(0,0,0);
+  border-bottom-color: rgb(0, 0, 0);
   border-bottom-style: solid;
   border-bottom-width: 1px;
   height: 5.8rem;
   justify-content: center;
 }
 
-.HomePage2Item1{
+.HomePage2Item1 {
   display: flex;
   align-items: center;
   /* background-color: yellow; */
 }
 
-.container2Span{
-  font-family: "Capsule Sans Text",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+.container2Span {
+  font-family: "Capsule Sans Text", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Helvetica, Arial, sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: normal;
@@ -160,53 +160,48 @@
   text-decoration: unset;
 }
 
-
-
-
-.HomePageContainer3{
+.HomePageContainer3 {
   /* background-color: hotpink; */
   display: flex;
   justify-content: center;
   /* justify-content: space-evenly; */
   height: 50rem;
-  flex-wrap:wrap;
-  overflow:scroll;
-
+  flex-wrap: wrap;
+  overflow: scroll;
 }
 
-.HomePage3Item1{
+.HomePage3Item1 {
   /* background-color: purple; */
   width: 45rem;
   height: 45rem;
 }
 
-.HomePage3Item2{
+.HomePage3Item2 {
   /* background-color: grey; */
   width: 40rem;
   padding-left: 1rem;
   padding-right: 1rem;
 }
 
-.robinpic3{
+.robinpic3 {
   max-width: 100%;
   height: 100%;
   width: 100%;
   object-fit: contain;
 }
 
-
-.HomePage3Item2{
+.HomePage3Item2 {
   display: flex;
   flex-direction: column;
-  justify-content:space-evenly;
+  justify-content: space-evenly;
   width: 35rem;
-
 }
 
-.hp31{
+.hp31 {
   margin: 0;
-  color: rgb(0,0,0);
-  font-family: "Capsule Sans Display",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  color: rgb(0, 0, 0);
+  font-family: "Capsule Sans Display", system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
   font-size: 24px;
   font-style: normal;
   font-weight: 500;
@@ -220,8 +215,9 @@
   margin-bottom: 1rem;
 }
 
-.hp32{
-  font-family: "Capsule Sans Text",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+.hp32 {
+  font-family: "Capsule Sans Text", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Helvetica, Arial, sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: normal;
@@ -234,8 +230,9 @@
   text-decoration: unset;
 }
 
-.h1s1{
-  font-family: "Capsule Sans Text",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+.h1s1 {
+  font-family: "Capsule Sans Text", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Helvetica, Arial, sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
@@ -249,8 +246,9 @@
   margin-left: 1rem;
 }
 
-.h1p1{
-  font-family: "Capsule Sans Text",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+.h1p1 {
+  font-family: "Capsule Sans Text", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Helvetica, Arial, sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: normal;
@@ -262,16 +260,16 @@
   -webkit-text-decoration: unset;
   text-decoration: unset;
   margin-left: 4rem;
-
 }
 
-.hpI{
+.hpI {
   position: relative;
   top: 30px;
 }
 
-.IPO{
-  font-family: "Capsule Sans Text",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+.IPO {
+  font-family: "Capsule Sans Text", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Helvetica, Arial, sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
@@ -285,29 +283,29 @@
   margin-bottom: 1rem;
 }
 
-.IPO:hover{
+.IPO:hover {
   color: rgb(0, 185, 5);
 }
 
-.circle2{
+.circle2 {
   margin-right: 10px;
   position: relative;
   top: 8px;
 }
 
-.HomePageContainer4{
+.HomePageContainer4 {
   /* background-color: hotpink; */
   height: 31rem;
   display: flex;
-  flex-wrap:wrap;
+  flex-wrap: wrap;
   justify-content: space-evenly;
-  overflow:scroll;
-  border-top-color: rgb(0,0,0);
+  overflow: scroll;
+  border-top-color: rgb(0, 0, 0);
   border-top-style: solid;
   border-top-width: 1px;
 }
 
-.hpI2{
+.hpI2 {
   background-repeat: no-repeat;
   /* width: 100%; */
   max-width: 370px;
@@ -319,7 +317,7 @@
   /* background-position: center  */
 }
 
-.hp41{
+.hp41 {
   /* background-color: indigo; */
   width: 70rem;
   display: flex;
@@ -328,12 +326,12 @@
   overflow: hidden;
 }
 
-.hp42{
+.hp42 {
   /* background-color: khaki; */
   float: right;
 }
 
-.hp411{
+.hp411 {
   /* background-color: ivory; */
   height: 5rem;
   margin-top: 1rem;
@@ -341,20 +339,20 @@
   padding-right: 1rem;
 }
 
-
-.hp412{
+.hp412 {
   /* background-color: lawngreen; */
   height: 15rem;
   display: flex;
   justify-content: space-between;
   /* justify-items: left; */
-  padding-top:1rem;
+  padding-top: 1rem;
   padding-left: 1rem;
   padding-right: 1rem;
 }
 
-.hp411Span{
-  font-family: "Capsule Sans Display",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+.hp411Span {
+  font-family: "Capsule Sans Display", system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
   font-size: 32px;
   font-style: normal;
   font-weight: 500;
@@ -370,11 +368,12 @@
   margin-bottom: 1rem;
 }
 
-.hp412Span{
+.hp412Span {
   /* display: inline-flex; */
   float: left;
   clear: left;
-  font-family: "Capsule Sans Text",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-family: "Capsule Sans Text", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Helvetica, Arial, sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: normal;
@@ -385,28 +384,28 @@
   letter-spacing: -0.25px;
   -webkit-text-decoration: unset;
   text-decoration: unset;
-  color: rgb(106,114,120);
+  color: rgb(106, 114, 120);
 }
 
-.hp41one{
+.hp41one {
   /* background-color: brown; */
-
 }
 
-.hp41two{
+.hp41two {
   /* background-color: cadetblue; */
 }
 
-.hp41three{
+.hp41three {
   /* background-color: crimson; */
 }
 
-.hp413Span{
+.hp413Span {
   float: left;
   clear: left;
   /* margin: 0; */
-  color: rgb(0,0,0);
-  font-family: "Capsule Sans Text",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  color: rgb(0, 0, 0);
+  font-family: "Capsule Sans Text", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Helvetica, Arial, sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
@@ -419,13 +418,14 @@
   text-decoration: unset;
 }
 
-.hp414Span{
+.hp414Span {
   float: left;
   clear: left;
   margin-top: 1rem;
   /* margin: 0; */
-  color: rgb(0,0,0);
-  font-family: "Capsule Sans Text",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  color: rgb(0, 0, 0);
+  font-family: "Capsule Sans Text", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Helvetica, Arial, sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: normal;
@@ -441,8 +441,8 @@
   padding-right: 1rem;
 }
 
-.a12{
-  color: rgb(106,114,120);
+.a12 {
+  color: rgb(106, 114, 120);
   position: relative;
   position: relative;
   /* bottom: 5px; */
@@ -452,14 +452,14 @@
 
 /* authenticated user dashboard CSS */
 
-.flex1{
+.flex1 {
   display: flex;
   flex-grow: 1;
   margin-left: calc(100vw - 100%);
   margin-right: 0px;
 }
 
-.flex2{
+.flex2 {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -467,7 +467,7 @@
   margin-bottom: 64px;
 }
 
-.dashboardContainer{
+.dashboardContainer {
   padding-top: 36px;
   margin: 0 auto;
   width: 1024px;
@@ -479,18 +479,17 @@
   margin: 0 -6px;
 }
 
-.row>* {
+.row > * {
   display: block;
   padding-left: 6px;
   padding-right: 6px;
 }
 
-.row>:last-child {
+.row > :last-child {
   margin-right: 0;
 }
 
-
-.mainContainer{
+.mainContainer {
   min-width: 0px;
   width: auto;
   flex: 0 0 28%;
@@ -498,21 +497,20 @@
 
 /* start of list on home page */
 
-.listsContainer{
-  display:flex;
+.listsContainer {
+  display: flex;
   flex-direction: column;
   background-color: grey;
   height: 30rem;
   width: 17rem;
   align-content: stretch;
-  padding:0;
+  padding: 0;
   border-radius: 5px;
   padding-left: 1rem;
   padding-right: 1rem;
-
 }
 
-.Stocks-Nav{
+.Stocks-Nav {
   display: flex;
   justify-content: left;
   align-content: flex-end;
@@ -520,23 +518,81 @@
   height: 3rem;
   background-color: blueviolet;
   /* padding-left: 1rem; */
-
 }
 
-
-.lists-Nav{
+.lists-Nav {
   background-color: yellow;
   height: 3rem;
   display: flex;
   justify-content: left;
   align-content: flex-end;
   align-items: center;
-
 }
 
-.listItems{
+.listItems {
   background-color: aqua;
   border-bottom: solid black 1px;
-  list-style:none;
+  list-style: none;
   /* margin: 10px 0; */
+}
+
+/* portfolio table css below */
+
+#portfolio-table-heading {
+  /* display: flex;
+  justify-content: space-between;
+  margin-left: 40px;
+  margin-right: 80px; */
+  width: 100%;
+}
+
+#portfolio-table-heading-border {
+  border-bottom: 1px solid gray;
+  margin-left: 4px;
+  margin-right: 8px;
+}
+
+#portfolio-asset {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 40px;
+  margin-right: 80px;
+}
+
+#portfolio-asset:hover {
+  cursor: pointer;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+tr {
+  /* background-color: gray; */
+  border-bottom: 1px solid lightgrey;
+}
+
+#table-row:hover {
+  cursor: pointer;
+}
+
+.table-row-ele {
+  padding: 18px;
+  margin: 8px;
+  text-align: center;
+}
+
+#table-row-ele:hover {
+  cursor: pointer;
+}
+
+#table-row-head {
+  padding-left: 18px;
+  padding-right: 18px;
+  margin: 8px;
+}
+
+#asset-symbol {
+  font-weight: 700;
+  color: rgb(102, 101, 101);
 }

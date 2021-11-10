@@ -54,7 +54,7 @@ def getPortfolio():
     portfolio['positions'] = {}
     total_market_value = 0
     total_avg_value=0
-    total_shares = 0;
+    total_shares = 0
     userId = current_user.id
     portfolioItems = Portfolio.query.filter(Portfolio.user_id==userId).options(joinedload(Portfolio.port_asset)).all()
     if portfolioItems:
@@ -82,7 +82,8 @@ def getPortfolio():
                 "market_value": market_value,
                 "avg_purchase_price": float(avg_price),
                 "avg_purchase_value": float(avg_purchase_value),
-                "profit/loss": float(market_value) - float(avg_purchase_value)
+                "profit/loss": float(market_value) - float(avg_purchase_value),
+                "symbol": item.port_asset.symbol
             }
         portfolio['totalMarketValue'] = total_market_value
         portfolio['totalAvgPurchaseValue'] = float(total_avg_value)

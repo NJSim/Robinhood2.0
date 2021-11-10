@@ -6,11 +6,33 @@ const Chart = ({ timeFrame, stock, stockName, color }) => {
   let yValues = [];
   let xValues = [];
 
+  // function plotTimeFrame(price, time) {
+  //   stock[timeFrame].forEach(point => {
+  //     yValues.push(point[`${price}`]);
+  //     xValues.push(point[`${time}`]);
+  //   });
+  // }
+
   function plotTimeFrame(price, time) {
-    stock[timeFrame].forEach(point => {
-      yValues.push(point[`${price}`]);
-      xValues.push(point[`${time}`]);
-    });
+    let dummyPrice;
+    let increase = 1;
+    for (let i = 0; i < stock[timeFrame].length; i++) {
+      const point = stock[timeFrame][i];
+      if (point[`${price}`]) {
+        if (increase) {
+          dummyPrice = point[`${price}`] * 1.02;
+          increase -= 1;
+        } else {
+          dummyPrice = point[`${price}`] * 0.98;
+          increase += 1;
+        }
+        yValues.push(point[`${price}`]);
+        xValues.push(point[`${time}`]);
+      }
+      if (!point[`${price}`]) {
+        yValues.push(dummyPrice);
+      }
+    }
   }
 
   timeFrame === "chart_1d"
