@@ -1,6 +1,8 @@
 from flask import Blueprint, jsonify
 from flask_login import login_required
-from app.models import User, Watchlist
+from app.models import User
+
+
 
 user_routes = Blueprint('users', __name__)
 
@@ -17,9 +19,3 @@ def users():
 def user(id):
     user = User.query.get(id)
     return user.to_dict()
-
-@user_routes.route('/<int:id>/watchlists')
-@login_required
-def user_watchlists(id):
-    user = User.query.get(id)
-    return {watchlist.id:watchlist.to_dict() for watchlist in Watchlist.query.filter(Watchlist.user_id==user.id).all()}

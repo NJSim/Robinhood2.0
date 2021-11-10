@@ -7,6 +7,7 @@ import { getPortfolio } from "../../store/portfolio";
 import { getStock } from "../../store/stocks";
 
 import Chart from "../Stocks/Chart";
+import { deleteList } from "../../store/lists";
 
 function HomePage() {
   const dispatch = useDispatch();
@@ -99,6 +100,8 @@ function HomePage() {
                 <div className="listsContainer">
                   <div className="Stocks-Nav">Stocks</div>
 
+                  <div className="Stocks-Nav">Stocks</div>
+                  <button>Delete List</button>
                   <div className="listItems">
                     <List />
                   </div>
