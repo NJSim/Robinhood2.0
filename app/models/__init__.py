@@ -4,6 +4,7 @@ from sqlalchemy.orm import relationship
 from .user import User
 from .portfolio import Portfolio
 from .transaction import Transaction
+
 watched_assets = db.Table(
    'watched_assets',
     db.Column("asset_id", db.Integer, db.ForeignKey("assets.id"), primary_key=True),
@@ -21,10 +22,17 @@ class Watchlist(db.Model):
     user = relationship("User")
 
     def to_dict(self):
+        watched_assets = {}
+        for asset in self.watched_assets:
+            watched_assets[asset.symbol] = {
+                "asset_id" : asset.id,
+                "symbol" : asset.symbol
+            }
         return {
             'id': self.id,
             'name': self.name,
-            'user_id': self.user.id
+            'user_id': self.user.id,
+            'watched_assets': watched_assets
         }
 
 class Asset(db.Model):

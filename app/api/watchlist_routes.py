@@ -1,8 +1,10 @@
+from sqlalchemy.orm.strategy_options import joinedload
 from app.forms import WatchlistForm
-from app.models import User, db, Watchlist, Asset
+from app.models import User, db, Watchlist, Asset, watched_assets
 from flask_login import login_required
 from flask import Blueprint, request
 from operator import itemgetter
+from sqlalchemy.orm import joinedload
 from datetime import date, datetime, timedelta
 
 
@@ -16,7 +18,7 @@ today = datetime.now()
 @login_required
 def user_watchlists(id):
     user = User.query.get(id)
-    return {watchlist.id:watchlist.to_dict() for watchlist in Watchlist.query.filter(Watchlist.user_id==user.id).all()}
+    return {watchlist.id:watchlist.to_dict() for watchlist in Watchlist.query.filter(Watchlist.user_id==user.id).options(joinedload(Watchlist.watched_assets)).all()}
 
 
 # add a watchlists (create)
@@ -39,7 +41,7 @@ def add_watchlists():
         db.session.commit()
         return watchlist.to_dict()
     else:
-        return None 
+        return None
 
 
 # edit watchlists (update)
