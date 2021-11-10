@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getList } from "../../store/lists";
 
+
 function List(){
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);

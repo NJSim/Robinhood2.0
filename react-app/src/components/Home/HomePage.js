@@ -4,7 +4,7 @@ import List from "../Lists/List"
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { getPortfolio } from "../../store/portfolio";
-
+import { deleteList } from '../../store/lists';
 
 function HomePage(){
   const dispatch = useDispatch();
@@ -87,7 +87,7 @@ function HomePage(){
                   <div className="Stocks-Nav">
                     Stocks
                   </div>
-
+                    <button>Delete List</button>
                   <div className='listItems'>
                     <List />
                   </div>
@@ -95,7 +95,7 @@ function HomePage(){
                   <div className="lists-Nav">
                     Lists
                   </div>
-                  
+
                 </div>
 
 
