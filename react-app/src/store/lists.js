@@ -98,20 +98,19 @@ const addAssestToList = (watchlists) => ({
     payload: watchlists
 });
 
-export const addToWatchlist = (idArray, symbol) => async dispatch => {
-    let res;
+export const addToWatchlist = (id, symbol) => async dispatch => {
 
-    for(let i = 0; i < idArray.length; i++){
-        let id = idArray[i]
 
-        res = await fetch(`/api/watchlists/${id}/add`, {
+    // for(let i = 0; i < idArray.length; i++){
+    //     let id = idArray[i]
+
+      const res = await fetch(`/api/watchlists/${id}/add`, {
         method: "POST",
         header: {
             "Content-Type": "application/json"
         },
         body:JSON.stringify({symbol})
     })
-    }
     if(res.ok){
         const data = await res.json()
         dispatch(addAssestToList(data))
