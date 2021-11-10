@@ -14,7 +14,7 @@ function HomePage() {
   const sessionUser = useSelector(state => state.session.user);
   const portfolio = useSelector(state => state.portfolio.portfolio);
   const stock = useSelector(state => state.stocks.stock);
-  const [mainStock, setMainStock] = useState(23);
+  const [mainStock, setMainStock] = useState(1);
   const [chartPrice, setChartPrice] = useState();
 
   function numberWithCommas(x) {
