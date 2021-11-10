@@ -5,6 +5,8 @@ import { getStock } from "../../store/stocks";
 import { authenticate } from "../../store/session";
 import StockNews from "./StockNews";
 import {MechanicalCounter} from "mechanical-counter";
+import Modal from "../Modal/Modal";
+import ModalList from "../Lists/List";
 import "./Stock.css";
 import Chart from "./Chart";
 import loadingSpinner from "../Stocks/green-loading-spinner.gif";
@@ -14,6 +16,7 @@ function Stock() {
 	const { stockId } = useParams();
 	const stock = useSelector((state) => state.stocks.stock);
 	const userId = useSelector((state) => state.session.user.id);
+	const watchlists = useSelector(state => state.watchlists.watchlists);
 
 	const [timeFrame, setTimeFrame] = useState("chart_1d");
 	const dispatch = useDispatch();
@@ -25,6 +28,10 @@ function Stock() {
 	const [showBuy, setShowBuy] = useState(true);
 	const [errors, setErrors] = useState([]);
 	const [chartPrice, setChartPrice] = useState();
+	// lists modal states
+	const [show, setShow] = useState(false);
+
+
 
 	useEffect(() => {
 		if (!stockId) {
@@ -41,6 +48,7 @@ function Stock() {
 			</div>
 		);
 	}
+
 
 	const purchaseStock = async () => {
 		const data = {
@@ -277,9 +285,13 @@ function Stock() {
 								)}
 							</div>
 						</div>
-						<div>
-							<button className="addTolist">Add to Lists</button>
-						</div>
+						<button onClick={() => setShow(true)} className="addTolist">Add to Lists</button>
+						<Modal title={stock["symbol"]} show={show} onClose={() => setShow(false)}>
+							<>
+								<h2 className="addNewList"> + Create New List </h2>
+								<ModalList/>
+							</>
+						</Modal>
 					</div>
 				</div>
 			</div>

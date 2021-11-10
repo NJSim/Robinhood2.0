@@ -1,12 +1,11 @@
 
-import "./List.css"
+import "./ModalList.css"
 
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getList } from "../../store/lists";
 
-
-function List(){
+function ModalList(){
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
     const watchlists = useSelector(state => state.watchlists.watchlists)
@@ -27,7 +26,7 @@ function List(){
 
 
             {Object.keys(watchlists).map( (key, index) => (
-                
+
                 <h2 key={watchlists[key].id}>{watchlists[key].name}</h2>
 
             ))}
