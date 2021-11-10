@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { getPortfolio } from "../../store/portfolio";
 import { getStock } from "../../store/stocks";
-
+import { MechanicalCounter } from "mechanical-counter";
 import Chart from "../Stocks/Chart";
 import { deleteList } from "../../store/lists";
 
@@ -15,6 +15,7 @@ function HomePage() {
   const portfolio = useSelector(state => state.portfolio.portfolio);
   const stock = useSelector(state => state.stocks.stock);
   const [mainStock, setMainStock] = useState(23);
+  const [chartPrice, setChartPrice] = useState();
 
   function numberWithCommas(x) {
     x = x.toFixed(2);
@@ -42,6 +43,10 @@ function HomePage() {
     { id: 3, name: "IPO" },
   ];
 
+  const childToParent = data => {
+    setChartPrice(data);
+  };
+
   if (sessionUser && portfolio) {
     return (
       <>
@@ -50,8 +55,44 @@ function HomePage() {
             <div className="dashboardContainer">
               <div className="row">
                 <div className="mainContainer">
+                  <h1>{stock["companyName"]}</h1>
+                  <div
+                    style={{
+                      display: "flex",
+                      fontWeight: 900,
+                      fontSize: 35,
+                      alignItems: "center",
+                    }}
+                  >
+                    <p>$</p>
+                    <MechanicalCounter
+                      text={
+                        chartPrice
+                          ? chartPrice
+                              .toString()
+                              .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                          : stock["latestPrice"]
+                              .toFixed(2)
+                              .toString()
+                              .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                      }
+                    />
+                  </div>
+
+                  <h4 id="stock-change">
+                    {stock["change"] > 0
+                      ? "+$" + stock["change"] + " "
+                      : "$" + stock["change"] + " "}
+                    {stock["changePercent"] > 0
+                      ? "(" + "+" + stock["changePercent"].toFixed(3) + "%) "
+                      : "(" + stock["changePercent"].toFixed(3) + "%) "}
+                    <span style={{ fontWeight: 0, color: "#697277" }}>
+                      Today
+                    </span>
+                  </h4>
                   {stock ? (
                     <Chart
+                      childToParent={childToParent}
                       timeFrame={"chart_1d"}
                       stock={stock}
                       stockName={stock["companyName"]}
@@ -126,23 +167,35 @@ function HomePage() {
           </thead>
           <tbody>
             <tr className="ticker-number">
-              <td className="ticker-number">
-                {`$${numberWithCommas(
-                  +sessionUser.buying_pwr + +portfolio.totalMarketValue
-                )}`}
-              </td>
+              <td className="ticker-number">{`$${numberWithCommas(
+                +sessionUser.buying_pwr + +portfolio.totalMarketValue
+              )}`}</td>
               {+portfolio["overallProfit/Loss"] > 0 ? (
                 <td
                   className="ticker-number"
                   style={{ color: "#00a806" }}
-                >{`$${+portfolio["overallProfit/Loss"].toFixed(2)}`}</td>
+                >{`$${+portfolio["overallProfit/Loss"].toFixed(
+                  2
+                )} (${numberWithCommas(
+                  100 *
+                    (
+                      +portfolio["overallProfit/Loss"] /
+                      (+sessionUser.buying_pwr + +portfolio.totalMarketValue)
+                    ).toFixed(3)
+                )}%)`}</td>
               ) : (
                 <td
                   className="ticker-number"
                   style={{ color: "red" }}
                 >{`-$${Math.abs(
                   +portfolio["overallProfit/Loss"].toFixed(2)
-                )}`}</td>
+                )} (${numberWithCommas(
+                  100 *
+                    (
+                      +portfolio["overallProfit/Loss"] /
+                      (+sessionUser.buying_pwr + +portfolio.totalMarketValue)
+                    ).toFixed(3)
+                )}%)`}</td>
               )}
 
               <td className="ticker-number">
@@ -199,13 +252,23 @@ function HomePage() {
                         >
                           {`$${(
                             asset.current_stock_price - asset.avg_purchase_price
-                          ).toFixed(2)}`}
+                          ).toFixed(2)} (${(
+                            (100 *
+                              (asset.current_stock_price -
+                                asset.avg_purchase_price)) /
+                            asset.avg_purchase_price
+                          ).toFixed(2)}%)`}
                         </td>
                       ) : (
                         <td className="table-row-ele" style={{ color: "red" }}>
                           {`-$${Math.abs(
                             asset.current_stock_price - asset.avg_purchase_price
-                          ).toFixed(2)}`}
+                          ).toFixed(2)}  (${(
+                            (100 *
+                              (asset.current_stock_price -
+                                asset.avg_purchase_price)) /
+                            asset.avg_purchase_price
+                          ).toFixed(2)}%)`}
                         </td>
                       )}
 
@@ -214,11 +277,19 @@ function HomePage() {
                           className="table-row-ele"
                           style={{ color: "#00a806" }}
                         >
-                          {`$${asset["profit/loss"].toFixed(2)}`}
+                          {`$${asset["profit/loss"].toFixed(
+                            2
+                          )} (${numberWithCommas(
+                            100 * (+asset["profit/loss"] / +asset.market_value)
+                          )}%)`}
                         </td>
                       ) : (
                         <td className="table-row-ele" style={{ color: "red" }}>
-                          {`-$${Math.abs(asset["profit/loss"].toFixed(2))}`}
+                          {`-$${Math.abs(
+                            asset["profit/loss"].toFixed(2)
+                          )}  (${numberWithCommas(
+                            100 * (+asset["profit/loss"] / +asset.market_value)
+                          )}%)`}
                         </td>
                       )}
                       <td className="table-row-ele">
