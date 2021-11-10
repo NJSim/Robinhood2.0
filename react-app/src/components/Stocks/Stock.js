@@ -4,14 +4,13 @@ import { useParams } from "react-router-dom";
 import { getStock } from "../../store/stocks";
 import { authenticate } from "../../store/session";
 import StockNews from "./StockNews";
-
+import {MechanicalCounter} from "mechanical-counter";
 import "./Stock.css";
 import Chart from "./Chart";
 import loadingSpinner from "../Stocks/green-loading-spinner.gif";
 import { executeTransaction } from "../../store/transactions";
 
 function Stock() {
-
 	const { stockId } = useParams();
 	const stock = useSelector((state) => state.stocks.stock);
 	const userId = useSelector((state) => state.session.user.id);
@@ -25,6 +24,7 @@ function Stock() {
 	const [showSell, setShowSell] = useState(false);
 	const [showBuy, setShowBuy] = useState(true);
 	const [errors, setErrors] = useState([]);
+	const [chartPrice, setChartPrice] = useState();
 
 	useEffect(() => {
 		if (!stockId) {
@@ -34,7 +34,6 @@ function Stock() {
 			await dispatch(getStock(stockId));
 		})();
 	}, [stockId]);
-
 	if (!stock) {
 		return (
 			<div id="loading">
@@ -53,16 +52,15 @@ function Stock() {
 			sell: false,
 		};
 		const trans = await dispatch(executeTransaction(data));
-    if (trans.errors){
-      setErrors(trans.errors)
-    } else {
-      setErrors([]);
-
-    }
-    dispatch(authenticate())
-    dispatch(getStock(stockId));
+		if (trans.errors) {
+			setErrors(trans.errors);
+		} else {
+			setErrors([]);
+		}
+		dispatch(authenticate());
+		dispatch(getStock(stockId));
 	};
-  const sellStock = async () => {
+	const sellStock = async () => {
 		const data = {
 			user_id: userId,
 			asset_id: stockId,
@@ -71,7 +69,7 @@ function Stock() {
 			buy: false,
 			sell: true,
 		};
-    const trans = await dispatch(executeTransaction(data));
+		const trans = await dispatch(executeTransaction(data));
 
 		if (trans.errors) {
 			setErrors(trans.errors);
@@ -79,7 +77,7 @@ function Stock() {
 			setErrors([]);
 		}
 		dispatch(authenticate());
-    dispatch(getStock(stockId));
+		dispatch(getStock(stockId));
 	};
 	const showSellForm = () => {
 		if (showSell === false) {
@@ -98,40 +96,81 @@ function Stock() {
 			document.querySelector(".spanSell").style.color = "black";
 		}
 	};
-
+	const childToParent = (data) => {
+		setChartPrice(data);
+	};
 	return (
 		<div id="main-stock-div">
 			<div id="stock-graph-trans">
 				<div>
+					<h1>{stock["companyName"]}</h1>
+					<div
+						style={{
+							display: "flex",
+							fontWeight: 900,
+							fontSize: 35,
+							alignItems: "center",
+						}}
+					>
+						<p>$</p>
+						<MechanicalCounter
+							text={
+								chartPrice
+									? chartPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+									: stock["latestPrice"]
+											.toFixed(2)
+											.toString()
+											.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+							}
+						/>
+					</div>
+
+					<h4 id="stock-change">
+						{stock["change"] > 0
+							? "+$" + stock["change"] + " "
+							: "$" + stock["change"] + " "}
+						{stock["changePercent"] > 0
+							? "(" + "+" + stock["changePercent"].toFixed(3) + "%) "
+							: "(" + stock["changePercent"].toFixed(3) + "%) "}
+						<span style={{ fontWeight: 0, color: "#697277" }}>Today</span>
+					</h4>
 					<Chart
 						timeFrame={timeFrame}
 						stock={stock}
-						stockName={stock["companyName"]}
 						color={"#00a806"}
+						childToParent={childToParent}
 					/>
 					<div id="timeFrameDiv">
 						<button
 							className="timeFrameButton"
 							onClick={(e) => setTimeFrame("chart_1d")}
 						>
-							daily
+							1D
 						</button>
 						<button
 							className="timeFrameButton"
 							onClick={(e) => setTimeFrame("chart_1m")}
 						>
-							monthly
+							1M
 						</button>
 						<button
 							className="timeFrameButton"
 							onClick={(e) => setTimeFrame("chart_1y")}
 						>
-							yearly
+							1Y
 						</button>
+					</div>
+					<div id="news-container">
+						<div style={{ borderBottom: "1px solid #E3E9ED" }}>
+							<h1 style={{ textAlign: "left", marginBottom: "10px" }}>News</h1>
+						</div>
+						{stock["news"].map((article) => {
+							return <StockNews key={article.id} news={article} />;
+						})}
 					</div>
 				</div>
 				<div className="buy-stock-div">
-					<div>
+					<div style={{float:"right", margin:0, position: "sticky", top:50}}>
 						<div className="buy-stock-div1">
 							<div className="buy-stock-form">
 								<div className="assestSymboldiv">
@@ -189,7 +228,7 @@ function Stock() {
 										{" "}
 										$
 										{share * stock.latestPrice > 0
-											? share * stock.latestPrice
+											? (share * stock.latestPrice).toFixed(2)
 											: "0".toLocaleString("en")}{" "}
 									</span>
 								</div>
@@ -244,16 +283,7 @@ function Stock() {
 					</div>
 				</div>
 			</div>
-			<div id="news-container">
-				<h1 style={{ textAlign: "center", marginBottom: "50px" }}>
-					Recent News
-				</h1>
-				{stock["news"].map((article) => {
-					return <StockNews key={article.id} news={article} />;
-				})}
-			</div>
 		</div>
 	);
-
 }
 export default Stock;

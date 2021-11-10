@@ -1,4 +1,5 @@
 #main-stock-div {
+  margin-top: 50px;
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -6,11 +7,15 @@
 #stock-graph-trans{
   display: flex;
   justify-content: center;
+
 }
 div.content { width: auto; }
-
+#stock-change{
+  font-weight: 800;
+  font-size: 14px;
+}
 .buy-stock-div1{
-  border: solid grey 1px;
+  border: solid transparent 1px;
   width: 18rem;
   height: 25rem;
   display: flex;
@@ -18,13 +23,13 @@ div.content { width: auto; }
   /* padding: 1rem; */
   justify-content: center;
   border-radius: 5px;
-  box-shadow: 1px 1px #888888;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 8px;
 
 
 }
-
-.buy-stock-div1{
-
+.stock-graph-plotly{
+  width: 50vw;
+  max-width: 750px;
 }
 
 .buy-stock-form{
@@ -103,6 +108,9 @@ div.content { width: auto; }
 }
 .reviewOrder:hover{
   background-color: rgb(209, 67, 1);
+}
+.buy-stock-div{
+  margin-left: 5vw;
 }
 .addTolist{
   width: 18rem;
@@ -211,31 +219,28 @@ div.content { width: auto; }
 /* timeFrame buttons under stock chart */
 
 #timeFrameDiv {
-  margin-top: 30px;
-  margin-bottom: 30px;
-  width: 30%;
+  margin: 0;
+  width: 100%;
   display: flex;
-  justify-content: space-between;
+  border-bottom: 1px solid #E3E9ED;
 }
 
 .timeFrameButton {
   background-color: #fff;
-  color: #00c805;
-  border: 2.2px solid #00c805;
+  color: black;
+  border: none;
   border-radius: 7px;
   font-size: 13pt;
   font-weight: 400;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
-  min-width: 6.83rem;
+  width: 30px;
   min-height: 2.67rem;
   text-align: center;
-  padding: 1px 6px;
 }
 
 .timeFrameButton:hover {
   color: #00a806;
-  border: 2.2px solid #00a806;
   cursor: pointer;
 }

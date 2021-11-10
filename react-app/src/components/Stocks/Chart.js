@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import Plot from "react-plotly.js";
 
-const Chart = ({ timeFrame, stock, stockName, color }) => {
+const Chart = ({ timeFrame, stock,  color, childToParent }) => {
   let yValues = [];
   let xValues = [];
 
@@ -18,22 +18,38 @@ const Chart = ({ timeFrame, stock, stockName, color }) => {
     : plotTimeFrame("uClose", "date");
 
   return (
-    <Fragment>
-      <Plot
-        data={[
-          {
-            x: xValues,
-            y: yValues,
-            type: "scatter",
-            mode: "lines",
-            marker: { color: color },
-          },
-        ]}
-        layout={{ width: 700, title: stockName }}
-        options={{ displaylogo: "false" }}
-      />
-    </Fragment>
-  );
+		<Fragment>
+			<Plot
+        onHover={(data) => {
+          childToParent((data.points[0].y).toFixed(2))
+        }}
+        onUnhover={() => {
+          childToParent()
+        }}
+
+				data={[
+					{
+						x: xValues,
+						y: yValues,
+						type: "scatter",
+						mode: "lines",
+						marker: { color: color }
+					},
+				]}
+				className="stock-graph-plotly"
+				layout={{
+					autosize: true,
+					margin: { t: 10, l: 5, b:40, r:40 },
+					height: 250,
+					xaxis: { showgrid: false, zeroline:true, visible: false },
+					yaxis: { showgrid: false, zeroline: true, visible:false },
+          hovermode: 'x unified'
+				}}
+				useResizeHandler
+				options={{ displaylogo: "false" }}
+			/>
+		</Fragment>
+	);
 };
 
 Chart.propTypes = {

@@ -1,30 +1,40 @@
 #stock-info {
   margin-bottom: 50px;
 }
-
+#news-info h2{
+  max-height: 50px;
+    overflow:hidden;
+    text-overflow: ellipsis;
+}
 #stock-news-card {
-  width: 50vw;
-  padding: 25px;
   text-decoration: none;
+  border-radius: 3px;
+  padding: 15px;
   color: black;
   margin-bottom: 20px;
-  border: 4px solid greenyellow;
+  display: flex;
+  align-items: center;
+}
+#stock-news-card:hover{
+    background-color: #F5F8FA;
 }
 #stock-news-card a {
-  display: flex;
-  flex-direction: column;
   text-decoration: none;
+  display: flex;
   color: black;
   font-size: 20pt;
-  align-items: center;
+}
+#stock-news-card a:hover{
+  background-color: #F5F8FA;
 }
 
 #stock-news-img {
-  max-height: 400px;
-  max-width: 700px;
+  max-width: 200px;
   margin-bottom: 25px;
 }
-
+#news-info{
+padding-right: 50px;
+}
 #stock-news-card h1 {
   font-size: 0.5em;
   text-align: left;
@@ -36,15 +46,20 @@
 
 
 #news-container {
-  width: 100vw;
+  margin-top: 30px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  max-width: 700px;
 }
-
+#news-container h1{
+  margin:0;
+  padding: 0;
+}
 #loading{
   display: flex;
+  width: 100vw;
+  height: 70vh;
   justify-content: center;
   align-items: center;
 }
