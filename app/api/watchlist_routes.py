@@ -1,14 +1,13 @@
 from app.forms import WatchlistForm
-from app.models import User, db, Watchlist
+from app.models import User, db, Watchlist, Asset
 from flask_login import login_required
-from flask import Blueprint
-
+from flask import Blueprint, request
 
 watchlist_routes = Blueprint('watchlists', __name__)
 
 
 
-# get a users watchlist (read)
+# get a users watchlists (read)
 @watchlist_routes.route('/<int:id>')
 @login_required
 def user_watchlists(id):
@@ -17,7 +16,7 @@ def user_watchlists(id):
 
 
 # add a watchlists (create)
-@watchlist_routes.route('/<int:id>', methods=["POST"])
+@watchlist_routes.route('/add', methods=["POST"])
 @login_required
 def add_watchlists():
     user = User.query.get(watchlist.user_id)
@@ -35,8 +34,8 @@ def add_watchlists():
         return None
 
 
-# edit a watchlist (update)
-@watchlist_routes.route('/<int:id>', methods=["PUT"])
+# edit watchlists (update)
+@watchlist_routes.route('/<int:id>/edit', methods=["PUT"])
 @login_required
 def edit_watchlists(id):
     user = User.query.get(watchlist.user_id)
@@ -52,8 +51,8 @@ def edit_watchlists(id):
         return None
 
 
-# delete a watchlist (destroy)
-@watchlist_routes.route('/<int:id>', methods=["DELETE"])
+# delete watchlist (destroy)
+@watchlist_routes.route('/<int:id>/delete', methods=["DELETE"])
 @login_required
 def delete_watchlists(id):
     user = User.query.get(watchlist.user_id)
@@ -62,3 +61,20 @@ def delete_watchlists(id):
     db.session.commit
 
     return user.to_dict()
+
+#add assest watchlist
+@watchlist_routes.route('/<int:id>/add', methods=["POST"])
+@login_required
+def add_to_watchlist(id):
+    symbol = request.json['symbol']
+    watchlist = Watchlist.query.get(id)
+    assest = assest.query.filter_by(symbol=symbol).first()
+    db.session.add(stock)
+    db.session.commit()
+    watchlist.watched_assets.append(stock)
+    db.session.commit()
+    user = User.query.get(watchlist.user_id)
+    return user.to_dict()
+
+
+#delete assest from a specfic watchlist
