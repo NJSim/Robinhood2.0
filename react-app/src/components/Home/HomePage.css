@@ -552,6 +552,10 @@
   margin-right: 8px;
 }
 
+.portfolio-table-heading-ele {
+  color: rgb(143, 143, 143);
+}
+
 #portfolio-asset {
   display: flex;
   justify-content: space-between;
@@ -572,7 +576,7 @@ tr {
   border-bottom: 1px solid lightgrey;
 }
 
-#table-row:hover {
+#table-row-pointer:hover {
   cursor: pointer;
 }
 
@@ -593,6 +597,34 @@ tr {
 }
 
 #asset-symbol {
-  font-weight: 700;
-  color: rgb(102, 101, 101);
+  font-weight: 600;
+  color: rgb(133, 133, 133);
+}
+
+#portfolio-ticker {
+  /* display: flex; */
+  /* justify-content: flex-start; */
+
+  width: 80%;
+  margin-right: auto;
+  margin-left: 10px;
+  margin-bottom: 50px;
+}
+
+td {
+  font-weight: 600;
+}
+
+#ticker-headings {
+  border-bottom: none;
+  font-size: smaller;
+}
+
+.ticker-headings-ele {
+  text-align: left;
+}
+
+.ticker-number {
+  border-bottom: none;
+  font-size: 42pt;
 }
