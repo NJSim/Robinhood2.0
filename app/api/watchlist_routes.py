@@ -69,9 +69,9 @@ def add_to_watchlist(id):
     symbol = request.json['symbol']
     watchlist = Watchlist.query.get(id)
     assest = assest.query.filter_by(symbol=symbol).first()
-    db.session.add(stock)
+    db.session.add(assest)
     db.session.commit()
-    watchlist.watched_assets.append(stock)
+    watchlist.watched_assets.append(assest)
     db.session.commit()
     user = User.query.get(watchlist.user_id)
     return user.to_dict()
