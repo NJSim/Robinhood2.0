@@ -55,12 +55,10 @@ export const editList = (id, userId, payload) => async(dispatch) => {
 //delete a watchlist
 
 export const deleteList = (id) => async(dispatch) => {
-    const res = await fetch(`/api/watchlists/${id}/delete`,{
+    await fetch(`/api/watchlists/${id}/delete`,{
         method: "DELETE",
     });
 
-    const data = await res.json();
-    return data;
 }
 
 //create a watchlist
@@ -96,18 +94,18 @@ const addAssestToList = (watchlists) => ({
     payload: watchlists
 });
 
-export const addToWatchlist = (id, symbol) => async dispatch => {
-
+export const addToWatchlist = (watchlistId, symbol) => async dispatch => {
+// console.log('LOOK HERE', watchlistId, symbol)
 
     // for(let i = 0; i < idArray.length; i++){
     //     let id = idArray[i]
 
-      const res = await fetch(`/api/watchlists/${id}/add`, {
+      const res = await fetch(`/api/watchlists/addAsset`, {
         method: "POST",
-        header: {
+        headers: {
             "Content-Type": "application/json"
         },
-        body:JSON.stringify({symbol})
+        body:JSON.stringify({watchlistId, symbol})
     })
     if(res.ok){
         const data = await res.json()
