@@ -32,6 +32,7 @@
     opacity: 0;
     transition: all 0.3s ease-in-out;
     pointer-events: none;
+
 }
 
 .xbutton:hover{
@@ -45,10 +46,11 @@
 }
 
 .modal-content {
-    width: 500px;
+    width: 410px;
     background-color: #fff;
     transform: translateY(-200px);
     transition: all 0.3s ease-in-out;
+    border-radius: 5px;
 }
 
 .modal.show .modal-content {
@@ -66,10 +68,22 @@
 
 .modal-title {
     margin: 0;
+    padding-top: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-family: "Capsule Sans Text", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 28px;
 }
 
 .modal-body {
-    
+    /* background-color: grey; */
+    padding: 1rem;
+    /* background-color: red; */
+    /* overflow: scroll; */
 }
 
 
@@ -79,4 +93,9 @@
     display: flex;
     flex-direction: column;
 
+}
+
+.xbutton{
+    margin-top: 1rem;
+    margin-right: .6rem;
 }
