@@ -24,7 +24,6 @@ function Modal(props) {
                     </div>
                     <div className="modal-footer">
                         {/* <button onClick={props.onClose} className="button">Close</button> */}
-                        <button className="button">Submit</button>
 
                     </div>
 
