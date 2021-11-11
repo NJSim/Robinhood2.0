@@ -301,7 +301,7 @@ function Stock() {
             >
               <>
                 <h2 className="addNewList"> + Create New List </h2>
-
+                  <StockList/>
                 {/* <StockList assetID={stockId}/> */}
               </>
             </Modal>
