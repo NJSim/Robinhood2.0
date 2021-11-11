@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   float: left;
-  height: 24.5rem;
+  height: 18.5rem;
   width: 22rem;
   overflow: scroll;
   /* width: 10rem; */
@@ -114,7 +114,7 @@ input[type=list]:focus{
 .SaveChangesButton{
   width: 15rem;
   background-color:rgb(0, 185, 5);
-  width: 21.8rem;
+  width: 22rem;
   height: 3rem;
   border: none;
   border-radius: 5px;

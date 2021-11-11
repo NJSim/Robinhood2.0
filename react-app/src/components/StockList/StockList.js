@@ -50,6 +50,12 @@ function StockList({assetID}){
       setNewWatchlist("");
     }
 
+    const hideAddListForm2 = () => {
+      createListForm.current.classList.add("hidden")
+      CRL.current.classList.remove("hidden")
+    }
+
+
     const showAddListForm = () => {
       createListForm.current.classList.remove("hidden")
       CRL.current.classList.add("hidden")
@@ -76,12 +82,15 @@ function StockList({assetID}){
                     type="list"
                 >
                 </input>
-                <button type="submit" className="createListButton">Create List</button>
+                <button type="submit" onClick={hideAddListForm2} className="createListButton">Create List</button>
                 <button type="submit1" onClick={hideAddListForm} className="cancelCreateButton">Cancel</button>
             </form>
 
             {Object.keys(watchlists).map( (key, index) => (
-                <div className="edit-form2">
+                mainWatchlist === watchlists[key].id ?
+                <div className="edit-form2" style={{color: "rgb(0, 185, 5)"}}>
+                  <h2 className={`watchlistItems wl${watchlists[key].id}`} onClick={() => setMainWatchlist(watchlists[key].id)} key={watchlists[key].id}>{watchlists[key].name}</h2>
+                </div> : <div className="edit-form2">
                   <h2 className={`watchlistItems wl${watchlists[key].id}`} onClick={() => setMainWatchlist(watchlists[key].id)} key={watchlists[key].id}>{watchlists[key].name}</h2>
                 </div>
             ))}

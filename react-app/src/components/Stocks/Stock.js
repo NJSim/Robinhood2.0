@@ -292,15 +292,14 @@ function Stock() {
               </div>
             </div>
             <button onClick={() => setShow(true)} className="addTolist">
-              Add to Lists
             </button>
             <Modal
               title={stock["symbol"]}
               show={show}
               onClose={() => setShow(false)}
+
             >
               <>
-                <h2 className="addNewList"> + Create New List </h2>
                   <StockList/>
                 {/* <StockList assetID={stockId}/> */}
               </>
