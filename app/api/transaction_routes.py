@@ -4,6 +4,7 @@ from flask_login import login_required, current_user
 from operator import itemgetter
 from datetime import date, datetime, timedelta
 from json import JSONEncoder
+from sqlalchemy.orm import joinedload
 
 transaction_routes = Blueprint('transactions', __name__)
 
@@ -53,3 +54,15 @@ def executeTransaction():
         db.session.add(transaction)
         db.session.commit()
         return transaction.to_dict()
+
+@transaction_routes.route('/<int:id>')
+def getHistory(id):
+    transactions = Transaction.query.order_by(Transaction.updated_at.desc()).filter(Transaction.user_id==id).options(joinedload(Transaction.trans_asset)).limit(30).all()
+    res = {}
+    if transactions:
+        for transaction in transactions:
+            res[transaction.id] = transaction.to_dict()
+        return res
+    else:
+        res={}
+        return res

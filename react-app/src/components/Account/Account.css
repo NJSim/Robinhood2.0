@@ -1,0 +1,42 @@
+#static-account-div{
+    height: 130px;
+    border-bottom: 1px solid #E3E9ED;
+}
+#account-nav-div{
+    width: 1000px;
+    margin: 0 auto;
+    padding-top: 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+#account-nav-div a{
+    color: black;
+    text-decoration: none;
+}
+.account-nav-active{
+    border-bottom: 3px solid #00C806;
+}
+.account-link{
+    margin-right: 40px;
+    font-weight: 900;
+    padding-bottom: 7px;
+}
+#trans-history-div{
+    width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+#slim-history{
+    width: 700px;
+}
+#transaction-info{
+    display: flex;
+    padding: 10px;
+    border-bottom: 1px solid #E3E9ED;
+}
+#deactivate:hover{
+    cursor: pointer;
+}

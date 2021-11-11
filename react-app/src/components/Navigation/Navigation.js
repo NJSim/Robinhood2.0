@@ -154,7 +154,7 @@ function Navigation(){
                 </span>
               </NavLink>
 
-              <NavLink to="/account" className="nav-hyper" style={{marginRight: 20}}>
+              <NavLink to="/account/history" className="nav-hyper" style={{marginRight: 20}}>
                 <span>
                   Account
                 </span>

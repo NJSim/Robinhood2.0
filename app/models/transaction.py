@@ -14,8 +14,9 @@ class Transaction(db.Model):
     sell = db.Column(db.Boolean, nullable=False)
     created_at = db.Column(db.DateTime(timezone=True), nullable=False)
     updated_at = db.Column(db.DateTime(timezone=True), nullable=False)
-
+    trans_asset = db.relationship("Asset", back_populates="transactions", lazy=True)
     def to_dict(self):
+
         return {
             'id': self.id,
             'asset_id': self.asset_id,
@@ -24,7 +25,8 @@ class Transaction(db.Model):
             'order_price': float(self.order_price),
             'buy': self.buy,
             'sell': self.sell,
-            'created_at' : self.created_at
+            'created_at' : self.created_at.strftime("%m-%d-%Y %I:%M %p"),
+            "asset_symbol": self.trans_asset.symbol
         }
 
     user = relationship("User")
