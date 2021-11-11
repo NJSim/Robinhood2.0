@@ -296,7 +296,7 @@ function Stock() {
               onClose={() => setShow(false)}
             >
               <>
-                <StockList assetID={stockId}/>
+                {/* <StockList assetID={stockId}/> */}
               </>
             </Modal>
           </div>

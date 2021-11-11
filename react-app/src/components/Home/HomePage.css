@@ -500,14 +500,11 @@
 .listsContainer {
   display: flex;
   flex-direction: column;
-  background-color: grey;
-  height: 30rem;
+  min-height: 30rem;
   width: 17rem;
-  align-content: stretch;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 8px;
   padding: 0;
   border-radius: 5px;
-  padding-left: 1rem;
-  padding-right: 1rem;
 }
 
 .Stocks-Nav {
