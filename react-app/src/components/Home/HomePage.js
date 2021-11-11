@@ -289,6 +289,7 @@ if (!stock) {
 										/>
 									</div>
 
+
 									<h4 id="stock-change">
 										{stock["change"] > 0
 											? "+$" + stock["change"] + " "
@@ -316,8 +317,10 @@ if (!stock) {
 								<div className="listsContainer">
 									<div className="Stocks-Nav">Stocks</div>
 									<div className="listItems">
-										<List />
+										<List assetID={stock["id"]}/>
 									</div>
+
+        
 
 									<div className="lists-Nav">Lists</div>
 								</div>

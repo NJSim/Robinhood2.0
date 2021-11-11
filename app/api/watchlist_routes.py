@@ -56,7 +56,7 @@ def edit_watchlists(id):
         watchlist.name = form.data["name"]
         watchlist.user_id = form.data["user_id"]
         db.session.commit()
-        return user.to_dict()
+        return watchlist.to_dict()
     else:
         return None
 
@@ -65,26 +65,26 @@ def edit_watchlists(id):
 @watchlist_routes.route('/<int:id>/delete', methods=["DELETE"])
 @login_required
 def delete_watchlists(id):
-    user = User.query.get(watchlist.user_id)
+    print("HEY OVER HERE",id)
+    # user = User.query.get(watchlist.user_id)
     watchlist = Watchlist.query.get(id)
     db.session.delete(watchlist)
     db.session.commit
 
-    return user.to_dict()
+    return "Success"
 
 #add assest watchlist
-@watchlist_routes.route('/<int:id>/add', methods=["POST"])
+@watchlist_routes.route('/addAsset', methods=["POST"])
 @login_required
-def add_to_watchlist(id):
-    symbol = request.json['symbol']
-    watchlist = Watchlist.query.get(id)
-    assest = assest.query.filter_by(symbol=symbol).first()
-    db.session.add(assest)
+def add_to_watchlist():
+    watchlistId, symbol = itemgetter("watchlistId", "symbol")(request.json)
+    watchlist = Watchlist.query.get(watchlistId)
+    asset = Asset.query.get(symbol)
+    watchlist.watched_assets.append(asset)
     db.session.commit()
-    watchlist.watched_assets.append(assest)
-    db.session.commit()
-    user = User.query.get(watchlist.user_id)
-    return user.to_dict()
+
+    return "Success!"
 
 
 #delete assest from a specfic watchlist
+# name, user_id = itemgetter("name", "user_id")(request.json)
