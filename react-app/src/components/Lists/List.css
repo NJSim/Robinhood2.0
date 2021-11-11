@@ -8,3 +8,7 @@
   float: left;
 }
 
+.edit-form{
+  display:flex;
+}
+
