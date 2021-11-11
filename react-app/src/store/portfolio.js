@@ -35,7 +35,6 @@ export const getPortfolio = () => async (dispatch) => {
 	if (response.ok) {
 		const portfolio = await response.json();
         dispatch(loadPortfolio(portfolio))
-        return null;
 	} else if (response.status < 500) {
 		const data = await response.json();
 		if (data.errors) {

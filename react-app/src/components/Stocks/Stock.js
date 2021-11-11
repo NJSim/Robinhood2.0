@@ -9,7 +9,7 @@ import ModalList from "../Lists/List";
 import { MechanicalCounter } from "mechanical-counter";
 import "./Stock.css";
 import Chart from "./Chart";
-import loadingSpinner from "../Stocks/green-loading-spinner.gif";
+import loadingSpinner from "../../images/green-loading-spinner.gif";
 import { executeTransaction } from "../../store/transactions";
 
 function Stock() {

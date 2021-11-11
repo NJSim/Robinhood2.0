@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import * as sessionActions from '../../store/session'
 import './Navigation.css';
 import { getQuery } from '../../store/search';
-
+import { NavLink } from 'react-router-dom';
 
 
 
@@ -36,7 +36,7 @@ function Navigation(){
 
     <div className="navigation-container">
       <div className="navigation-item navigation-item1">
-        <a href="/"><img src={"https://i0.wp.com/www.juststartinvesting.com/wp-content/uploads/2020/08/Robinhood-Logo-New.png?resize=388%2C78&ssl=1"} alt="" height={28} className="logo"></img> </a>
+        <NavLink to="/"><img src={"https://i0.wp.com/www.juststartinvesting.com/wp-content/uploads/2020/08/Robinhood-Logo-New.png?resize=388%2C78&ssl=1"} alt="" height={28} className="logo"></img> </NavLink>
         <nav role="navigation" className="NavigationBar">
           <ul>
             <li>
@@ -70,8 +70,8 @@ function Navigation(){
       </div>
       <div className="navigation-item navigation-item2">
         <button className="demo-loginNav" onMouseDown={demo}>Demo</button>
-        <button className='navLogInButton'><a href="/login" className='navLogInText'> Log In </a> </button>
-        <button className='navSignUpButton'><a href="/sign-up" className='navSignUpText'> Sign Up </a> </button>
+        <button className='navLogInButton'><NavLink to="/login" className='navLogInText'> Log In </NavLink> </button>
+        <button className='navSignUpButton'><NavLink to="/sign-up" className='navSignUpText'> Sign Up </NavLink> </button>
       </div>
     </div>
 
@@ -83,7 +83,7 @@ function Navigation(){
         <div className="dashboard-wrapper">
 
           <div className="dashboard-logo">
-            <a href="/">
+            <NavLink to="/">
               <svg viewBox="0 0 48 48" className="dashboard-logo-2">
                 <g transform="translate(8 9)">
                   <path d="M14.723625 23.7500267L14.5395 23.8112533C13.35375 24.2036267 11.60025 24.8073067 10.025625 25.5282133 9.94125 25.5674133 9.886125 25.6771733
@@ -115,7 +115,7 @@ function Navigation(){
                   </path>
                 </g>
               </svg>
-            </a>
+            </NavLink>
           </div>
           <div className="search">
 
@@ -148,17 +148,17 @@ function Navigation(){
           <div className="dashboard-list">
             <div className="dashboard-list-container">
 
-              <a href="/" className="nav-hyper">
+              <NavLink to="/" className="nav-hyper">
                 <span>
                   Portfolio
                 </span>
-              </a>
+              </NavLink>
 
-              <a href="/account" className="nav-hyper" style={{marginRight: 20}}>
+              <NavLink to="/account" className="nav-hyper" style={{marginRight: 20}}>
                 <span>
                   Account
                 </span>
-              </a>
+              </NavLink>
             </div>
           </div>
             <button onClick={logout} style={{marginRight: 30}}> Log Out </button>
