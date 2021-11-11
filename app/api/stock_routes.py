@@ -8,7 +8,9 @@ from datetime import date, datetime, timedelta
 stock_routes = Blueprint('stocks', __name__)
 
 
-stockAPI = pyEX.Client(api_token='Tpk_3d1d43f8163d48718ee23f604dc69c83', version='sandbox')
+symbols = ['AAPL','TSLA','MMM','AAP','ADBE','FDX','VZ','MSFT','NRG','GM','BA','CVX','IBM','HON','JPM','NKE','KO','INTC','PG','MCD','WMT','BABA','JNJ','CRM','DOW','DIS','UNH','AXP','HD','CAT']
+
+stockAPI= pyEX.Client(api_token='Tpk_3d1d43f8163d48718ee23f604dc69c83', version='sandbox')
 stockNewsApi = finnhub.Client(api_key='c60q7iaad3ifmvvnov3g')
 
 today = date.today()
@@ -24,6 +26,7 @@ def getStockQuery(query):
 @stock_routes.route('/<int:id>')
 @login_required
 def getStock(id):
+
     sym=Asset.query.get(id)
     stock = stockAPI.quote(symbol=sym.symbol)
     stock_chart_1d = pyEX.chart(symbol=sym.symbol, timeframe="1d", date=None, exactDate=None, last=-1, closeOnly=False, byDay=False, simplify=False, interval=15, changeFromClose=False, displayPercent=False, sort="asc", includeToday=False, token="Tpk_3d1d43f8163d48718ee23f604dc69c83", version="sandbox", filter="", format="json")
@@ -41,3 +44,9 @@ def getStock(id):
     else:
         stock['shares_owned'] = "null"
     return stock
+
+@stock_routes.route('/all')
+@login_required
+def getAllStock():
+        stocksList = pyEX.batch(symbols=symbols, fields=None, range_='1m', last=10, token="Tpk_3d1d43f8163d48718ee23f604dc69c83", version="sandbox", filter='', format='json')
+        return stocksList

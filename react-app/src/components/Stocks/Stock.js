@@ -12,6 +12,7 @@ import Chart from "./Chart";
 import loadingSpinner from "../../images/green-loading-spinner.gif";
 import { executeTransaction } from "../../store/transactions";
 import List from "../Lists/List";
+import ScrollingStock from "../Scrolling-Stocks/ScrollingStocks";
 
 function Stock() {
   const { stockId } = useParams();
@@ -108,6 +109,7 @@ function Stock() {
   };
   return (
     <div id="main-stock-div">
+      <ScrollingStock />
       <div id="stock-graph-trans">
         <div>
           <h1>{stock["companyName"]}</h1>
@@ -146,6 +148,7 @@ function Stock() {
             stock={stock}
             color={"#00a806"}
             childToParent={childToParent}
+            height={250}
           />
           <div id="timeFrameDiv">
             <button
@@ -296,7 +299,7 @@ function Stock() {
             >
               <>
                 <h2 className="addNewList"> + Create New List </h2>
-                <List assetID={stockId}/>
+                <List assetID={stockId} />
               </>
             </Modal>
           </div>
