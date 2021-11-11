@@ -68,7 +68,10 @@ def getPortfolio():
                     i+=1
                     shares_counter+=trans.shares
                     total_price+= trans.order_price
-            avg_price = total_price/i
+            if item.qty_owned == 0:
+                avg_price = 0
+            else:
+                avg_price = total_price/i
             stock_price = stockAPI.quote(symbol=item.port_asset.symbol)['latestPrice']
             market_value = item.qty_owned * stock_price
             avg_purchase_value = item.qty_owned * avg_price
@@ -89,8 +92,8 @@ def getPortfolio():
         portfolio['totalAvgPurchaseValue'] = float(total_avg_value)
         portfolio['overallProfit/Loss'] = float(total_market_value) - float(total_avg_value)
         if total_shares == 0:
-            return "null"
+            return "Empty Portfolio"
         else:
             return portfolio
     else:
-        return "null"
+        return "Empty Portfolio"
