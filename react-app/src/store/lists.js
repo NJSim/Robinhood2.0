@@ -39,17 +39,18 @@ const updateList = (watchlists) => ({
     payload: watchlists
 });
 
-export const editList = (id, userId, payload) => async(dispatch) => {
-    const res = await fetch(`/api/watchlists/${id}/edit`,{
+export const editList = (id, name, userId) => async(dispatch) => {
+    await fetch(`/api/watchlists/${id}/edit`,{
         method:"PUT",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({user_id: userId, payload})
+        body: JSON.stringify({id, name})
     });
 
-    const data = await res.json()
-    dispatch(updateList(data))
+    const response = await fetch(`/api/watchlists/${userId}`)
+    const data = await response.json()
+    dispatch(loadWatchlists(data))
 
 }
 //delete a watchlist
