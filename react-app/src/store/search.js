@@ -1,13 +1,19 @@
 const LOAD_SEARCH = 'SEARCH/LOAD'
+const CLEAR_SEARCH = 'SEARCH/CLEAR'
 
 const initialState = {
-    results: null,
+    results: {},
 }
 
 const loadSearch = (query) => ({
     type: LOAD_SEARCH,
     payload: query
 })
+
+const clearSearch = () => ({
+    type: CLEAR_SEARCH
+})
+
 
 export const getQuery = (query) => async(dispatch) => {
     const response = await fetch (`/api/stocks/query/${query}`);
@@ -27,10 +33,17 @@ export const getQuery = (query) => async(dispatch) => {
     }
 };
 
+export const clearQuery = () => async(dispatch) => {
+    dispatch(clearSearch())
+}
+
 export default function searchReducer(state = initialState, action) {
     switch (action.type) {
         case LOAD_SEARCH:
-            return{ query: action.payload }
+            return{ results: action.payload }
+        case CLEAR_SEARCH:
+            return{ results: {}}
+
         default:
             return state;
     }
