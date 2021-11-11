@@ -401,7 +401,7 @@ function HomePage() {
             percent change
           </h1>
         </div> */}
-      <div>
+      <div id="portfolio-table-container">
         <table id="portfolio-table-heading">
           <thead id="table-row-head">
             <tr>
@@ -490,37 +490,7 @@ function HomePage() {
               : "Loading assets..."}
           </tbody>
         </table>
-        {/* <div id="portfolio-table-heading">
-            <p>symbol</p>
-            <p>shares</p>
-            <p>values</p>
-            <p>todays return</p>
-            <p>return</p>
-            <p>return with sells</p>
-            <p>price/share</p>
-            <p>sell</p>
-          </div> */}
       </div>
-      {/* <div>
-          {assets
-            ? assets.map(asset => (
-                <tr
-                  onClick={e => setMainStock(asset.asset_id)}
-                  key={asset.asset_id}
-                  id="portfolio-asset"
-                >
-                  <td>{asset.symbol}</td>
-                  <td>{asset.total_shares}</td>
-                  <td>{asset.current_stock_price}</td>
-                  <td>todays return</td>
-                  <td>{asset["profit/loss"]}</td>
-                  <td>{asset["profit/loss"]}</td>
-                  <td>{asset.avg_purchase_price}</td>
-                  <td>sell</td>
-                </tr>
-              ))
-            : "something not workind"}
-        </div> */}
     </>
   );
 }
