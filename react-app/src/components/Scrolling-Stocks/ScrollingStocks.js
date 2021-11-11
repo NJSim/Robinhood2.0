@@ -6,19 +6,9 @@ import { LeftArrow, RightArrow } from "./arrows";
 import { Card } from "./card";
 import loadingSpinner from "../../images/green-loading-spinner.gif";
 
-const elemPrefix = "test";
-const getId = index => `${elemPrefix}${index}`;
-
-const getItems = () =>
-  Array(20)
-    .fill(0)
-    .map((_, ind) => ({ id: getId(ind) }));
-
 let allStocks;
 function ScrollingStock() {
   const stocks = useSelector(state => state.stocks.allStocks);
-  console.log("All stocks======>", stocks);
-  const [items] = React.useState(getItems);
 
   const dispatch = useDispatch();
 
@@ -43,11 +33,9 @@ function ScrollingStock() {
     console.log("All Stocks entries===>>>", allStocks);
   }
 
-  let routeId = 0;
-
   return (
     <>
-      <div style={{ marginRight: "30px", marginLeft: "30px" }}>
+      <div style={{ marginRight: "30px", marginLeft: "30px", height: "100px" }}>
         <ScrollMenu
           LeftArrow={LeftArrow}
           RightArrow={RightArrow}
