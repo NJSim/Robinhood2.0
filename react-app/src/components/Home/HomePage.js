@@ -316,15 +316,10 @@ useEffect(async() => {
 								</div>
 
 								<div className="listsContainer">
-									<div className="Stocks-Nav">Lists</div>
-									<div className="listItems">
 										<List assetID={stock["id"]}/>
-									</div>
-
-
-
-									<div className="lists-Nav">Stocks</div>
 								</div>
+
+
 							</div>
 						</div>
 					</div>
