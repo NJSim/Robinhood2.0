@@ -285,7 +285,7 @@ useEffect(async() => {
 						<div className="dashboardContainer">
 							<div className="row">
 								<div className="mainContainer">
-									<h1>{stock["companyName"]}</h1>
+									<h1 style={{ width: "100%" }}>{stock["companyName"]}</h1>
 									<div
 										style={{
 											display: "flex",
@@ -309,7 +309,6 @@ useEffect(async() => {
 										/>
 									</div>
 
-
 									<h4 id="stock-change">
 										{stock["change"] > 0
 											? "+$" + stock["change"] + " "
@@ -328,6 +327,7 @@ useEffect(async() => {
 											stock={stock}
 											stockName={stock["companyName"]}
 											color={"#00a806"}
+											height={250}
 										/>
 									) : (
 										"something's not right!"
@@ -335,7 +335,7 @@ useEffect(async() => {
 								</div>
 
 								<div className="listsContainer">
-										<List assetID={stock["id"]}/>
+									<List assetID={stock["id"]} />
 								</div>
 							</div>
 						</div>
@@ -383,114 +383,114 @@ useEffect(async() => {
 									)}%)`}</td>
 								)}
 
-              <td className="ticker-number">
-                {`$${numberWithCommas(+sessionUser.buying_pwr)}`}
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      ) : (
-        <div style={{ display: "flex", justifyContent: "center" }}>
-          <img src={loadingSpinner} alt="Loading..." />
-        </div>
-      )}
+								<td className="ticker-number">
+									{`$${numberWithCommas(+sessionUser.buying_pwr)}`}
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				) : (
+					<div style={{ display: "flex", justifyContent: "center" }}>
+						<img src={loadingSpinner} alt="Loading..." />
+					</div>
+				)}
 
-      {/* <div id="ticker-headings">
+				{/* <div id="ticker-headings">
           <h1>
             This is where we will put the total portfolio balance and daily
             percent change
           </h1>
         </div> */}
-      <div>
-        <table id="portfolio-table-heading">
-          <thead id="table-row-head">
-            <tr>
-              <th className="portfolio-table-heading-ele">Symbol</th>
-              <th className="portfolio-table-heading-ele">Shares</th>
-              <th className="portfolio-table-heading-ele">Current price</th>
-              <th className="portfolio-table-heading-ele">
-                Average purchase price
-              </th>
-              <th className="portfolio-table-heading-ele">ROI/Share</th>
-              <th className="portfolio-table-heading-ele">Profit/Loss</th>
-              <th className="portfolio-table-heading-ele">Market value</th>
-            </tr>
-          </thead>
-          <tbody>
-            {assets
-              ? assets.map(asset => (
-                  <tr
-                    id="table-row-pointer"
-                    onClick={e => setMainStock(asset.asset_id)}
-                    key={asset.asset_id}
-                  >
-                    <td id="asset-symbol" className="table-row-ele">
-                      {asset.symbol}
-                    </td>
-                    <td className="table-row-ele">{asset.total_shares}</td>
-                    <td className="table-row-ele">
-                      {`$${numberWithCommas(asset.current_stock_price)}`}
-                    </td>
-                    <td className="table-row-ele">{`$${numberWithCommas(
-                      asset.avg_purchase_price
-                    )}`}</td>
-                    {asset.current_stock_price - asset.avg_purchase_price >
-                    0 ? (
-                      <td
-                        className="table-row-ele"
-                        style={{ color: "#00a806" }}
-                      >
-                        {`$${(
-                          asset.current_stock_price - asset.avg_purchase_price
-                        ).toFixed(2)} (${(
-                          (100 *
-                            (asset.current_stock_price -
-                              asset.avg_purchase_price)) /
-                          asset.avg_purchase_price
-                        ).toFixed(2)}%)`}
-                      </td>
-                    ) : (
-                      <td className="table-row-ele" style={{ color: "red" }}>
-                        {`-$${Math.abs(
-                          asset.current_stock_price - asset.avg_purchase_price
-                        ).toFixed(2)}  (${(
-                          (100 *
-                            (asset.current_stock_price -
-                              asset.avg_purchase_price)) /
-                          asset.avg_purchase_price
-                        ).toFixed(2)}%)`}
-                      </td>
-                    )}
+				<div>
+					<table id="portfolio-table-heading">
+						<thead id="table-row-head">
+							<tr>
+								<th className="portfolio-table-heading-ele">Symbol</th>
+								<th className="portfolio-table-heading-ele">Shares</th>
+								<th className="portfolio-table-heading-ele">Current price</th>
+								<th className="portfolio-table-heading-ele">
+									Average purchase price
+								</th>
+								<th className="portfolio-table-heading-ele">ROI/Share</th>
+								<th className="portfolio-table-heading-ele">Profit/Loss</th>
+								<th className="portfolio-table-heading-ele">Market value</th>
+							</tr>
+						</thead>
+						<tbody>
+							{assets
+								? assets.map((asset) => (
+										<tr
+											id="table-row-pointer"
+											onClick={(e) => setMainStock(asset.asset_id)}
+											key={asset.asset_id}
+										>
+											<td id="asset-symbol" className="table-row-ele">
+												{asset.symbol}
+											</td>
+											<td className="table-row-ele">{asset.total_shares}</td>
+											<td className="table-row-ele">
+												{`$${numberWithCommas(asset.current_stock_price)}`}
+											</td>
+											<td className="table-row-ele">{`$${numberWithCommas(
+												asset.avg_purchase_price
+											)}`}</td>
+											{asset.current_stock_price - asset.avg_purchase_price >
+											0 ? (
+												<td
+													className="table-row-ele"
+													style={{ color: "#00a806" }}
+												>
+													{`$${(
+														asset.current_stock_price - asset.avg_purchase_price
+													).toFixed(2)} (${(
+														(100 *
+															(asset.current_stock_price -
+																asset.avg_purchase_price)) /
+														asset.avg_purchase_price
+													).toFixed(2)}%)`}
+												</td>
+											) : (
+												<td className="table-row-ele" style={{ color: "red" }}>
+													{`-$${Math.abs(
+														asset.current_stock_price - asset.avg_purchase_price
+													).toFixed(2)}  (${(
+														(100 *
+															(asset.current_stock_price -
+																asset.avg_purchase_price)) /
+														asset.avg_purchase_price
+													).toFixed(2)}%)`}
+												</td>
+											)}
 
-                    {asset["profit/loss"] > 0 ? (
-                      <td
-                        className="table-row-ele"
-                        style={{ color: "#00a806" }}
-                      >
-                        {`$${asset["profit/loss"].toFixed(
-                          2
-                        )} (${numberWithCommas(
-                          100 * (+asset["profit/loss"] / +asset.market_value)
-                        )}%)`}
-                      </td>
-                    ) : (
-                      <td className="table-row-ele" style={{ color: "red" }}>
-                        {`-$${Math.abs(
-                          asset["profit/loss"].toFixed(2)
-                        )}  (${numberWithCommas(
-                          100 * (+asset["profit/loss"] / +asset.market_value)
-                        )}%)`}
-                      </td>
-                    )}
-                    <td className="table-row-ele">
-                      {`$${numberWithCommas(asset.market_value)}`}
-                    </td>
-                  </tr>
-                ))
-              : "Loading assets..."}
-          </tbody>
-        </table>
-        {/* <div id="portfolio-table-heading">
+											{asset["profit/loss"] > 0 ? (
+												<td
+													className="table-row-ele"
+													style={{ color: "#00a806" }}
+												>
+													{`$${asset["profit/loss"].toFixed(
+														2
+													)} (${numberWithCommas(
+														100 * (+asset["profit/loss"] / +asset.market_value)
+													)}%)`}
+												</td>
+											) : (
+												<td className="table-row-ele" style={{ color: "red" }}>
+													{`-$${Math.abs(
+														asset["profit/loss"].toFixed(2)
+													)}  (${numberWithCommas(
+														100 * (+asset["profit/loss"] / +asset.market_value)
+													)}%)`}
+												</td>
+											)}
+											<td className="table-row-ele">
+												{`$${numberWithCommas(asset.market_value)}`}
+											</td>
+										</tr>
+								  ))
+								: "Loading assets..."}
+						</tbody>
+					</table>
+					{/* <div id="portfolio-table-heading">
             <p>symbol</p>
             <p>shares</p>
             <p>values</p>
@@ -500,8 +500,8 @@ useEffect(async() => {
             <p>price/share</p>
             <p>sell</p>
           </div> */}
-      </div>
-      {/* <div>
+				</div>
+				{/* <div>
           {assets
             ? assets.map(asset => (
                 <tr
@@ -521,8 +521,8 @@ useEffect(async() => {
               ))
             : "something not workind"}
         </div> */}
-    </>
-  );
+			</>
+		);
 }
 
 export default HomePage;
