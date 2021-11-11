@@ -1,12 +1,12 @@
 
-import "./List.css"
+import "./StockList.css"
 
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getList, editList, deleteList, addWatchList, addToWatchlist } from "../../store/lists";
 
 
-function List({assetID}){
+function StockList({assetID}){
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
     const watchlists = useSelector(state => state.watchlists.watchlists);
@@ -38,20 +38,9 @@ function List({assetID}){
     }
 
     // const testLists = [{"id": 1, "name": "First List", "user_id": 1},{"id": 2, "name": "Second List", "user_id": 1}]
-    if (!watchlists){
-        return null
-    }
-
-    const submitDeleteWatchlist = async(e) => {
-        e.preventDefault()
-        dispatch(deleteList(mainWatchlist)).then(() => dispatch(getList(sessionUser.id)))
-    }
-
-    const submitEditWatchlist = async(e) => {
-        e.preventDefault()
-        dispatch(editList(mainWatchlist, newEditName, sessionUser.id)).then(() => dispatch(getList(sessionUser.id)))
-
-    }
+    // if (!watchlists){
+    //     return null
+    // }
 
 
 
@@ -68,27 +57,21 @@ function List({assetID}){
                     required
                     placeholder='Create New Watchlist'
                 >
-
                 </input>
                 <button type="submit">Create List</button>
             </form>
 
+
             {Object.keys(watchlists).map( (key, index) => (
                 <div className="edit-form">
                 <h2 onClick={(e) => setMainWatchlist(watchlists[key].id)}key={watchlists[key].id}>{watchlists[key].name}</h2>
-                    <div className="invisible-list">
-                        <input onChange={(e) => setNewEditName(e.target.value)} className="edit-list" placeholder={watchlists[key].name}></input>
-                        <button onClick={submitEditWatchlist} className="submit-edit-list">Submit</button>
-                    </div>
-                <button onClick={(e) => setMainWatchlist(watchlists[key].id)}key={watchlists[key].id} className="open-edit-input"> Edit List </button>
-                <button onClick={submitAddAsset}>Add to List</button>
-                <button onClick={submitDeleteWatchlist}>Delete List</button>
                 </div>
             ))}
 
+                <button onClick={submitAddAsset}>Add to List</button>
         </div>
         )
     }
 }
 
-export default List;
+export default StockList;
