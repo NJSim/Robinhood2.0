@@ -85,7 +85,9 @@ function SingleList({ watchlist }) {
 									e.stopPropagation();
 									dispatch(deleteList(watchlist.id)).then(() =>
 										dispatch(getList(sessionUser.id))
+
 									);
+                                    setOptions(false)
 								}}
 							>
 								Delete List
