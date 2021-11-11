@@ -31,20 +31,20 @@ function Stock() {
   const [showSell, setShowSell] = useState(false);
   const [showBuy, setShowBuy] = useState(true);
   const [errors, setErrors] = useState([]);
+  const [loaded, setLoaded] = useState(false)
   // lists modal states
   const [show, setShow] = useState(false);
 
   const [chartPrice, setChartPrice] = useState();
 
   useEffect(() => {
-    if (!stockId) {
-      return;
-    }
     (async () => {
+      setLoaded(false)
       await dispatch(getStock(stockId));
+      setLoaded(true)
     })();
   }, [stockId]);
-  if (!stock) {
+  if (!stock || !loaded) {
     return (
       <div id="loading">
         <img src={loadingSpinner} alt="Loading..." />
