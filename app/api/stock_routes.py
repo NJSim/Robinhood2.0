@@ -19,7 +19,10 @@ lastWeek = lastWeek.strftime("%Y-%m-%d")
 
 @stock_routes.route('/query/<query>')
 def getStockQuery(query):
-    return {asset.id: asset.symbol for asset in Asset.query.filter(Asset.symbol.ilike(f'%{query}%')).all()}
+    findQuery = {asset.id: asset.symbol for asset in Asset.query.filter(Asset.symbol.ilike(f'%{query}%')).all()}
+    if findQuery:
+        return findQuery
+    return {}
 
 @stock_routes.route('/<int:id>')
 @login_required
