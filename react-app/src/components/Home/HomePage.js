@@ -30,16 +30,16 @@ function HomePage() {
   }
 const [loaded, setLoaded] = useState(false);
 
-useEffect(() => {
-	(async () => {
+useEffect(async() => {
+
     if(sessionUser){
 		await dispatch(getPortfolio());
 		setLoaded(true);
     } else {
       setLoaded(true)
     }
-	})();
-}, [dispatch, sessionUser]);
+	}
+, [dispatch, sessionUser]);
 
 
   useEffect(async () => {
@@ -57,13 +57,7 @@ useEffect(() => {
   const childToParent = data => {
     setChartPrice(data);
   };
-if (!stock) {
-	return (
-		<div id="loading">
-			<img src={loadingSpinner} alt="Loading..." />
-		</div>
-	);
-}
+
   if(!sessionUser){
     return (
 			<>
@@ -258,6 +252,13 @@ if (!stock) {
 			</>
 		);
   }
+  if (!stock) {
+		return (
+			<div id="loading">
+				<img src={loadingSpinner} alt="Loading..." />
+			</div>
+		);
+	}
     return (
 			<>
 				<div className="flex1">
