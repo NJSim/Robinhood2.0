@@ -12,10 +12,9 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
     buying_pwr = db.Column(db.Integer, nullable=False, default=100000)
-
-    portfolios = relationship("Portfolio")
-    transactions = relationship("Transaction")
-    watchlists = relationship("Watchlist")
+    portfolios = db.relationship("Portfolio", cascade="all, delete, delete-orphan")
+    transactions = relationship("Transaction", cascade="all, delete, delete-orphan")
+    watchlists = relationship("Watchlist", cascade="all, delete, delete-orphan")
     @property
     def password(self):
         return self.hashed_password

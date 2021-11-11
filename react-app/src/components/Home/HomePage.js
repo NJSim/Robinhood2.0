@@ -320,7 +320,7 @@ if (!stock) {
 										<List assetID={stock["id"]}/>
 									</div>
 
-        
+
 
 									<div className="lists-Nav">Lists</div>
 								</div>
@@ -377,9 +377,9 @@ if (!stock) {
 						</tbody>
 					</table>
 				) : (
-					<>
+					<div style={{display: "flex", justifyContent: "center"}}>
 						<img src={loadingSpinner} alt="Loading..." />
-					</>
+					</div>
 				)}
 
 				{/* <div id="ticker-headings">
@@ -474,7 +474,7 @@ if (!stock) {
 											</td>
 										</tr>
 								  ))
-								: "something not workind"}
+								: "Loading assets..."}
 						</tbody>
 					</table>
 					{/* <div id="portfolio-table-heading">

@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify
-from flask_login import login_required
-from app.models import User
+from flask_login import login_required, current_user, logout_user
+from app.models import User, db
 
 
 
@@ -19,3 +19,15 @@ def users():
 def user(id):
     user = User.query.get(id)
     return user.to_dict()
+
+@user_routes.route('/delete')
+@login_required
+def delete_account():
+    user = User.query.get(current_user.id)
+    if user:
+        db.session.delete(user)
+        db.session.commit()
+        logout_user()
+        return  {'message': 'User deleted'}
+    else:
+        return {"Error": "User doesn't exist."}
