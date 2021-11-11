@@ -1,5 +1,4 @@
-
-import "./List.css"
+import "./List.css";
 
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
