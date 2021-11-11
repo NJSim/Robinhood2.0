@@ -47,7 +47,7 @@ function ScrollingStock() {
 
   return (
     <>
-      <div style={{ marginRight: "50px", marginLeft: "50px" }}>
+      <div style={{ marginRight: "30px", marginLeft: "30px" }}>
         <ScrollMenu
           LeftArrow={LeftArrow}
           RightArrow={RightArrow}

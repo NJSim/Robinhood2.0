@@ -22,7 +22,7 @@ export function Card({ title, stock, itemId, key, routeId }) {
             border: "1px solid",
             display: "inline-block",
             margin: "0 10px",
-            width: "160px",
+            width: "120px",
             userSelect: "none",
             marginBottom: "60px",
             cursor: "pointer",
@@ -35,11 +35,11 @@ export function Card({ title, stock, itemId, key, routeId }) {
               style={{
                 fontWeight: "600",
                 fontSize: "10pt",
-                height: "30px",
-                marginLeft: "10px",
+                height: "20px",
+                textAlign: "center",
               }}
             >
-              {stock[1].quote["companyName"].slice(0, 20)}
+              {stock[0]}
             </div>
           </div>
           <div
@@ -69,17 +69,17 @@ export function Card({ title, stock, itemId, key, routeId }) {
               {`${(stock[1].quote["changePercent"] * 100).toFixed(2)}%`}
             </div>
           )}
-          <div
+          {/* <div
             style={{
               backgroundColor: "white",
-              height: "50px",
+              height: "15px",
               fontWeight: "1000",
               textAlign: "center",
               fontSize: "24pt",
             }}
           >
             {stock[0]}
-          </div>
+          </div> */}
           {/* <Chart
             timeFrame={"chart_1d"}
             stock={stock}
