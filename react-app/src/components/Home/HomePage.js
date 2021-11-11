@@ -327,6 +327,7 @@ function HomePage() {
                     stock={stock}
                     stockName={stock["companyName"]}
                     color={"#00a806"}
+                    height={250}
                   />
                 ) : (
                   "something's not right!"
