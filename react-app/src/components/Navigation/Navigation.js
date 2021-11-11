@@ -35,23 +35,13 @@ function Navigation(){
     return dispatch(sessionActions.login("demo@aa.io", "password"))
   }
 
-  const mockData = {
-    1: "AAPL",
-    2: "TSLA",
-    4: "AAP",
-    5: "ADBE",
-    11: "BA"
-  }
-
   let searchBar = (
     <div className="searchBarQuery">
-      <div className="searchTitle"></div>
         <div className="searchResults">
           {Object.keys(queryResults).map((key) => {
             return <NavLink className="result" to={`/stocks/${key}`} value={key}>{queryResults[key]}</NavLink>
           })
           }
-
         </div>
     </div>
   )
