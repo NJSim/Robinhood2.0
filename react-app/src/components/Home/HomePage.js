@@ -28,7 +28,20 @@ function HomePage() {
     assets = Object.values(portfolio.positions);
     // setMainStock(assets[0].asset_id);
   }
-  const [loaded, setLoaded] = useState(false);
+
+const [loaded, setLoaded] = useState(false);
+
+useEffect(async() => {
+
+    if(sessionUser){
+		await dispatch(getPortfolio());
+		setLoaded(true);
+    } else {
+      setLoaded(true)
+    }
+	}
+, [dispatch, sessionUser]);
+
 
   useEffect(() => {
     (async () => {
@@ -56,7 +69,8 @@ function HomePage() {
   const childToParent = data => {
     setChartPrice(data);
   };
-  if (!stock) {
+
+  if(!sessionUser){
     return (
       <div id="loading">
         <img src={loadingSpinner} alt="Loading..." />
@@ -257,113 +271,117 @@ function HomePage() {
       </>
     );
   }
-  return (
-    <>
-      <div className="flex1">
-        <div className="flex2">
-          <div className="dashboardContainer">
-            <div className="row">
-              <div className="mainContainer">
-                <h1>{stock["companyName"]}</h1>
-                <div
-                  style={{
-                    display: "flex",
-                    fontWeight: 900,
-                    fontSize: 35,
-                    alignItems: "center",
-                  }}
-                >
-                  <p>$</p>
-                  <MechanicalCounter
-                    text={
-                      chartPrice
-                        ? chartPrice
-                            .toString()
-                            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-                        : stock["latestPrice"]
-                            .toFixed(2)
-                            .toString()
-                            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-                    }
-                  />
-                </div>
+  if (!stock) {
+		return (
+			<div id="loading">
+				<img src={loadingSpinner} alt="Loading..." />
+			</div>
+		);
+	}
+    return (
+			<>
+				<div className="flex1">
+					<div className="flex2">
+						<div className="dashboardContainer">
+							<div className="row">
+								<div className="mainContainer">
+									<h1>{stock["companyName"]}</h1>
+									<div
+										style={{
+											display: "flex",
+											fontWeight: 900,
+											fontSize: 35,
+											alignItems: "center",
+										}}
+									>
+										<p>$</p>
+										<MechanicalCounter
+											text={
+												chartPrice
+													? chartPrice
+															.toString()
+															.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+													: stock["latestPrice"]
+															.toFixed(2)
+															.toString()
+															.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+											}
+										/>
+									</div>
 
-                <h4 id="stock-change">
-                  {stock["change"] > 0
-                    ? "+$" + stock["change"] + " "
-                    : "$" + stock["change"] + " "}
-                  {stock["changePercent"] > 0
-                    ? "(" + "+" + stock["changePercent"].toFixed(3) + "%) "
-                    : "(" + stock["changePercent"].toFixed(3) + "%) "}
-                  <span style={{ fontWeight: 0, color: "#697277" }}>Today</span>
-                </h4>
-                {stock ? (
-                  <Chart
-                    childToParent={childToParent}
-                    timeFrame={"chart_1d"}
-                    stock={stock}
-                    stockName={stock["companyName"]}
-                    color={"#00a806"}
-                    height={250}
-                  />
-                ) : (
-                  "something's not right!"
-                )}
-              </div>
 
-              <div className="listsContainer">
-                <div className="Stocks-Nav">Stocks</div>
-                <div className="listItems">
-                  <List assetID={stock["id"]} />
-                </div>
+									<h4 id="stock-change">
+										{stock["change"] > 0
+											? "+$" + stock["change"] + " "
+											: "$" + stock["change"] + " "}
+										{stock["changePercent"] > 0
+											? "(" + "+" + stock["changePercent"].toFixed(3) + "%) "
+											: "(" + stock["changePercent"].toFixed(3) + "%) "}
+										<span style={{ fontWeight: 0, color: "#697277" }}>
+											Today
+										</span>
+									</h4>
+									{stock ? (
+										<Chart
+											childToParent={childToParent}
+											timeFrame={"chart_1d"}
+											stock={stock}
+											stockName={stock["companyName"]}
+											color={"#00a806"}
+										/>
+									) : (
+										"something's not right!"
+									)}
+								</div>
 
-                <div className="lists-Nav">Lists</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      {portfolio ? (
-        <table id="portfolio-ticker">
-          <thead>
-            <tr id="ticker-headings">
-              <th className="ticker-headings-ele">Total Value</th>
-              <th className="ticker-headings-ele">Change Today</th>
-              <th className="ticker-headings-ele">Buying Power</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr className="ticker-number">
-              <td className="ticker-number">{`$${numberWithCommas(
-                +sessionUser.buying_pwr + +portfolio.totalMarketValue
-              )}`}</td>
-              {+portfolio["overallProfit/Loss"] > 0 ? (
-                <td
-                  className="ticker-number"
-                  style={{ color: "#00a806" }}
-                >{`$${+portfolio["overallProfit/Loss"].toFixed(
-                  2
-                )} (${numberWithCommas(
-                  100 *
-                    (
-                      +portfolio["overallProfit/Loss"] /
-                      (+sessionUser.buying_pwr + +portfolio.totalMarketValue)
-                    ).toFixed(3)
-                )}%)`}</td>
-              ) : (
-                <td
-                  className="ticker-number"
-                  style={{ color: "red" }}
-                >{`-$${Math.abs(
-                  +portfolio["overallProfit/Loss"].toFixed(2)
-                )} (${numberWithCommas(
-                  100 *
-                    (
-                      +portfolio["overallProfit/Loss"] /
-                      (+sessionUser.buying_pwr + +portfolio.totalMarketValue)
-                    ).toFixed(3)
-                )}%)`}</td>
-              )}
+								<div className="listsContainer">
+										<List assetID={stock["id"]}/>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				{portfolio ? (
+					<table id="portfolio-ticker">
+						<thead>
+							<tr id="ticker-headings">
+								<th className="ticker-headings-ele">Total Value</th>
+								<th className="ticker-headings-ele">Change Today</th>
+								<th className="ticker-headings-ele">Buying Power</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr className="ticker-number">
+								<td className="ticker-number">{`$${numberWithCommas(
+									+sessionUser.buying_pwr + +portfolio.totalMarketValue
+								)}`}</td>
+								{+portfolio["overallProfit/Loss"] > 0 ? (
+									<td
+										className="ticker-number"
+										style={{ color: "#00a806" }}
+									>{`$${+portfolio["overallProfit/Loss"].toFixed(
+										2
+									)} (${numberWithCommas(
+										100 *
+											(
+												+portfolio["overallProfit/Loss"] /
+												(+sessionUser.buying_pwr + +portfolio.totalMarketValue)
+											).toFixed(3)
+									)}%)`}</td>
+								) : (
+									<td
+										className="ticker-number"
+										style={{ color: "red" }}
+									>{`-$${Math.abs(
+										+portfolio["overallProfit/Loss"].toFixed(2)
+									)} (${numberWithCommas(
+										100 *
+											(
+												+portfolio["overallProfit/Loss"] /
+												(+sessionUser.buying_pwr + +portfolio.totalMarketValue)
+											).toFixed(3)
+									)}%)`}</td>
+								)}
 
               <td className="ticker-number">
                 {`$${numberWithCommas(+sessionUser.buying_pwr)}`}

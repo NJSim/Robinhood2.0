@@ -19,7 +19,7 @@ class Watchlist(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     created_at = db.Column(db.DateTime(timezone=True), nullable=False)
     updated_at = db.Column(db.DateTime(timezone=True), nullable=False)
-    user = relationship("User", cascade="all, delete")
+    user = relationship("User")
 
     def to_dict(self):
         watched_assets = {}

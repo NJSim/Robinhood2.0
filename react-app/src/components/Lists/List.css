@@ -5,10 +5,26 @@
 .allLists{
   display: flex;
   flex-direction: column;
-  float: left;
 }
 
 .edit-form{
   display:flex;
 }
-
+#top-watchlist-div{
+  display: flex;
+  border-bottom: 1px solid #E3E9ED;
+  margin: 0;
+  padding:0;
+}
+#top-watchlist-div h2{
+  padding:10px;
+  margin:0;
+}
+#button-new-watchlist:hover{
+  cursor: pointer;
+  color: #00a806;
+}
+#add-new-watchlist{
+  font-size: 15px;
+  font-weight: 900;
+}
