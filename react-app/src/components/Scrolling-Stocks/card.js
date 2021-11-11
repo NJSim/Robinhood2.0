@@ -1,11 +1,12 @@
 import React from "react";
+import { Link, NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { VisibilityContext } from "react-horizontal-scrolling-menu";
 import { useState, useEffect } from "react";
 import Chart from "../Stocks/Chart";
-export function Card({ title, itemId }) {
+export function Card({ title, stock, itemId, key, routeId }) {
   const visibility = React.useContext(VisibilityContext);
-  const stock = useSelector(state => state.stocks.stock);
+  // const stock = useSelector(state => state.stocks.stock);
   const visible = visibility.isItemVisible(itemId);
   const [chartPrice, setChartPrice] = useState();
 
@@ -14,48 +15,86 @@ export function Card({ title, itemId }) {
   };
   if (stock) {
     return (
-      <div
-        role="button"
-        style={{
-          border: "1px solid",
-          display: "inline-block",
-          margin: "0 10px",
-          width: "160px",
-          userSelect: "none",
-          marginBottom: "60px",
-        }}
-        tabIndex={0}
-        className="card"
-      >
-        <div>
-          <div>{stock["companyName"]}</div>
-          <div style={{ backgroundColor: visible ? "transparent" : "gray" }}>
-            change: {`${(stock["changePercent"] * 100).toFixed(2)}%`}
-          </div>
-        </div>
+      <Link to={`/stocks/${routeId}`} style={{ color: "black" }}>
         <div
+          role="button"
           style={{
-            backgroundColor: "white",
-            height: "50px",
-            color: "green",
+            border: "1px solid",
+            display: "inline-block",
+            margin: "0 10px",
+            width: "160px",
+            userSelect: "none",
+            marginBottom: "60px",
+            cursor: "pointer",
           }}
+          tabIndex={0}
+          className="card"
         >
-          price: {stock["latestPrice"]}
+          <div>
+            <div
+              style={{
+                fontWeight: "600",
+                fontSize: "10pt",
+                height: "30px",
+                marginLeft: "10px",
+              }}
+            >
+              {stock[1].quote["companyName"].slice(0, 20)}
+            </div>
+          </div>
+          <div
+            style={{
+              backgroundColor: "white",
+              textAlign: "center",
+            }}
+          >
+            {`$${stock[1].quote["latestPrice"]}`}
+          </div>
+          {stock[1].quote["changePercent"] * 100 < 0 ? (
+            <div
+              style={{
+                textAlign: "center",
+                color: "red",
+              }}
+            >
+              {`${(stock[1].quote["changePercent"] * 100).toFixed(2)}%`}
+            </div>
+          ) : (
+            <div
+              style={{
+                textAlign: "center",
+                color: "green",
+              }}
+            >
+              {`${(stock[1].quote["changePercent"] * 100).toFixed(2)}%`}
+            </div>
+          )}
+          <div
+            style={{
+              backgroundColor: "white",
+              height: "50px",
+              fontWeight: "1000",
+              textAlign: "center",
+              fontSize: "24pt",
+            }}
+          >
+            {stock[0]}
+          </div>
+          {/* <Chart
+            timeFrame={"chart_1d"}
+            stock={stock}
+            color={"#00a806"}
+            childToParent={childToParent}
+            height={100}
+            width={150}
+            style={{
+                backgroundColor: "bisque",
+                height: "100px",
+                overflow: "scroll",
+            }}
+            /> */}
         </div>
-        <Chart
-          timeFrame={"chart_1d"}
-          stock={stock}
-          color={"#00a806"}
-          childToParent={childToParent}
-          height={100}
-          width={150}
-          style={{
-            backgroundColor: "bisque",
-            height: "100px",
-            overflow: "scroll",
-          }}
-        />
-      </div>
+      </Link>
     );
   }
 }

@@ -14,56 +14,71 @@ const getItems = () =>
     .fill(0)
     .map((_, ind) => ({ id: getId(ind) }));
 
+let allStocks;
 function ScrollingStock() {
   const stocks = useSelector(state => state.stocks.allStocks);
   console.log("All stocks======>", stocks);
   const [items] = React.useState(getItems);
 
   const dispatch = useDispatch();
-  let allStocks;
+
   useEffect(() => {
-    // if (!stocks) {
-    //   return (
-    //     <div id="loading">
-    //       <img src={loadingSpinner} alt="Loading..." />
-    //     </div>
-    //   );
-    // }
+    if (!stocks) {
+      return (
+        <div id="loading">
+          <img src={loadingSpinner} alt="Loading..." />
+        </div>
+      );
+    }
+  }, [dispatch]);
+
+  useEffect(() => {
     (async () => {
       await dispatch(getAllStocks());
     })();
-    // allStocks = Object.entries(stocks);
   }, [dispatch]);
 
-  if (allStocks) {
-    let allStocks = Object.values(stocks);
-    let allSymbols = Object.keys(stocks);
-    return (
-      <>
-        <div style={{ marginRight: "50px", marginLeft: "50px" }}>
-          <ScrollMenu
-            LeftArrow={LeftArrow}
-            RightArrow={RightArrow}
-            // onWheel={onWheel}
-          >
-            {allStocks.map(({ id }) => (
-              <Card
-                title={id}
-                itemId={id} // NOTE: itemId is required for track items
-                key={id}
-              />
-            ))}
-          </ScrollMenu>
-        </div>
-      </>
-    );
+  if (stocks) {
+    allStocks = Object.entries(stocks);
+    console.log("All Stocks entries===>>>", allStocks);
   }
 
+  let routeId = 0;
+
   return (
-    <div id="loading">
-      <img src={loadingSpinner} alt="Loading..." />
-    </div>
+    <>
+      <div style={{ marginRight: "50px", marginLeft: "50px" }}>
+        <ScrollMenu
+          LeftArrow={LeftArrow}
+          RightArrow={RightArrow}
+          // onWheel={onWheel}
+        >
+          {allStocks ? (
+            allStocks.map((stock, i) => (
+              <Card
+                title={stock[0]}
+                stock={stock}
+                itemId={stock[0]} // NOTE: itemId is required for track items
+                key={stock[0]}
+                routeId={i + 1}
+              />
+            ))
+          ) : (
+            <div id="loading">
+              <img src={loadingSpinner} alt="Loading..." />
+            </div>
+          )}
+        </ScrollMenu>
+      </div>
+    </>
   );
 }
+
+//   return (
+//     <div id="loading">
+//       <img src={loadingSpinner} alt="Loading..." />
+//     </div>
+//   );
+// }
 
 export default ScrollingStock;
