@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect, useState } from "react";
 import * as sessionActions from '../../store/session'
 import './Navigation.css';
-import { getQuery } from '../../store/search';
+import { getQuery, clearQuery } from '../../store/search';
 import { NavLink } from 'react-router-dom';
 
 
@@ -10,7 +10,7 @@ import { NavLink } from 'react-router-dom';
 function Navigation(){
 
   const sessionUser = useSelector(state => state.session.user);
-  // const queryResults = useState(state => state.search.query)
+  const queryResults = useSelector(state => state.search.results)
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -18,6 +18,9 @@ function Navigation(){
 
   useEffect(() => {
     dispatch(getQuery(query))
+    if (query == ''){
+      dispatch(clearQuery())
+    }
   }, [dispatch, query])
 
   const logout = (e) => {
@@ -31,6 +34,18 @@ function Navigation(){
     setPassword("password")
     return dispatch(sessionActions.login("demo@aa.io", "password"))
   }
+
+  let searchBar = (
+    <div className="searchBarQuery">
+        <div className="searchResults">
+          {Object.keys(queryResults).map((key) => {
+            return <NavLink className="result" to={`/stocks/${key}`} value={key}>{queryResults[key]}</NavLink>
+          })
+          }
+        </div>
+    </div>
+  )
+
 
   let isRegistered = (
 
@@ -119,10 +134,8 @@ function Navigation(){
           </div>
           <div className="search">
 
-            <div className="search-items">
-
-              <div className="dashboard-search">
-
+            <div className="dashboard-search">
+              <div className="searchIcon">
                 <svg className="search-logo" fill="none" height="24" role="img" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
                   <path clipRule="evenodd" d="M15.3201 16.7344C14.0741 17.5354 12.5913 18 11 18C6.58172 18 3 14.4183 3 10C3
                   5.58172 6.58172 2 11 2C15.4183 2 19 5.58172 19 10C19 12.1038 18.1879 14.0179 16.8601 15.446L21.7071
@@ -131,17 +144,20 @@ function Navigation(){
                   </path>
                 </svg>
 
-                <div className="searchbar">
-                  <input type="search" onChange={e => setQuery(e.target.value)} style={{width: "100%", height:25, border: "none", outline:"none", fontSize: 15}} placeholder="Search" type="search">
-                  </input>
-                  {/* {Object.keys(queryResults).map((key) => {
-                    return <div value={key}>{queryResults[key]}</div>
-                  })
-                  } */}
-                </div>
               </div>
 
+              <div className="searchbar">
+                <input type="search" onKeyUp={e => setQuery(e.target.value)} style={{width: "100%", height:44, border: "none", outline:"none", fontSize: 15}} placeholder="Search" type="search">
+                </input>
+                {/* {Object.keys(queryResults).map((key) => {
+                  return <div value={key}>{queryResults[key]}</div>
+                })
+                } */}
+                {searchBar}
+              </div>
             </div>
+
+
 
           </div>
 

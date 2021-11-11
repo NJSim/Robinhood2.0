@@ -12,7 +12,9 @@ import Chart from "./Chart";
 import loadingSpinner from "../../images/green-loading-spinner.gif";
 import { executeTransaction } from "../../store/transactions";
 import List from "../Lists/List";
+import ScrollingStock from "../Scrolling-Stocks/ScrollingStocks";
 import StockList from "../StockList/StockList"
+
 
 function Stock() {
   const { stockId } = useParams();
@@ -29,20 +31,20 @@ function Stock() {
   const [showSell, setShowSell] = useState(false);
   const [showBuy, setShowBuy] = useState(true);
   const [errors, setErrors] = useState([]);
+  const [loaded, setLoaded] = useState(false)
   // lists modal states
   const [show, setShow] = useState(false);
 
   const [chartPrice, setChartPrice] = useState();
 
   useEffect(() => {
-    if (!stockId) {
-      return;
-    }
     (async () => {
+      setLoaded(false)
       await dispatch(getStock(stockId));
+      setLoaded(true)
     })();
   }, [stockId]);
-  if (!stock) {
+  if (!stock || !loaded) {
     return (
       <div id="loading">
         <img src={loadingSpinner} alt="Loading..." />
@@ -109,6 +111,7 @@ function Stock() {
   };
   return (
     <div id="main-stock-div">
+      <ScrollingStock />
       <div id="stock-graph-trans">
         <div>
           <h1>{stock["companyName"]}</h1>
@@ -147,6 +150,7 @@ function Stock() {
             stock={stock}
             color={"#00a806"}
             childToParent={childToParent}
+            height={250}
           />
           <div id="timeFrameDiv">
             <button
@@ -296,7 +300,9 @@ function Stock() {
               onClose={() => setShow(false)}
             >
               <>
-                <StockList assetID={stockId}/>
+                <h2 className="addNewList"> + Create New List </h2>
+
+                {/* <StockList assetID={stockId}/> */}
               </>
             </Modal>
           </div>

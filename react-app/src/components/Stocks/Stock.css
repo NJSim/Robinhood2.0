@@ -4,17 +4,18 @@
   display: flex;
   flex-direction: column;
 }
-#stock-graph-trans{
+#stock-graph-trans {
   display: flex;
   justify-content: center;
-
 }
-div.content { width: auto; }
-#stock-change{
+div.content {
+  width: auto;
+}
+#stock-change {
   font-weight: 800;
   font-size: 14px;
 }
-.buy-stock-div1{
+.buy-stock-div1 {
   border: solid transparent 1px;
   width: 18rem;
   height: 25rem;
@@ -24,52 +25,56 @@ div.content { width: auto; }
   justify-content: center;
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 8px;
-
-
 }
-.stock-graph-plotly{
+.stock-graph-plotly {
   width: 50vw;
   max-width: 750px;
 }
 
-.buy-stock-form{
+.buy-stock-form {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
 }
 
-.spanBuy{
+.spanBuy {
   margin: 0px;
   color: rgb(255, 80, 0, 1);
   font-style: normal;
   font-weight: bold;
   text-decoration: unset;
-  font-family: "Capsule Sans Display",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-family: "Capsule Sans Display", system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
   cursor: pointer;
 }
-.spanBuy:hover{
+.spanBuy:hover {
   color: rgb(255, 80, 0, 1);
-
 }
 
+/* fixes additional margin on stock scroll bar below */
+.stock-graph-plotly {
+  width: 0;
+}
+/* end of block for margin on scoll bar*/
 
-.spanSell{
+.spanSell {
   margin-left: 1rem;
   /* margin: 0px; */
   color: black;
   font-style: normal;
   font-weight: bold;
   text-decoration: unset;
-  font-family: "Capsule Sans Display",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-family: "Capsule Sans Display", system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
   cursor: pointer;
 }
-.spanSell:hover{
+.spanSell:hover {
   color: rgb(255, 80, 0, 1);
-
 }
 
-.InvestLabel{
-  font-family: "Capsule Sans Display",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+.InvestLabel {
+  font-family: "Capsule Sans Display", system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
   font-size: 14px;
   width: auto;
   /* overflow: hidden;
@@ -77,47 +82,46 @@ div.content { width: auto; }
   white-space: nowrap; */
 }
 
-
-.reviewOrder{
+.reviewOrder {
   appearance: none;
   color: white;
   font-weight: bold;
-    border: 0px;
-    font-size: 13px;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    text-align: unset;
-    -webkit-box-align: center;
-    align-items: center;
-    box-sizing: border-box;
-    display: inline-flex;
-    -webkit-box-pack: center;
-    justify-content: center;
-    cursor: pointer;
-    border-radius: var(--rh__size-palette__borderRadius);
-    background-color: rgb(253, 111, 45);
-    height: var(--rh__size-palette__cellHeight);
-    max-width: 420px;
-    min-width: 120px;
-    padding-left: calc(4 * var(--rh__size-palette__gutterWidth));
-    padding-right: calc(4 * var(--rh__size-palette__gutterWidth));
-    white-space: nowrap;
-    width: 14rem;
-    height: 2.8rem;
-    border-radius: .2rem;
+  border: 0px;
+  font-size: 13px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  text-align: unset;
+  -webkit-box-align: center;
+  align-items: center;
+  box-sizing: border-box;
+  display: inline-flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: var(--rh__size-palette__borderRadius);
+  background-color: rgb(253, 111, 45);
+  height: var(--rh__size-palette__cellHeight);
+  max-width: 420px;
+  min-width: 120px;
+  padding-left: calc(4 * var(--rh__size-palette__gutterWidth));
+  padding-right: calc(4 * var(--rh__size-palette__gutterWidth));
+  white-space: nowrap;
+  width: 14rem;
+  height: 2.8rem;
+  border-radius: 0.2rem;
 }
-.reviewOrder:hover{
+.reviewOrder:hover {
   background-color: rgb(209, 67, 1);
 }
-.buy-stock-div{
+.buy-stock-div {
   margin-left: 5vw;
 }
-.addTolist{
+.addTolist {
   width: 18rem;
   height: 2.5rem;
-  border-radius: .2rem;
+  border-radius: 0.2rem;
   border: 1px solid;
-  border-color:  rgb(255, 80, 0, 1);
+  border-color: rgb(255, 80, 0, 1);
   color: rgb(255, 80, 0, 1);
   font-weight: bold;
   background-color: white;
@@ -126,57 +130,55 @@ div.content { width: auto; }
   margin-bottom: 1rem;
 }
 
-.addTolist:hover{
-  background-color: rgb(255, 80, 0, .8);
+.addTolist:hover {
+  background-color: rgb(255, 80, 0, 0.8);
   color: white;
   cursor: pointer;
 }
 
-.buyInput{
+.buyInput {
   border-width: 1px;
-  border-color:  black;
-  border-radius: .2rem;
+  border-color: black;
+  border-radius: 0.2rem;
   width: 4.5rem;
   height: 2rem;
   float: right;
   text-align: right;
   padding: 5px;
 }
-.buyInput:focus{
+.buyInput:focus {
   outline: 1px solid rgb(255, 80, 0, 1);
   border: none;
-
 }
 
-.il4{
+.il4 {
   color: rgb(255, 80, 0, 1);
   font-weight: bold;
   font-size: 14px;
   float: left;
 }
-.il4s{
+.il4s {
   color: black;
   float: right;
   font-weight: bold;
   font-size: 14px;
-
 }
 
-.il5{
+.il5 {
   color: rgb(255, 80, 0, 1);
   font-weight: bold;
   font-size: 12px;
   text-align: center;
 }
 
-.il6{
+.il6 {
   color: rgb(255, 80, 0, 1);
   font-weight: bold;
   font-size: 12px;
   text-align: center;
 }
 
-.assestSymboldiv{
+.assestSymboldiv {
   /* background-color: red; */
   /* background-color: blue; */
   /* align-content: center; */
@@ -193,28 +195,26 @@ div.content { width: auto; }
   border-color: grey;
 }
 
-.il4div{
+.il4div {
   border-bottom: solid 1px grey;
   width: 100%;
   padding-bottom: 1rem;
 }
 
-.InvestLabelSpan{
+.InvestLabelSpan {
   float: right;
 }
 
-.ES1{
+.ES1 {
   font-weight: bold;
-
 }
 
-.ES2{
+.ES2 {
   float: right;
   overflow: hidden;
-  text-overflow:hidden;
+  text-overflow: hidden;
   /* text-overflow: ellipsis; */
 }
-
 
 /* timeFrame buttons under stock chart */
 
@@ -222,7 +222,7 @@ div.content { width: auto; }
   margin: 0;
   width: 100%;
   display: flex;
-  border-bottom: 1px solid #E3E9ED;
+  border-bottom: 1px solid #e3e9ed;
 }
 
 .timeFrameButton {
