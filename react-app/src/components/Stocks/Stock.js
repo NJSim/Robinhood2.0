@@ -12,6 +12,7 @@ import Chart from "./Chart";
 import loadingSpinner from "../../images/green-loading-spinner.gif";
 import { executeTransaction } from "../../store/transactions";
 import List from "../Lists/List";
+import StockList from "../StockList/StockList"
 
 function Stock() {
   const { stockId } = useParams();
@@ -295,8 +296,7 @@ function Stock() {
               onClose={() => setShow(false)}
             >
               <>
-                <h2 className="addNewList"> + Create New List </h2>
-                <List assetID={stockId}/>
+                <StockList assetID={stockId}/>
               </>
             </Modal>
           </div>
