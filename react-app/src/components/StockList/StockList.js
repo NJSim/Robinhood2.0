@@ -17,6 +17,7 @@ function StockList({ assetID, assetSymbol }) {
   const [newEditName, setNewEditName] = useState("");
   const [mainWatchlist, setMainWatchlist] = useState("");
   const [newWatchlist, setNewWatchlist] = useState("");
+  const [additionComplete, setAdditionComplete] = useState(false);
   const createListForm = useRef(null);
   const CRL = useRef("");
   const [checked, setChecked] = useState(false);
@@ -37,12 +38,14 @@ function StockList({ assetID, assetSymbol }) {
   };
 
   const submitAddAsset = async e => {
-    alert(
-      `${assetSymbol} has been added to ${watchlists[mainWatchlist].name}!`
-    );
-    await dispatch(addToWatchlist(mainWatchlist, assetID)).then(() =>
+    dispatch(addToWatchlist(mainWatchlist, assetID)).then(() =>
       dispatch(getList(sessionUser.id))
     );
+
+    setAdditionComplete(true);
+    await setTimeout(() => {
+      setAdditionComplete(false);
+    }, 1500);
   };
 
   if (!watchlists) {
@@ -133,6 +136,26 @@ function StockList({ assetID, assetSymbol }) {
         <button onClick={submitAddAsset} className="SaveChangesButton">
           Save Changes
         </button>
+        {mainWatchlist && additionComplete ? (
+          <p
+            style={{
+              color: "rgb(0, 185, 5)",
+              textAlign: "center",
+              marginTop: "20px",
+              fontWeight: "1000",
+            }}
+          >
+            {assetSymbol} has been added to {watchlists[mainWatchlist].name}
+          </p>
+        ) : (
+          <p
+            style={{
+              color: "rgb(0, 185, 5)",
+              textAlign: "center",
+              marginTop: "39px",
+            }}
+          ></p>
+        )}
       </>
     );
   }
