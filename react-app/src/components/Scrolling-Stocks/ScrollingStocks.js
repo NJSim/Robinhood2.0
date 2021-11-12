@@ -10,7 +10,7 @@ let allStocks;
 function ScrollingStock() {
   const stocks = useSelector(state => state.stocks.allStocks);
 
-  const [items] = React.useState(getItems);
+
 
 
   const dispatch = useDispatch();
