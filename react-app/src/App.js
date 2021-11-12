@@ -35,7 +35,7 @@ function App() {
 
   return (
 		<BrowserRouter>
-			<Navigation/>
+			<Navigation></Navigation>
 			<Switch>
 				<Route exact path='/'>
           			<HomePage />
