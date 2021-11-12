@@ -192,12 +192,15 @@ const hideResults = () => {
 								</svg>
 							</div>
 
-							<div className="searchbar" >
+							<div className="searchbar"
+									onMouseEnter={showResults}
+									onMouseLeave={hideResults}
+
+							 >
 								<input
 									type="search"
 									onKeyUp={(e) => setQuery(e.target.value)}
-									// onClick={showResults}
-									// onBlur={hideResults}
+
 									style={{
 										width: "100%",
 										height: 44,
