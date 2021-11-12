@@ -290,18 +290,20 @@ function Stock() {
                 )}
               </div>
             </div>
-            <button
-              onClick={() => setShow(true)}
-              className="addTolist"
-            ></button>
+
+            <button onClick={() => setShow(true)} className="addTolist">
+            Add To List
+            </button>
             <Modal
               title={stock["symbol"]}
               show={show}
               onClose={() => setShow(false)}
             >
               <>
-                {/* <StockList/> */}
-                <StockList assetID={stockId} />
+
+                  <StockList assetID={stockId}/>
+                {/* <StockList assetID={stockId}/> */}
+
               </>
             </Modal>
           </div>
