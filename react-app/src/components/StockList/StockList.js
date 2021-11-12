@@ -3,6 +3,73 @@ import "./StockList.css"
 
 import { useEffect, useState, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
+<<<<<<< HEAD
+import {
+  getList,
+  editList,
+  deleteList,
+  addWatchList,
+  addToWatchlist,
+} from "../../store/lists";
+
+function StockList({ assetID, assetSymbol }) {
+  const dispatch = useDispatch();
+  const sessionUser = useSelector(state => state.session.user);
+  const watchlists = useSelector(state => state.watchlists.watchlists);
+  const [newEditName, setNewEditName] = useState("");
+  const [mainWatchlist, setMainWatchlist] = useState("");
+  const [newWatchlist, setNewWatchlist] = useState("");
+  const createListForm = useRef(null);
+  const CRL = useRef("");
+  const [checked, setChecked] = useState(false);
+
+  useEffect(() => {
+    if (sessionUser) {
+      dispatch(getList(sessionUser.id));
+    }
+  }, [dispatch, sessionUser, mainWatchlist]);
+
+  const submitWatchlist = async e => {
+    e.preventDefault();
+    if (!sessionUser) return;
+
+    dispatch(addWatchList(newWatchlist, sessionUser.id)).then(() =>
+      dispatch(getList(sessionUser.id))
+    );
+  };
+
+  const submitAddAsset = async e => {
+    alert(
+      `${assetSymbol} has been added to ${watchlists[mainWatchlist].name}!`
+    );
+    await dispatch(addToWatchlist(mainWatchlist, assetID)).then(() =>
+      dispatch(getList(sessionUser.id))
+    );
+  };
+
+  if (!watchlists) {
+    return null;
+  }
+
+  const hideAddListForm = () => {
+    createListForm.current.classList.add("hidden");
+    CRL.current.classList.remove("hidden");
+    setNewWatchlist("");
+  };
+
+  const hideAddListForm2 = () => {
+    createListForm.current.classList.add("hidden");
+    CRL.current.classList.remove("hidden");
+  };
+
+  const showAddListForm = () => {
+    createListForm.current.classList.remove("hidden");
+    CRL.current.classList.add("hidden");
+  };
+
+  if (sessionUser && watchlists) {
+    return (
+=======
 import { getList, editList, deleteList, addWatchList, addToWatchlist } from "../../store/lists";
 
 
@@ -67,6 +134,7 @@ function StockList({assetID}){
 
     if (sessionUser && watchlists) {
     return(
+>>>>>>> main
       <>
         <div className="allLists2">
           <div>
@@ -97,10 +165,20 @@ function StockList({assetID}){
             ))}
 
         </div>
+<<<<<<< HEAD
+
+        <button onClick={submitAddAsset} className="SaveChangesButton">
+          Save Changes
+        </button>
+      </>
+    );
+  }
+=======
         <button onClick={submitAddAsset} className="SaveChangesButton">Save Changes</button>
         </>
         )
     }
+>>>>>>> main
 }
 
 export default StockList;
