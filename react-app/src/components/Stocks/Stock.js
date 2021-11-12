@@ -110,7 +110,6 @@ function Stock() {
   };
   return (
     <div id="main-stock-div">
-      <ScrollingStock />
       <div id="stock-graph-trans">
         <div>
           <h1>{stock["companyName"]}</h1>

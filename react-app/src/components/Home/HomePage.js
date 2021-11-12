@@ -68,13 +68,7 @@ function HomePage() {
     setChartPrice(data);
   };
 
-  if (!sessionUser) {
-    return (
-      <div id="loading">
-        <img src={loadingSpinner} alt="Loading..." />
-      </div>
-    );
-  }
+
   if (!sessionUser) {
     return (
       <>
@@ -269,7 +263,7 @@ function HomePage() {
       </>
     );
   }
-  if (!stock) {
+  if (sessionUser && !stock) {
     return (
       <div id="loading">
         <img src={loadingSpinner} alt="Loading..." />
@@ -280,9 +274,6 @@ function HomePage() {
     <>
       <div className="flex1">
         <div className="flex2">
-          <div style={{ marginTop: "50px" }}>
-            <ScrollingStock style={{ height: "30px" }} />
-          </div>
 
           <div className="dashboardContainer">
             <div className="row">
