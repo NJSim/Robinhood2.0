@@ -10,7 +10,7 @@ import {
   addToWatchlist,
 } from "../../store/lists";
 
-function StockList({ assetID }) {
+function StockList({ assetID, assetSymbol }) {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
   const watchlists = useSelector(state => state.watchlists.watchlists);
@@ -37,8 +37,9 @@ function StockList({ assetID }) {
   };
 
   const submitAddAsset = async e => {
-    e.preventDefault();
-
+    alert(
+      `${assetSymbol} has been added to ${watchlists[mainWatchlist].name}!`
+    );
     await dispatch(addToWatchlist(mainWatchlist, assetID)).then(() =>
       dispatch(getList(sessionUser.id))
     );
@@ -128,6 +129,7 @@ function StockList({ assetID }) {
             )
           )}
         </div>
+
         <button onClick={submitAddAsset} className="SaveChangesButton">
           Save Changes
         </button>

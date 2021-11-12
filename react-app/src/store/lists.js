@@ -84,8 +84,6 @@ const addAssestToList = watchlists => ({
 });
 
 export const addToWatchlist = (watchlistId, symbol) => async dispatch => {
-  console.log("LOOK HERE=======================>", watchlistId, symbol);
-
   // for(let i = 0; i < idArray.length; i++){
   //     let id = idArray[i]
 
