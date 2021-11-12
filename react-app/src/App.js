@@ -16,9 +16,9 @@ import { getPortfolio } from "./store/portfolio";
 import ScrollingStock from "./components/Scrolling-Stocks/ScrollingStocks";
 import loadingSpinner from "../src/images/green-loading-spinner.gif";
 
-
 function App() {
   const sessionUser = useSelector(state => state.session.user);
+  const portfolio = useSelector(state => state.portfolio.portfolio);
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
 
@@ -39,36 +39,35 @@ function App() {
   }
 
   return (
-		<BrowserRouter>
-			<Navigation></Navigation>
-			<Switch>
-				<Route exact path="/">
-					{sessionUser ? (
-						<div style={{ marginTop: "50px" }}>
-							<ScrollingStock style={{ height: "30px" }} />
-						</div>
-					) : null}
-					{sessionUser ? <HomePage /> : <SplashPage />}
-
-				</Route>
-				<Route path="/login" exact={true}>
-					<LoginForm />
-				</Route>
-				<Route path="/sign-up" exact={true}>
-					<SignUpForm />
-				</Route>
-				<ProtectedRoute path="/account">
-					<Account />
-				</ProtectedRoute>
-				<ProtectedRoute path="/stocks/:stockId" exact={true}>
-					<div style={{ marginTop: "50px" }}>
-						<ScrollingStock style={{ height: "30px" }} />
-					</div>
-					<Stock />
-				</ProtectedRoute>
-			</Switch>
-		</BrowserRouter>
-	);
+    <BrowserRouter>
+      <Navigation></Navigation>
+      <Switch>
+        <Route exact path="/">
+          {sessionUser && portfolio ? (
+            <div style={{ marginTop: "50px" }}>
+              <ScrollingStock style={{ height: "30px" }} />
+            </div>
+          ) : null}
+          {sessionUser && portfolio ? <HomePage /> : <SplashPage />}
+        </Route>
+        <Route path="/login" exact={true}>
+          <LoginForm />
+        </Route>
+        <Route path="/sign-up" exact={true}>
+          <SignUpForm />
+        </Route>
+        <ProtectedRoute path="/account">
+          <Account />
+        </ProtectedRoute>
+        <ProtectedRoute path="/stocks/:stockId" exact={true}>
+          <div style={{ marginTop: "50px" }}>
+            <ScrollingStock style={{ height: "30px" }} />
+          </div>
+          <Stock />
+        </ProtectedRoute>
+      </Switch>
+    </BrowserRouter>
+  );
 }
 
 export default App;
