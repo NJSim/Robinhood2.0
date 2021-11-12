@@ -15,6 +15,7 @@ import { getPortfolio } from './store/portfolio';
 import ScrollingStock from './components/Scrolling-Stocks/ScrollingStocks';
 import loadingSpinner from "../src/images/green-loading-spinner.gif";
 
+
 function App() {
   const sessionUser = useSelector((state) => state.session.user);
   const [loaded, setLoaded] = useState(false);
@@ -40,8 +41,11 @@ function App() {
 			<Navigation></Navigation>
 			<Switch>
 				<Route exact path="/">
+
 					{sessionUser?(<div style={{ marginTop: "50px" }}>
+
 						<ScrollingStock style={{ height: "30px" }} />
+
 					</div>):null}
 
 					<HomePage />
