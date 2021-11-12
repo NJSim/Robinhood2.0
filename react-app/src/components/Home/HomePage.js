@@ -63,10 +63,7 @@ function HomePage() {
     setChartPrice(data);
   };
 
-  if (!sessionUser && !portfolio) {
-    return <SplashPage />;
-  }
-  if (sessionUser && !stock) {
+  if ( !stock) {
     return (
       <div id="loading">
         <img src={loadingSpinner} alt="Loading..." />

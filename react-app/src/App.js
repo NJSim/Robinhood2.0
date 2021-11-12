@@ -8,6 +8,7 @@ import HomePage from "./components/Home/HomePage";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import UsersList from "./components/UsersList";
 import User from "./components/User";
+import SplashPage from "./components/Home/SplashPage";
 import Account from "./components/Account";
 import Stock from "./components/Stocks/Stock";
 import { authenticate } from "./store/session";
@@ -38,37 +39,36 @@ function App() {
   }
 
   return (
-
-    <BrowserRouter>
-      <Navigation></Navigation>
-      <Switch>
-        <Route exact path="/">
-          {sessionUser ? (
-            <div style={{ marginTop: "50px" }}>
-              <ScrollingStock style={{ height: "30px" }} />
-            </div>
-          ) : null}
-
-          <HomePage />
-        </Route>
-        <Route path="/login" exact={true}>
-          <LoginForm />
-        </Route>
-        <Route path="/sign-up" exact={true}>
-          <SignUpForm />
-        </Route>
-        <ProtectedRoute path="/account">
-          <Account />
-        </ProtectedRoute>
-        <ProtectedRoute path="/stocks/:stockId" exact={true}>
-          <div style={{ marginTop: "50px" }}>
-            <ScrollingStock style={{ height: "30px" }} />
-          </div>
-          <Stock />
-        </ProtectedRoute>
-      </Switch>
-    </BrowserRouter>
-  );
+		<BrowserRouter>
+			<Navigation></Navigation>
+			<Switch>
+				<Route exact path="/">
+					{sessionUser ? (
+						<div style={{ marginTop: "50px" }}>
+							<ScrollingStock style={{ height: "30px" }} />
+						</div>
+					) : null}
+					{sessionUser ? <HomePage /> : <SplashPage />}
+					
+				</Route>
+				<Route path="/login" exact={true}>
+					<LoginForm />
+				</Route>
+				<Route path="/sign-up" exact={true}>
+					<SignUpForm />
+				</Route>
+				<ProtectedRoute path="/account">
+					<Account />
+				</ProtectedRoute>
+				<ProtectedRoute path="/stocks/:stockId" exact={true}>
+					<div style={{ marginTop: "50px" }}>
+						<ScrollingStock style={{ height: "30px" }} />
+					</div>
+					<Stock />
+				</ProtectedRoute>
+			</Switch>
+		</BrowserRouter>
+	);
 }
 
 export default App;
