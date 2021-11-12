@@ -29,29 +29,14 @@ function HomePage() {
 
   useEffect(async () => {
     if (sessionUser) {
+      await dispatch(getStock(mainStock));
       await dispatch(getPortfolio());
       setLoaded(true);
     } else {
       setLoaded(true);
     }
-  }, [dispatch, sessionUser]);
-
-  useEffect(() => {
-    (async () => {
-      if (sessionUser) {
-        await dispatch(getPortfolio());
-        setLoaded(true);
-      } else {
-        setLoaded(true);
-      }
-    })();
-  }, [dispatch, sessionUser]);
-
-  useEffect(async () => {
-    if (sessionUser) {
-      await dispatch(getStock(mainStock));
-    }
   }, [dispatch, sessionUser, mainStock]);
+
 
   const trendingListsTest = [
     { id: 1, name: "Tech" },

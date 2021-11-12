@@ -49,7 +49,7 @@ function App() {
 						</div>
 					) : null}
 					{sessionUser ? <HomePage /> : <SplashPage />}
-					
+
 				</Route>
 				<Route path="/login" exact={true}>
 					<LoginForm />
