@@ -104,4 +104,3 @@ function StockList({assetID}){
 }
 
 export default StockList;
-
