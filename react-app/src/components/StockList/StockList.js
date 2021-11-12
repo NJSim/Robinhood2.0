@@ -1,7 +1,7 @@
 
 import "./StockList.css"
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getList, editList, deleteList, addWatchList, addToWatchlist } from "../../store/lists";
 
@@ -12,12 +12,17 @@ function StockList({assetID}){
     const watchlists = useSelector(state => state.watchlists.watchlists);
     const [newEditName, setNewEditName] = useState("");
     const [mainWatchlist, setMainWatchlist] = useState("");
-
     const [newWatchlist, setNewWatchlist] = useState("");
+    const createListForm = useRef(null)
+    const CRL = useRef("")
+    const [checked, setChecked] = useState(false);
+
+
 
     useEffect(() => {
         if(sessionUser){
             dispatch(getList(sessionUser.id))
+
         }
     },[dispatch, sessionUser, mainWatchlist])
 
@@ -26,8 +31,6 @@ function StockList({assetID}){
         e.preventDefault();
         if(!sessionUser) return;
 
-    //    const res = await dispatch(addWatchList(newWatchlist, sessionUser.id))
-    //    if(res) await dispatch(getList(sessionUser.id))
         dispatch(addWatchList(newWatchlist, sessionUser.id)).then(() => dispatch(getList(sessionUser.id)))
     }
 
@@ -35,41 +38,67 @@ function StockList({assetID}){
         e.preventDefault()
 
         dispatch(addToWatchlist(mainWatchlist, assetID)).then(() => dispatch(getList(sessionUser.id)))
+
     }
 
-    // const testLists = [{"id": 1, "name": "First List", "user_id": 1},{"id": 2, "name": "Second List", "user_id": 1}]
-    // if (!watchlists){
-    //     return null
-    // }
+    if (!watchlists){
+        return null
+    }
+
+    const hideAddListForm = () => {
+      createListForm.current.classList.add("hidden")
+      CRL.current.classList.remove("hidden")
+      setNewWatchlist("");
+    }
+
+    const hideAddListForm2 = () => {
+      createListForm.current.classList.add("hidden")
+      CRL.current.classList.remove("hidden")
+    }
+
+
+    const showAddListForm = () => {
+      createListForm.current.classList.remove("hidden")
+      CRL.current.classList.add("hidden")
+    }
 
 
 
 
     if (sessionUser && watchlists) {
     return(
-        <div className="allLists">
-
-            <h2 className="addNewList"> + Create New List </h2>
-            <form onSubmit={submitWatchlist}>
+      <>
+        <div className="allLists2">
+          <div>
+            {/* <h2 className="addNewList"> +  </h2> */}
+            <h2 className="showAddListForm" onClick={showAddListForm} ref={CRL}> + Create New List</h2>
+          </div>
+            <form onSubmit={submitWatchlist} ref={createListForm} className=" hidden addWatchListForm">
                 <input
                     value={newWatchlist}
                     onChange={(e) => setNewWatchlist(e.target.value)}
                     required
-                    placeholder='Create New Watchlist'
+                    placeholder='List Name'
+                    className="addWatchListInput"
+                    type="list"
                 >
                 </input>
-                <button type="submit">Create List</button>
+                <button type="submit" onClick={hideAddListForm2} className="createListButton">Create List</button>
+                <button type="submit1" onClick={hideAddListForm} className="cancelCreateButton">Cancel</button>
             </form>
 
-
             {Object.keys(watchlists).map( (key, index) => (
-                <div className="edit-form">
-                <h2 onClick={(e) => setMainWatchlist(watchlists[key].id)}key={watchlists[key].id}>{watchlists[key].name}</h2>
+                mainWatchlist === watchlists[key].id ?
+                <div className="edit-form2" style={{color: "rgb(0, 185, 5)"}}>
+                  <h2 className={`watchlistItems wl${watchlists[key].id}`} onClick={() => setMainWatchlist(watchlists[key].id)} key={watchlists[key].id}>{watchlists[key].name}</h2>
+                </div> : <div className="edit-form2">
+                  <h2 className={`watchlistItems wl${watchlists[key].id}`} onClick={() => setMainWatchlist(watchlists[key].id)} key={watchlists[key].id}>{watchlists[key].name}</h2>
                 </div>
             ))}
 
-                <button onClick={submitAddAsset}>Add to List</button>
         </div>
+        <button onClick={submitAddAsset} className="SaveChangesButton">Save Changes</button>
+        </>
         )
     }
 }

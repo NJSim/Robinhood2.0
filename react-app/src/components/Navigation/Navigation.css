@@ -236,17 +236,20 @@ nav ul ul li{
 
 /* Logged in Dashboard CSS */
 
+
 .dashboard-container{
   position:sticky;
   background-color: white;
   top: 0;
   width: 100%;
   z-index: 105;
+  height:64px;
 }
 
 .dashboard-wrapper{
   display: flex;
   align-items: center;
+  height:64px;
 }
 
 .dashboard-logo{
@@ -265,6 +268,12 @@ nav ul ul li{
   cursor: pointer;
 }
 
+input[type=search]::-ms-clear { display: none; width : 0; height: 0; }
+input[type=search]::-ms-reveal { display: none; width : 0; height: 0; }
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration { display: none; }
 .search{
   position: absolute;
   background-color: white;
@@ -279,6 +288,7 @@ nav ul ul li{
   transition: border-color 300ms ease 0s, box-shadow 300ms ease 0s;
   overflow: visible;
 }
+
 
 .search:hover{
   box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 8px;
@@ -319,6 +329,7 @@ nav ul ul li{
 
 .result {
   text-decoration: none;
+  color: rgb(98, 98, 98);
   padding-bottom: 7px;
   padding-left: 10px;
   display:flex;
@@ -331,7 +342,7 @@ nav ul ul li{
 }
 
 .searchTitle {
-  
+
   padding-right:5px;
   font-size: 13px;
   letter-spacing: -.1px;

@@ -149,10 +149,7 @@ function Navigation(){
               <div className="searchbar">
                 <input type="search" onKeyUp={e => setQuery(e.target.value)} style={{width: "100%", height:44, border: "none", outline:"none", fontSize: 15}} placeholder="Search" type="search">
                 </input>
-                {/* {Object.keys(queryResults).map((key) => {
-                  return <div value={key}>{queryResults[key]}</div>
-                })
-                } */}
+                
                 {searchBar}
               </div>
             </div>
