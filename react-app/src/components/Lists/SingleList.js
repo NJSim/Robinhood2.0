@@ -13,6 +13,7 @@ import {
 
 function SingleList({ watchlist }) {
     const sessionUser = useSelector((state) => state.session.user);
+    const stocks = useSelector((state) => state.stocks.allStocks);
 	const [showList, setShowList] = useState(false);
     const [show, setShow] = useState(false);
     const [newEditName, setNewEditName] = useState("");
@@ -42,24 +43,25 @@ function SingleList({ watchlist }) {
 					onChange={(e) => setNewEditName(e.target.value)}
 					className="edit-list"
 					placeholder={watchlist.name}
-                    value={newEditName}
+					value={newEditName}
 				></input>
 				<div className="modal-footer">
 					{/* <button onClick={props.onClose} className="button">Close</button> */}
 
-				<button
-					onClick={(e) => {
-						e.preventDefault();
-						dispatch(editList(watchlist.id, newEditName, sessionUser.id)).then(
-							() => dispatch(getList(sessionUser.id))
-						);
-						setShow(false);
-                        setNewEditName("");
-					}}
-					className="submit-edit-list"
-				>
-					Submit
-				</button></div>
+					<button
+						onClick={(e) => {
+							e.preventDefault();
+							dispatch(
+								editList(watchlist.id, newEditName, sessionUser.id)
+							).then(() => dispatch(getList(sessionUser.id)));
+							setShow(false);
+							setNewEditName("");
+						}}
+						className="submit-edit-list"
+					>
+						Submit
+					</button>
+				</div>
 			</Modal>
 			<div
 				id="single-watchlist-div"
@@ -85,9 +87,8 @@ function SingleList({ watchlist }) {
 									e.stopPropagation();
 									dispatch(deleteList(watchlist.id)).then(() =>
 										dispatch(getList(sessionUser.id))
-
 									);
-                                    setOptions(false)
+									setOptions(false);
 								}}
 							>
 								Delete List
@@ -104,7 +105,24 @@ function SingleList({ watchlist }) {
 				<div id="watchlist-assets-list">
 					{Object.keys(assets).map((key, index) => (
 						<NavLink to={`/stocks/${assets[key].asset_id}`}>
-							<div id="individual-list-asset"> {assets[key].symbol}</div>
+							<div id="individual-list-asset">
+								{assets[key].symbol}
+								<div
+									style={{
+										marginLeft: "auto",
+										paddingRight: 20,
+										display: "flex",
+										flexDirection: "column",
+									}}
+								>
+									<p style={{ fontSize: 11 }}>
+										${stocks[assets[key].symbol].quote.latestPrice}
+									</p>
+									<p style={{ fontSize: 11, margin: 0, textAlign: "right" }}>
+										${stocks[assets[key].symbol].quote.changePercent.toFixed(2)}
+									</p>
+								</div>
+							</div>
 						</NavLink>
 					))}
 				</div>
