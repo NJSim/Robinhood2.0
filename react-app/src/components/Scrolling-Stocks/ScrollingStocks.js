@@ -17,20 +17,10 @@ const getItems = () =>
 let allStocks;
 function ScrollingStock() {
   const stocks = useSelector(state => state.stocks.allStocks);
-  console.log("All stocks======>", stocks);
   const [items] = React.useState(getItems);
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    if (!stocks) {
-      return (
-        <div id="loading">
-          <img src={loadingSpinner} alt="Loading..." />
-        </div>
-      );
-    }
-  }, [dispatch]);
 
   useEffect(() => {
     (async () => {
@@ -64,8 +54,8 @@ function ScrollingStock() {
               />
             ))
           ) : (
-            <div id="loading">
-              <img src={loadingSpinner} alt="Loading..." />
+            <div id="loadingSmall">
+              <img src={loadingSpinner} alt="Loading..." width="50" height="50"/>
             </div>
           )}
         </ScrollMenu>
