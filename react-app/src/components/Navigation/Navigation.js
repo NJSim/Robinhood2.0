@@ -12,6 +12,7 @@ function Navigation(){
 
   const sessionUser = useSelector(state => state.session.user);
   const queryResults = useSelector(state => state.search.results)
+
   const [logoSource, setLogoSource] = useState(MoonRocket);
   const dispatch = useDispatch();
   const [query, setQuery] = useState("");
@@ -33,11 +34,24 @@ function Navigation(){
     return dispatch(sessionActions.login("demo@aa.io", "password"))
   }
 
+// ---------------------------------------
+const showResults = () => {
+	const searchRes = document.querySelector(".searchResults")
+	searchRes.style.display = "flex"
+}
+
+const hideResults = () => {
+	const searchRes = document.querySelector(".searchResults")
+	searchRes.style.display = "none"
+}
+// ---------------------------------------
+
+
   let searchBar = (
-    <div className="searchBarQuery">
-        <div className="searchResults">
+    <div className="searchBarQuery" >
+        <div className="searchResults" >
           {Object.keys(queryResults).map((key) => {
-            return <NavLink className="result" to={`/stocks/${key}`} value={key} onClick={() =>dispatch(clearQuery()) }>{queryResults[key]}</NavLink>
+            return <NavLink className="result" to={`/stocks/${key}`} value={key}  onClick={() =>dispatch(clearQuery()) }>{queryResults[key]}</NavLink>
           })
           }
         </div>
@@ -46,7 +60,7 @@ function Navigation(){
 
 
   let isRegistered = (
-		<div className="navigation-container">
+		<div className="navigation-container" >
 			<div className="navigation-item navigation-item1">
 				<NavLink to="/">
 					<img src={MoonLogo} alt="" height={28} className="logo"></img>{" "}
@@ -144,7 +158,7 @@ function Navigation(){
 	);
   if (sessionUser) {
     isRegistered = (
-			<div className="dashboard-container">
+			<div className="dashboard-container" >
 				<div className="dashboard-wrapper">
 					<div className="dashboard-logo" style={{ marginTop: 20 }}>
 						<NavLink
@@ -178,10 +192,12 @@ function Navigation(){
 								</svg>
 							</div>
 
-							<div className="searchbar">
+							<div className="searchbar" >
 								<input
 									type="search"
 									onKeyUp={(e) => setQuery(e.target.value)}
+									// onClick={showResults}
+									// onBlur={hideResults}
 									style={{
 										width: "100%",
 										height: 44,
