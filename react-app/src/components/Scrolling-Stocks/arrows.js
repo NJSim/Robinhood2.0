@@ -26,7 +26,7 @@ function Arrow({ children, disabled, onClick, image }) {
         // backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        marginTop: "50px",
+        // marginTop: "50px",
         marginLeft: "25px",
         marginRight: "25px",
       }}

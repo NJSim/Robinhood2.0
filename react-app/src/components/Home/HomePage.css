@@ -167,7 +167,7 @@
   /* justify-content: space-evenly; */
   height: 50rem;
   flex-wrap: wrap;
-  overflow:scroll;
+  overflow: scroll;
 }
 
 .HomePage3Item1 {
@@ -539,8 +539,9 @@
   /* display: flex;
   justify-content: space-between;
   margin-left: 40px;
-  margin-right: 80px; */
+  */
   width: 100%;
+  margin-right: 80px;
 }
 
 .portfolio-table-heading-ele {
@@ -599,10 +600,16 @@ tr {
   /* display: flex; */
   /* justify-content: flex-start; */
 
-  width: 80%;
-  margin-right: auto;
-  margin-left: 10px;
+  width: 60%;
+  margin-right: 300px;
+  margin-left: 150px;
   margin-bottom: 50px;
+}
+
+#portfolio-table-container {
+  margin-left: 150px;
+  margin-right: 150px;
+  width: 75%;
 }
 
 td {
@@ -620,5 +627,5 @@ td {
 
 .ticker-number {
   border-bottom: none;
-  font-size: 42pt;
+  font-size: 24pt;
 }

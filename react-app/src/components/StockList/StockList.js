@@ -105,12 +105,3 @@ function StockList({assetID}){
 
 export default StockList;
 
-
-// {Object.keys(watchlists).map( (key, index) => (
-//                 mainWatchlist === watchlists[key].id ?
-//                 <div className="edit-form2" style={{color: "rgb(0, 185, 5)"}}>
-//                   <h2 className={`watchlistItems wl${watchlists[key].id}`} onClick={() => setMainWatchlist(watchlists[key].id)} key={watchlists[key].id}>{watchlists[key].name}</h2>
-//                 </div> : <div className="edit-form2">
-//                   <h2 className={`watchlistItems wl${watchlists[key].id}`} onClick={() => setMainWatchlist(watchlists[key].id)} key={watchlists[key].id}>{watchlists[key].name}</h2>
-//                 </div>
-//             ))}

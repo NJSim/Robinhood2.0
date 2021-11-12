@@ -13,8 +13,7 @@ import loadingSpinner from "../../images/green-loading-spinner.gif";
 import { executeTransaction } from "../../store/transactions";
 import List from "../Lists/List";
 import ScrollingStock from "../Scrolling-Stocks/ScrollingStocks";
-import StockList from "../StockList/StockList"
-
+import StockList from "../StockList/StockList";
 
 function Stock() {
   const { stockId } = useParams();
@@ -31,7 +30,7 @@ function Stock() {
   const [showSell, setShowSell] = useState(false);
   const [showBuy, setShowBuy] = useState(true);
   const [errors, setErrors] = useState([]);
-  const [loaded, setLoaded] = useState(false)
+  const [loaded, setLoaded] = useState(false);
   // lists modal states
   const [show, setShow] = useState(false);
 
@@ -39,9 +38,9 @@ function Stock() {
 
   useEffect(() => {
     (async () => {
-      setLoaded(false)
+      setLoaded(false);
       await dispatch(getStock(stockId));
-      setLoaded(true)
+      setLoaded(true);
     })();
   }, [stockId]);
   if (!stock || !loaded) {
@@ -291,6 +290,7 @@ function Stock() {
                 )}
               </div>
             </div>
+
             <button onClick={() => setShow(true)} className="addTolist">
             Add To List
             </button>
@@ -300,8 +300,10 @@ function Stock() {
               onClose={() => setShow(false)}
             >
               <>
+
                   <StockList assetID={stockId}/>
                 {/* <StockList assetID={stockId}/> */}
+
               </>
             </Modal>
           </div>
