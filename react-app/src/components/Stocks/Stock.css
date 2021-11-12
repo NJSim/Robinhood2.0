@@ -67,6 +67,19 @@ html {
 } */
 /* end of block for margin on scoll bar*/
 
+/*
+
+edit the card on the Stock Scroll to have a different collor on hover
+*/
+.card:hover {
+  background-color: rgb(227, 233, 237);
+}
+
+/*
+
+end of - edit the card on the Stock Scroll to have a different collor on hover
+*/
+
 .spanSell {
   margin-left: 1rem;
   /* margin: 0px; */

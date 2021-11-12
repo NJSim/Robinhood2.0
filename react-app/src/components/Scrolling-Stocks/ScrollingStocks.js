@@ -24,7 +24,6 @@ function ScrollingStock() {
 
   if (stocks) {
     allStocks = Object.entries(stocks);
-    console.log("All Stocks entries===>>>", allStocks);
   }
 
   return (
