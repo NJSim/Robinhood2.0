@@ -62,3 +62,10 @@ padding-right: 50px;
   justify-content: center;
   align-items: center;
 }
+#loadingSmall{
+  display: flex;
+  width: 80vw;
+  height: 10vh;
+  justify-content: center;
+  align-items: center;
+}

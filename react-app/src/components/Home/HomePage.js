@@ -3,6 +3,7 @@ import Footer from "../Footer/Footer";
 import List from "../Lists/List";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 import { getPortfolio } from "../../store/portfolio";
 import { getStock } from "../../store/stocks";
 import { MechanicalCounter } from "mechanical-counter";
@@ -68,13 +69,7 @@ function HomePage() {
     setChartPrice(data);
   };
 
-  if (!sessionUser) {
-    return (
-      <div id="loading">
-        <img src={loadingSpinner} alt="Loading..." />
-      </div>
-    );
-  }
+
   if (!sessionUser) {
     return (
       <>
@@ -93,9 +88,9 @@ function HomePage() {
                 </span>
               </div>
               <button className="SignUpHomeButton">
-                <a href="/signUp" className="homeSignUpText">
+                <NavLink to="/sign-up" className="homeSignUpText">
                   Sign Up{" "}
-                </a>
+                </NavLink>
               </button>
               <h3 className="HomeH3">
                 <img
@@ -269,7 +264,7 @@ function HomePage() {
       </>
     );
   }
-  if (!stock) {
+  if (sessionUser && !stock) {
     return (
       <div id="loading">
         <img src={loadingSpinner} alt="Loading..." />
@@ -280,9 +275,6 @@ function HomePage() {
     <>
       <div className="flex1">
         <div className="flex2">
-          <div style={{ marginTop: "50px" }}>
-            <ScrollingStock style={{ height: "30px" }} />
-          </div>
 
           <div className="dashboardContainer">
             <div className="row">
