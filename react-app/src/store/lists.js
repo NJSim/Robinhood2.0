@@ -15,7 +15,6 @@ export const getList = userId => async dispatch => {
 
   if (response.ok) {
     const watchlists = await response.json();
-    console.log(watchlists);
     dispatch(loadWatchlists(watchlists));
     return null;
   } else if (response.status < 500) {
@@ -85,7 +84,7 @@ const addAssestToList = watchlists => ({
 });
 
 export const addToWatchlist = (watchlistId, symbol) => async dispatch => {
-  // console.log('LOOK HERE', watchlistId, symbol)
+  console.log("LOOK HERE=======================>", watchlistId, symbol);
 
   // for(let i = 0; i < idArray.length; i++){
   //     let id = idArray[i]
