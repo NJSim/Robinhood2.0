@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import LoginForm from "./components/auth/LoginForm";
 import SignUpForm from "./components/auth/SignUpForm";
@@ -25,8 +25,8 @@ function App() {
   useEffect(() => {
     (async () => {
       await dispatch(authenticate());
-      await dispatch(getPortfolio());
-      setLoaded(true);
+      await dispatch(getPortfolio()).then(() => setLoaded(true))
+
     })();
   }, [dispatch]);
 
@@ -39,35 +39,39 @@ function App() {
   }
 
   return (
-    <BrowserRouter>
-      <Navigation></Navigation>
-      <Switch>
-        <Route exact path="/">
-          {sessionUser && portfolio ? (
-            <div style={{ marginTop: "50px" }}>
-              <ScrollingStock style={{ height: "30px" }} />
-            </div>
-          ) : null}
-          {sessionUser && portfolio ? <HomePage /> : <SplashPage />}
-        </Route>
-        <Route path="/login" exact={true}>
-          <LoginForm />
-        </Route>
-        <Route path="/sign-up" exact={true}>
-          <SignUpForm />
-        </Route>
-        <ProtectedRoute path="/account">
-          <Account />
-        </ProtectedRoute>
-        <ProtectedRoute path="/stocks/:stockId" exact={true}>
-          <div style={{ marginTop: "50px" }}>
-            <ScrollingStock style={{ height: "30px" }} />
-          </div>
-          <Stock />
-        </ProtectedRoute>
-      </Switch>
-    </BrowserRouter>
-  );
+		<BrowserRouter>
+			<Navigation></Navigation>
+			<Switch>
+				<Route exact path="/">
+					{sessionUser? <Redirect to='/portfolio' />: null}
+					<SplashPage />
+				</Route>
+				<ProtectedRoute exact path="/portfolio">
+					{sessionUser ? (
+						<div style={{ marginTop: "50px" }}>
+							<ScrollingStock style={{ height: "30px" }} />
+						</div>
+					) : null}
+						{sessionUser && portfolio ? <HomePage />: null}
+				</ProtectedRoute>
+				<Route path="/login" exact={true}>
+					<LoginForm />
+				</Route>
+				<Route path="/sign-up" exact={true}>
+					<SignUpForm />
+				</Route>
+				<ProtectedRoute path="/account">
+					<Account />
+				</ProtectedRoute>
+				<ProtectedRoute path="/stocks/:stockId" exact={true}>
+					<div style={{ marginTop: "50px" }}>
+						<ScrollingStock style={{ height: "30px" }} />
+					</div>
+					<Stock />
+				</ProtectedRoute>
+			</Switch>
+		</BrowserRouter>
+	);
 }
 
 export default App;

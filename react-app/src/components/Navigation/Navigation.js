@@ -7,6 +7,7 @@ import { NavLink } from 'react-router-dom';
 import MoonLogo from "../../images/ToTheMoon-Logo-New.png"
 import MoonRocket from "../../images/ToTheMoonRocket.png";
 import MoonRocketGreen from "../../images/ToTheMoonRocketGreen.png";
+import { Redirect, useHistory } from 'react-router-dom';
 
 function Navigation(){
 
@@ -16,6 +17,7 @@ function Navigation(){
 
   const [logoSource, setLogoSource] = useState(MoonRocket);
   const dispatch = useDispatch();
+  const history = useHistory();
   const [query, setQuery] = useState("");
 
   useEffect(() => {
@@ -32,7 +34,8 @@ function Navigation(){
 
   const demo = (e) => {
     e.preventDefault();
-    return dispatch(sessionActions.login("demo@aa.io", "password"))
+    dispatch(sessionActions.login("demo@aa.io", "password"))
+    return <Redirect to="/portfolio" />;
   }
 
 
@@ -144,7 +147,7 @@ const submitSearch = () => {
 				</nav>
 			</div>
 			<div className="navigation-item navigation-item2">
-				<button className="demo-loginNav" onMouseDown={demo}>
+				<button className="demo-loginNav" onMouseDown={demo} onClick={() => history.push('/portfolio')}>
 					Demo
 				</button>
 				<button className="navLogInButton">

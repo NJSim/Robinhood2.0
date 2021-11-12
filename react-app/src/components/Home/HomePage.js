@@ -16,8 +16,14 @@ function HomePage() {
   const sessionUser = useSelector(state => state.session.user);
   const portfolio = useSelector(state => state.portfolio.portfolio);
   const stock = useSelector(state => state.stocks.stock);
-  let assets = Object.values(portfolio.positions);
-  const [mainStock, setMainStock] = useState(assets[0].asset_id);
+  let emptyPortfolio;
+  let assets;
+  if (!portfolio.positions){
+    emptyPortfolio = true;
+  } else {
+  assets = Object.values(portfolio.positions);
+  }
+  const [mainStock, setMainStock] = useState("");
   const [chartPrice, setChartPrice] = useState();
 
   function numberWithCommas(x) {
@@ -29,11 +35,18 @@ function HomePage() {
 
   useEffect(async () => {
     if (sessionUser) {
-      await dispatch(getStock(mainStock));
-      await dispatch(getPortfolio());
-      setLoaded(true);
-    } else {
-      setLoaded(true);
+      await dispatch(getPortfolio())
+				.then(() => {
+					setLoaded(true);
+          if (portfolio['isEmpty']){
+            setMainStock(1)
+          } else {
+					setMainStock(assets[0].asset_id);
+          }
+          assets = Object.values(portfolio.positions);
+				})
+				.then(() => dispatch(getStock(mainStock)));
+
     }
   }, [dispatch, sessionUser, mainStock]);
 
@@ -48,7 +61,7 @@ function HomePage() {
     setChartPrice(data);
   };
 
-  if ( !stock) {
+  if ( !stock || !loaded) {
     return (
       <div id="loading">
         <img src={loadingSpinner} alt="Loading..." />
@@ -116,7 +129,7 @@ function HomePage() {
           </div>
         </div>
       </div>
-      {portfolio ? (
+      {!portfolio['isEmpty'] ? (
         <table id="portfolio-ticker">
           <thead>
             <tr id="ticker-headings">
@@ -165,9 +178,7 @@ function HomePage() {
           </tbody>
         </table>
       ) : (
-        <div style={{ display: "flex", justifyContent: "center" }}>
-          <img src={loadingSpinner} alt="Loading..." />
-        </div>
+        null
       )}
 
       {/* <div id="ticker-headings">

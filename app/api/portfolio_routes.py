@@ -91,9 +91,12 @@ def getPortfolio():
         portfolio['totalMarketValue'] = total_market_value
         portfolio['totalAvgPurchaseValue'] = float(total_avg_value)
         portfolio['overallProfit/Loss'] = float(total_market_value) - float(total_avg_value)
+        portfolio['isEmpty'] = False
         if total_shares == 0:
-            return "Empty Portfolio"
+            portfolio['isEmpty'] = True
+            return portfolio
         else:
             return portfolio
     else:
-        return "Empty Portfolio"
+        portfolio['isEmpty'] = True
+        return portfolio
