@@ -5,11 +5,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { getList, editList, deleteList, addWatchList, addToWatchlist } from "../../store/lists";
 import SingleList from "./SingleList";
 
-function List({assetID}){
+function List(){
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
     const watchlists = useSelector(state => state.watchlists.watchlists);
-    const [newEditName, setNewEditName] = useState("");
+
     const [showNewWatchlist, setShowNewWatchlist] = useState(false);
     const [mainWatchlist, setMainWatchlist] = useState("");
 
@@ -32,27 +32,11 @@ function List({assetID}){
         dispatch(addWatchList(newWatchlist, sessionUser.id)).then(() => dispatch(getList(sessionUser.id)))
     }
 
-    const submitAddAsset = async(e) => {
-        e.preventDefault()
-
-        dispatch(addToWatchlist(mainWatchlist, assetID)).then(() => dispatch(getList(sessionUser.id)))
-    }
-
     // const testLists = [{"id": 1, "name": "First List", "user_id": 1},{"id": 2, "name": "Second List", "user_id": 1}]
     if (!watchlists){
         return null
     }
 
-    const submitDeleteWatchlist = async(e) => {
-        e.preventDefault()
-        dispatch(deleteList(mainWatchlist)).then(() => dispatch(getList(sessionUser.id)))
-    }
-
-    const submitEditWatchlist = async(e) => {
-        e.preventDefault()
-        dispatch(editList(mainWatchlist, newEditName, sessionUser.id)).then(() => dispatch(getList(sessionUser.id)))
-
-    }
 
 
 
