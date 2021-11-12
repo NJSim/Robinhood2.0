@@ -47,7 +47,8 @@ body {
 
 
 nav{
-  background: white
+  background: white;
+  min-width: 800px;
 }
 
 
