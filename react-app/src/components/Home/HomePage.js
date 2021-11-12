@@ -3,6 +3,7 @@ import Footer from "../Footer/Footer";
 import List from "../Lists/List";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 import { getPortfolio } from "../../store/portfolio";
 import { getStock } from "../../store/stocks";
 import { MechanicalCounter } from "mechanical-counter";
@@ -87,9 +88,9 @@ function HomePage() {
                 </span>
               </div>
               <button className="SignUpHomeButton">
-                <a href="/signUp" className="homeSignUpText">
+                <NavLink to="/sign-up" className="homeSignUpText">
                   Sign Up{" "}
-                </a>
+                </NavLink>
               </button>
               <h3 className="HomeH3">
                 <img
@@ -326,7 +327,7 @@ function HomePage() {
               </div>
 
               <div className="listsContainer">
-                <List />
+                <List assetID={stock["id"]} />
               </div>
             </div>
           </div>

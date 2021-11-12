@@ -4,7 +4,7 @@ import * as sessionActions from '../../store/session'
 import './Navigation.css';
 import { getQuery, clearQuery } from '../../store/search';
 import { NavLink } from 'react-router-dom';
-
+import MoonLogo from "../../images/ToTheMoon-Logo.png"
 
 
 function Navigation(){
@@ -12,8 +12,6 @@ function Navigation(){
   const sessionUser = useSelector(state => state.session.user);
   const queryResults = useSelector(state => state.search.results)
   const dispatch = useDispatch();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [query, setQuery] = useState("");
 
   useEffect(() => {
@@ -30,8 +28,6 @@ function Navigation(){
 
   const demo = (e) => {
     e.preventDefault();
-    setEmail("demo@aa.io");
-    setPassword("password")
     return dispatch(sessionActions.login("demo@aa.io", "password"))
   }
 
@@ -39,7 +35,19 @@ function Navigation(){
     <div className="searchBarQuery">
         <div className="searchResults">
           {Object.keys(queryResults).map((key) => {
-            return <NavLink className="result" to={`/stocks/${key}`} value={key}>{queryResults[key]}</NavLink>
+            return (
+							<NavLink
+								className="result"
+								to={`/stocks/${key}`}
+								value={key}
+								onClick={() => {
+                  dispatch(clearQuery())
+                  setQuery("")
+                }}
+							>
+								{queryResults[key]}
+							</NavLink>
+						);
           })
           }
         </div>
@@ -51,7 +59,7 @@ function Navigation(){
 
     <div className="navigation-container">
       <div className="navigation-item navigation-item1">
-        <NavLink to="/"><img src={"https://i0.wp.com/www.juststartinvesting.com/wp-content/uploads/2020/08/Robinhood-Logo-New.png?resize=388%2C78&ssl=1"} alt="" height={28} className="logo"></img> </NavLink>
+        <NavLink to="/"><img src={MoonLogo} alt="" height={28} className="logo"></img> </NavLink>
         <nav role="navigation" className="NavigationBar">
           <ul>
             <li>
@@ -149,7 +157,7 @@ function Navigation(){
               <div className="searchbar">
                 <input type="search" onKeyUp={e => setQuery(e.target.value)} style={{width: "100%", height:44, border: "none", outline:"none", fontSize: 15}} placeholder="Search" type="search">
                 </input>
-                
+
                 {searchBar}
               </div>
             </div>

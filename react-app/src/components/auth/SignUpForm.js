@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Redirect, NavLink } from "react-router-dom";
 import { signUp } from "../../store/session";
 import "./authForm.css";
 
@@ -112,9 +112,9 @@ const SignUpForm = () => {
               Continue
             </button>
             <p>Already on To the Moon?</p>
-            <a id="create-account-link" href="/login">
+            <NavLink id="create-account-link" to="/login">
               Log in
-            </a>
+            </NavLink>
           </div>
         </form>
         <div id="diclaimer-box">

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Redirect, NavLink } from "react-router-dom";
 import { login } from "../../store/session";
 import "./authForm.css";
 import image from "./Robinhood-login-image.jpeg";
@@ -86,9 +86,9 @@ const LoginForm = () => {
             </button>
             <button className="demo-login" onMouseDown={demo}>Demo</button>
             <p>Not on To the Moon?</p>
-            <a id="create-account-link" href="/signup">
+            <NavLink id="create-account-link" to="/sign-up">
               Create an account
-            </a>
+            </NavLink>
           </div>
         </form>
       </div>
