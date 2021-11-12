@@ -200,7 +200,6 @@ const hideResults = () => {
 								<input
 									type="search"
 									onKeyUp={(e) => setQuery(e.target.value)}
-
 									style={{
 										width: "100%",
 										height: 44,
