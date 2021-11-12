@@ -20,7 +20,6 @@ export const getQuery = (query) => async(dispatch) => {
 
     if (response.ok) {
         const results = await response.json();
-        console.log(results);
         dispatch(loadSearch(results))
         return null;
     } else if (response.status < 500) {

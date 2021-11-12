@@ -325,9 +325,11 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
   width: 100%;
 }
 .searchResults {
-  display: flex;
+
   flex-direction: column;
+
 }
+
 
 .result {
   text-decoration: none;

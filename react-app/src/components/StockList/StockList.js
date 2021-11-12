@@ -73,7 +73,6 @@ function StockList({ assetID, assetSymbol }) {
       <>
         <div className="allLists2">
           <div>
-            {/* <h2 className="addNewList"> +  </h2> */}
             <h2 className="showAddListForm" onClick={showAddListForm} ref={CRL}>
               {" "}
               + Create New List
