@@ -289,14 +289,8 @@ function Stock() {
                 )}
               </div>
             </div>
-<<<<<<< HEAD
             <button onClick={() => setShow(true)} className="addTolist">
               Add to Watchlist
-=======
-
-            <button onClick={() => setShow(true)} className="addTolist">
-            Add To List
->>>>>>> main
             </button>
             <Modal
               title={stock["symbol"]}
@@ -304,14 +298,7 @@ function Stock() {
               onClose={() => setShow(false)}
             >
               <>
-<<<<<<< HEAD
                 <StockList assetID={stockId} assetSymbol={stock["symbol"]} />
-=======
-
-                  <StockList assetID={stockId}/>
-                {/* <StockList assetID={stockId}/> */}
-
->>>>>>> main
               </>
             </Modal>
           </div>
