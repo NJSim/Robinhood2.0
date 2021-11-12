@@ -15,6 +15,7 @@ import { getPortfolio } from "./store/portfolio";
 import ScrollingStock from "./components/Scrolling-Stocks/ScrollingStocks";
 import loadingSpinner from "../src/images/green-loading-spinner.gif";
 
+
 function App() {
   const sessionUser = useSelector(state => state.session.user);
   const [loaded, setLoaded] = useState(false);
@@ -37,6 +38,7 @@ function App() {
   }
 
   return (
+
     <BrowserRouter>
       <Navigation></Navigation>
       <Switch>

@@ -34,8 +34,11 @@ function ScrollingStock() {
           RightArrow={RightArrow}
           // onWheel={onWheel}
         >
+
           {allStocks ? (
+
             allStocks.map((stock, i) => (
+
               <Card
                 title={stock[0]}
                 stock={stock}
