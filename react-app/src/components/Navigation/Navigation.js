@@ -12,6 +12,7 @@ function Navigation(){
 
   const sessionUser = useSelector(state => state.session.user);
   const queryResults = useSelector(state => state.search.results)
+  const allStocks = useSelector(state => state.stocks.allStocks);
   const [logoSource, setLogoSource] = useState(MoonRocket);
   const dispatch = useDispatch();
   const [query, setQuery] = useState("");
@@ -33,13 +34,15 @@ function Navigation(){
     return dispatch(sessionActions.login("demo@aa.io", "password"))
   }
 
+
   let searchBar = (
     <div className="searchBarQuery">
         <div className="searchResults">
-          {Object.keys(queryResults).map((key) => {
-            return <NavLink className="result" to={`/stocks/${key}`} value={key} onClick={() =>dispatch(clearQuery()) }>{queryResults[key]}</NavLink>
-          })
-          }
+
+			{Object.keys(queryResults).map((key) => {
+			return <NavLink className="result" to={`/stocks/${key}`} value={key} onClick={() =>dispatch(clearQuery()) }>{queryResults[key]} - {allStocks[queryResults[key]].quote.companyName} </NavLink>
+			})
+			}
         </div>
     </div>
   )
