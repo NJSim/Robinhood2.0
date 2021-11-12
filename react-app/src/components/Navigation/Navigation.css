@@ -329,6 +329,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 
 .result {
   text-decoration: none;
+  color: rgb(98, 98, 98);
   padding-bottom: 7px;
   padding-left: 10px;
   display:flex;
