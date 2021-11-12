@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import Plot from "react-plotly.js";
 
-const Chart = ({ timeFrame, stock, color, childToParent, height, width }) => {
+const Chart = ({ timeFrame, stock, color, childToParent, height }) => {
   let yValues = [];
   let xValues = [];
 
@@ -62,7 +62,6 @@ const Chart = ({ timeFrame, stock, color, childToParent, height, width }) => {
           autosize: true,
           margin: { t: 10, l: 5, b: 40, r: 40 },
           height: height,
-          width: width,
           xaxis: { showgrid: false, zeroline: true, visible: false },
           yaxis: { showgrid: false, zeroline: true, visible: false },
           hovermode: "x unified",

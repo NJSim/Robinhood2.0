@@ -24,7 +24,6 @@ function ScrollingStock() {
 
   if (stocks) {
     allStocks = Object.entries(stocks);
-    console.log("All Stocks entries===>>>", allStocks);
   }
 
   return (
@@ -35,8 +34,11 @@ function ScrollingStock() {
           RightArrow={RightArrow}
           // onWheel={onWheel}
         >
+
           {allStocks ? (
+
             allStocks.map((stock, i) => (
+
               <Card
                 title={stock[0]}
                 stock={stock}

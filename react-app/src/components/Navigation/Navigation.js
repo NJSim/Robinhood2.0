@@ -13,6 +13,7 @@ function Navigation(){
   const sessionUser = useSelector(state => state.session.user);
   const queryResults = useSelector(state => state.search.results)
   const allStocks = useSelector(state => state.stocks.allStocks);
+
   const [logoSource, setLogoSource] = useState(MoonRocket);
   const dispatch = useDispatch();
   const [query, setQuery] = useState("");
@@ -35,21 +36,37 @@ function Navigation(){
   }
 
 
-  let searchBar = (
-    <div className="searchBarQuery">
-        <div className="searchResults">
+// ---------------------------------------
+const showResults = () => {
+	const searchRes = document.querySelector(".searchResults")
+	searchRes.style.display = "flex"
+}
 
-			{Object.keys(queryResults).map((key) => {
-			return <NavLink className="result" to={`/stocks/${key}`} value={key} onClick={() =>dispatch(clearQuery()) }>{queryResults[key]} - {allStocks[queryResults[key]].quote.companyName} </NavLink>
-			})
-			}
+const hideResults = () => {
+	const searchRes = document.querySelector(".searchResults")
+	searchRes.style.display = "none"
+}
+// ---------------------------------------
+
+const submitSearch = () => {
+	document.querySelector(".SB").value=""
+	dispatch(clearQuery());
+}
+
+  let searchBar = (
+    <div className="searchBarQuery" >
+        <div className="searchResults" >
+          {Object.keys(queryResults).map((key) => {
+            return <NavLink className="result" to={`/stocks/${key}`} value={key}  onClick={submitSearch}>{queryResults[key]} - {allStocks[queryResults[key]].quote.companyName} </NavLink>
+          })
+          }
         </div>
     </div>
   )
 
 
   let isRegistered = (
-		<div className="navigation-container">
+		<div className="navigation-container" >
 			<div className="navigation-item navigation-item1">
 				<NavLink to="/">
 					<img src={MoonLogo} alt="" height={28} className="logo"></img>{" "}
@@ -147,7 +164,7 @@ function Navigation(){
 	);
   if (sessionUser) {
     isRegistered = (
-			<div className="dashboard-container">
+			<div className="dashboard-container" >
 				<div className="dashboard-wrapper">
 					<div className="dashboard-logo" style={{ marginTop: 20 }}>
 						<NavLink
@@ -181,7 +198,11 @@ function Navigation(){
 								</svg>
 							</div>
 
-							<div className="searchbar">
+							<div className="searchbar"
+									onMouseEnter={showResults}
+									onMouseLeave={hideResults}
+
+							 >
 								<input
 									type="search"
 									onKeyUp={(e) => setQuery(e.target.value)}
@@ -194,6 +215,7 @@ function Navigation(){
 									}}
 									placeholder="Search"
 									type="search"
+									className="SB"
 								></input>
 
 								{searchBar}

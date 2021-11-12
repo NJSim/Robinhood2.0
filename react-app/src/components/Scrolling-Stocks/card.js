@@ -44,7 +44,6 @@ export function Card({ title, stock, itemId, key, routeId }) {
           </div>
           <div
             style={{
-              backgroundColor: "white",
               textAlign: "center",
             }}
           >
