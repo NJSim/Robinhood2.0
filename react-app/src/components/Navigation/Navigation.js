@@ -46,12 +46,16 @@ const hideResults = () => {
 }
 // ---------------------------------------
 
+const submitSearch = () => {
+	document.querySelector(".SB").value=""
+	dispatch(clearQuery());
+}
 
   let searchBar = (
     <div className="searchBarQuery" >
         <div className="searchResults" >
           {Object.keys(queryResults).map((key) => {
-            return <NavLink className="result" to={`/stocks/${key}`} value={key}  onClick={() =>dispatch(clearQuery()) }>{queryResults[key]}</NavLink>
+            return <NavLink className="result" to={`/stocks/${key}`} value={key}  onClick={submitSearch}>{queryResults[key]}</NavLink>
           })
           }
         </div>
@@ -209,6 +213,7 @@ const hideResults = () => {
 									}}
 									placeholder="Search"
 									type="search"
+									className="SB"
 								></input>
 
 								{searchBar}
