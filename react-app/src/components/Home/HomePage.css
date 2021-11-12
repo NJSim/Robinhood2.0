@@ -573,6 +573,7 @@ tr {
 
 #table-row-pointer:hover {
   cursor: pointer;
+  background-color: rgb(227, 233, 237);
 }
 
 .table-row-ele {
