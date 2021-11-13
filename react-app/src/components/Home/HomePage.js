@@ -6,10 +6,7 @@ import { getPortfolio } from "../../store/portfolio";
 import { getStock } from "../../store/stocks";
 import { MechanicalCounter } from "mechanical-counter";
 import Chart from "../Stocks/Chart";
-import { deleteList } from "../../store/lists";
 import loadingSpinner from "../../images/green-loading-spinner.gif";
-import ScrollingStock from "../Scrolling-Stocks/ScrollingStocks";
-import SplashPage from "./SplashPage";
 
 function HomePage() {
   const dispatch = useDispatch();
@@ -41,19 +38,14 @@ function HomePage() {
           setLoaded(true);
           if (portfolio["isEmpty"]) {
             setMainStock(1);
-          }else{
+          }
+          if (!stock) {
             setMainStock(assets[0].asset_id);
           }
         })
         .then(() => dispatch(getStock(mainStock)));
     }
   }, [dispatch, sessionUser, mainStock]);
-
-  const trendingListsTest = [
-    { id: 1, name: "Tech" },
-    { id: 2, name: "Crypto" },
-    { id: 3, name: "IPO" },
-  ];
 
   const childToParent = data => {
     setChartPrice(data);
@@ -176,13 +168,6 @@ function HomePage() {
           </tbody>
         </table>
       ) : null}
-
-      {/* <div id="ticker-headings">
-          <h1>
-            This is where we will put the total portfolio balance and daily
-            percent change
-          </h1>
-        </div> */}
       <div id="portfolio-table-container">
         <table id="portfolio-table-heading">
           <thead id="table-row-head">

@@ -46,6 +46,7 @@ function App() {
           {sessionUser ? <Redirect to="/portfolio" /> : null}
           <SplashPage />
         </Route>
+
         <ProtectedRoute exact path="/portfolio">
           {sessionUser ? (
             <div style={{ marginTop: "50px" }}>
@@ -54,18 +55,23 @@ function App() {
           ) : null}
           {sessionUser && portfolio ? <HomePage /> : null}
         </ProtectedRoute>
+
         <Route path="/login" exact={true}>
           <LoginForm />
         </Route>
+
         <Route path="/sign-up" exact={true}>
           <SignUpForm />
         </Route>
+
         <Route path="/about-us" exact={true}>
           <AboutUs />
         </Route>
+
         <ProtectedRoute path="/account">
           <Account />
         </ProtectedRoute>
+
         <ProtectedRoute path="/stocks/:stockId" exact={true}>
           <div style={{ marginTop: "50px" }}>
             <ScrollingStock style={{ height: "30px" }} />
