@@ -16,12 +16,13 @@ function HomePage() {
   const sessionUser = useSelector(state => state.session.user);
   const portfolio = useSelector(state => state.portfolio.portfolio);
   const stock = useSelector(state => state.stocks.stock);
+
   let emptyPortfolio;
   let assets;
-  if (!portfolio.positions){
+  if (!portfolio.positions) {
     emptyPortfolio = true;
   } else {
-  assets = Object.values(portfolio.positions);
+    assets = Object.values(portfolio.positions);
   }
   const [mainStock, setMainStock] = useState("");
   const [chartPrice, setChartPrice] = useState();
@@ -36,20 +37,19 @@ function HomePage() {
   useEffect(async () => {
     if (sessionUser) {
       await dispatch(getPortfolio())
-				.then(() => {
-					setLoaded(true);
-          if (portfolio['isEmpty']){
-            setMainStock(1)
-          } else {
-					setMainStock(assets[0].asset_id);
+        .then(() => {
+          setLoaded(true);
+          if (portfolio["isEmpty"]) {
+            setMainStock(1);
           }
-          assets = Object.values(portfolio.positions);
-				})
-				.then(() => dispatch(getStock(mainStock)));
-
+          if (!stock) {
+            setMainStock(assets[0].asset_id);
+          }
+          //   assets = Object.values(portfolio.positions);
+        })
+        .then(() => dispatch(getStock(mainStock)));
     }
   }, [dispatch, sessionUser, mainStock]);
-
 
   const trendingListsTest = [
     { id: 1, name: "Tech" },
@@ -61,7 +61,7 @@ function HomePage() {
     setChartPrice(data);
   };
 
-  if ( !stock || !loaded) {
+  if (!stock || !loaded) {
     return (
       <div id="loading">
         <img src={loadingSpinner} alt="Loading..." />
@@ -129,7 +129,7 @@ function HomePage() {
           </div>
         </div>
       </div>
-      {!portfolio['isEmpty'] ? (
+      {!portfolio["isEmpty"] ? (
         <table id="portfolio-ticker">
           <thead>
             <tr id="ticker-headings">
@@ -177,9 +177,7 @@ function HomePage() {
             </tr>
           </tbody>
         </table>
-      ) : (
-        null
-      )}
+      ) : null}
 
       {/* <div id="ticker-headings">
           <h1>
