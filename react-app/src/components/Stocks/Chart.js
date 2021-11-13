@@ -6,6 +6,8 @@ const Chart = ({ timeFrame, stock, color, childToParent, height }) => {
   let yValues = [];
   let xValues = [];
 
+  //if API is not sending null values
+
   // function plotTimeFrame(price, time) {
   //   stock[timeFrame].forEach(point => {
   //     yValues.push(point[`${price}`]);
@@ -78,27 +80,3 @@ Chart.propTypes = {
   color: PropTypes.string.isRequired,
 };
 export default Chart;
-
-// ****DO NOT DELETE******* below code should handle null values of stock price ****DO NOT DELETE*******
-
-// function plotTimeFrame(price, time) {
-//   let dummyPrice;
-//   let increase = 1;
-//   for (let i = 0; i < stock[timeFrame].length; i++) {
-//     const point = stock[timeFrame][i];
-//     if (point[`${price}`]) {
-//       if (increase) {
-//         dummyPrice = point[`${price}`] * 1.02;
-//         increase -= 1;
-//       } else {
-//         dummyPrice = point[`${price}`] * 0.98;
-//         increase += 1;
-//       }
-//       yValues.push(point[`${price}`]);
-//       xValues.push(point[`${time}`]);
-//     }
-//     if (!point[`${price}`]) {
-//       yValues.push(dummyPrice);
-//     }
-//   }
-// }

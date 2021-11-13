@@ -20,13 +20,10 @@ function Arrow({ children, disabled, onClick, image }) {
         userSelect: "none",
         height: "71.5px",
         width: "39px",
-        // backgroundColor: "white",
         border: "none",
         backgroundImage: `url(${image})`,
-        // backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        // marginTop: "50px",
         marginLeft: "25px",
         marginRight: "25px",
       }}
@@ -48,16 +45,17 @@ export function LeftArrow() {
     !initComplete || (initComplete && isFirstItemVisible)
   );
   React.useEffect(() => {
-    // NOTE: detect if whole component visible
     if (visibleItemsWithoutSeparators.length) {
       setDisabled(isFirstItemVisible);
     }
   }, [isFirstItemVisible, visibleItemsWithoutSeparators]);
 
   return (
-    <Arrow disabled={disabled} onClick={() => scrollPrev()} image={lImage}>
-      {/* {"<"} */}
-    </Arrow>
+    <Arrow
+      disabled={disabled}
+      onClick={() => scrollPrev()}
+      image={lImage}
+    ></Arrow>
   );
 }
 
@@ -65,7 +63,6 @@ export function RightArrow() {
   const { isLastItemVisible, scrollNext, visibleItemsWithoutSeparators } =
     React.useContext(VisibilityContext);
 
-  // console.log({ isLastItemVisible });
   const [disabled, setDisabled] = React.useState(
     !visibleItemsWithoutSeparators.length && isLastItemVisible
   );
@@ -76,8 +73,10 @@ export function RightArrow() {
   }, [isLastItemVisible, visibleItemsWithoutSeparators]);
 
   return (
-    <Arrow disabled={disabled} onClick={() => scrollNext()} image={rImage}>
-      {/* {">"} */}
-    </Arrow>
+    <Arrow
+      disabled={disabled}
+      onClick={() => scrollNext()}
+      image={rImage}
+    ></Arrow>
   );
 }
