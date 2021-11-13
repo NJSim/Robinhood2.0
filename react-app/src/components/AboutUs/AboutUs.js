@@ -5,6 +5,7 @@ function AboutUs() {
   return (
     <div id="main-about-container">
       <div className="about-me">
+        <h1 style={{ textAlign: "center", marginBottom: "25px" }}>About Us</h1>
         <div id="inner-about">
           <div id="name-pic-links">
             <h2>AJ Abushaban</h2>
@@ -41,7 +42,7 @@ function AboutUs() {
             <h6>
               My interests are blockchain technology, macroeconomics, philosophy
               and computer science. I am fascinated with with "the next
-              revolutionary technology" and can not wait to build it.
+              revolutionary technology" and can't wait to build it.
             </h6>
             <h6>
               Full-Stack Software Engineer | JavaScript | Python | React | Redux
