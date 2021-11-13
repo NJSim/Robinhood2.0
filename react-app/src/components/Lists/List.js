@@ -55,8 +55,9 @@ function List(){
 							onChange={(e) => setNewWatchlist(e.target.value)}
 							required
 							placeholder="Create New Watchlist"
+							className="CLInput"
 						></input>
-						<button type="submit">Create List</button>
+						<button className="CLButton" type="submit">Create List</button>
 					</form>):null}
 					{Object.keys(watchlists).map((key, index) => (
                         <SingleList watchlist={watchlists[key]}/>
