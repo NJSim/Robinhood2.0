@@ -305,11 +305,11 @@
 }
 
 .hp41 {
-  width: 70rem;
+  width: 50rem;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  overflow: hidden;
+  overflow: wrap;
 }
 
 .hp42 {

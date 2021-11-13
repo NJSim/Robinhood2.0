@@ -70,6 +70,7 @@ input[type=list]:focus{
   margin-right: .5rem;
   cursor:pointer;
   float: right;
+  background-color: white;
 }
 
 .createListButton{
