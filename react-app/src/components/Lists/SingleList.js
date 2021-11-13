@@ -18,8 +18,10 @@ function SingleList({ watchlist }) {
     const [show, setShow] = useState(false);
     const [newEditName, setNewEditName] = useState("");
 	const [options, setOptions] = useState(false);
+	const [listOptions, setListOptions] = useState(false);
     const [mainWatchlist, setMainWatchlist] = useState("");
 	const [showDots, setShowDots] = useState(false);
+	const [showListDots, setShowListDots] = useState(false);
 	const caret = showList ? "up" : "down";
 	const assets = watchlist.watched_assets;
     const dispatch = useDispatch();
@@ -98,15 +100,17 @@ function SingleList({ watchlist }) {
 				</div>
 				<i
 					className={`fas fa-caret-${caret}`}
-					style={{ paddingRight: 8, marginLeft: "40px" }}
+					style={{paddingRight: 8, marginLeft: "40px" }}
 				></i>
 			</div>
 			{showList ? (
 				<div id="watchlist-assets-list">
 					{Object.keys(assets).map((key, index) => (
 						<NavLink to={`/stocks/${assets[key].asset_id}`}>
-							<div id="individual-list-asset">
+							<div id="individual-list-asset" onMouseEnter={() => setShowListDots(true)} onMouseLeave={() => setShowListDots(false)}>
 								{assets[key].symbol}
+								{showListDots ? <i class="fas fa-ellipsis-h"
+								style={{marginLeft: "80px" }}></i> : null}
 								<div
 									style={{
 										marginLeft: "auto",
@@ -115,6 +119,7 @@ function SingleList({ watchlist }) {
 										flexDirection: "column",
 									}}
 								>
+
 									<p style={{ fontSize: 11 }}>
 										${stocks[assets[key].symbol].quote.latestPrice}
 									</p>
