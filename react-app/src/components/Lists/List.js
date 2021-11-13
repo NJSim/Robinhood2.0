@@ -48,7 +48,7 @@ function List(){
 					<h2 id="add-new-watchlist" style={{marginTop: 5}}>Watchlists</h2>
 					<h2 id="button-new-watchlist" style={{ margin: "0 0 0 auto", fontSize: 25 }} onClick={() => setShowNewWatchlist(!showNewWatchlist)}>+</h2>
 				</div>
-				<div>
+				<div className="HW1">
 					{showNewWatchlist?(<form onSubmit={submitWatchlist}>
 						<input
 							value={newWatchlist}
