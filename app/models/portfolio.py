@@ -13,5 +13,5 @@ class Portfolio(db.Model):
     created_at = db.Column(db.DateTime(timezone=True), nullable=False)
     updated_at = db.Column(db.DateTime(timezone=True), nullable=False)
 
-    user = relationship("User", cascade="all, delete", back_populates="portfolios")
+    user = relationship("User", back_populates="portfolios")
     port_asset = db.relationship("Asset", back_populates="portfolios", lazy=True)
