@@ -71,6 +71,7 @@ h2 {
   font-weight: 400;
   min-width: 8.83rem;
   min-height: 3.17rem;
+  cursor: pointer;
 }
 
 .demo-login{
@@ -84,6 +85,7 @@ h2 {
   min-height: 3.17rem;
   margin-left: 1rem;
   margin-right: 1rem;
+  cursor: pointer;
 }
 
 .demo-login:hover{

@@ -47,7 +47,7 @@
 }
 
 .ELInput{
-  width: 20.7rem;
+  width: 21.7rem;
   height: 3rem;
   border-radius: 5px;
   outline: 1px solid rgb(0, 185, 5);
@@ -74,9 +74,10 @@
     font-style: normal;
     font-weight: 700;
     line-height: 28px;
-    margin-right: .5rem;
+
     cursor:pointer;
     float: right;
     position: relative;
-    margin-right: 1rem;
+    /* margin-right: 1rem; */
+    background-color: white;
 }

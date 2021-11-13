@@ -56,10 +56,11 @@
   float: right;
   position: relative;
   margin-right: 1rem;
+  background-color: white;
 }
 
 .CLInput{
-  width: 16rem;
+  width: 15rem;
   height: 3rem;
   border-radius: 5px;
   outline: 1px solid rgb(0, 185, 5);
@@ -67,5 +68,5 @@
   padding: 10px;
   margin-bottom: .5rem;
   margin-top: 1rem;
-  margin-left: .1rem;
+  margin-left: 1rem;
 }
