@@ -45,7 +45,6 @@ function HomePage() {
           if (!stock) {
             setMainStock(assets[0].asset_id);
           }
-          //   assets = Object.values(portfolio.positions);
         })
         .then(() => dispatch(getStock(mainStock)));
     }

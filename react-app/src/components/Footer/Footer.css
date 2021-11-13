@@ -1,16 +1,45 @@
 .footer {
   display: flex;
-  background-color: black;
-  color: white;
+  background-color: white;
+  color: black;
   bottom: 0;
   z-index: 10;
   /* position:fixed; */
-  left:0;
-  width:100%;
+  left: 0;
+  width: 100%;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   padding-top: 4px;
-  padding-bottom: 4px ;
+  padding-bottom: 4px;
   text-align: center;
   height: 5rem;
+}
+
+#innerFooter {
+  display: flex;
+  align-items: center;
+}
+
+h3 {
+  display: block;
+  margin-block-start: 1.33em;
+  margin-block-end: 1.33em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+#github,
+#linkedin {
+  margin-left: 10px;
+  cursor: pointer;
+}
+#github {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+#linkedin {
+  height: 5rem;
+  width: 5rem;
+  /* margin-right: 20px; */
 }

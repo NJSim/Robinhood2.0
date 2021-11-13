@@ -145,7 +145,7 @@ function Navigation() {
               </a>
               <ul>
                 <li>
-                  <a href="/"> About Us </a>
+                  <a href="/about-us"> About Us </a>
                 </li>
               </ul>
             </li>

@@ -1,0 +1,45 @@
+#main-about-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.about-me {
+  height: 100%;
+  width: 100%;
+  margin-top: 50px;
+}
+
+#github-about {
+  width: 30px;
+  height: 30px;
+  margin-bottom: 25px;
+}
+
+#linkedin-about {
+  height: 5rem;
+  width: 5rem;
+  margin-left: 10px;
+}
+
+#inner-about {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+#aj-headshot {
+  width: 150px;
+  height: 150px;
+  border-radius: 100%;
+}
+
+#name-pic-links {
+  max-height: 300px;
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}

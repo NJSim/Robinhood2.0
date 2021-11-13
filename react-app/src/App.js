@@ -15,6 +15,7 @@ import { authenticate } from "./store/session";
 import { getPortfolio } from "./store/portfolio";
 import ScrollingStock from "./components/Scrolling-Stocks/ScrollingStocks";
 import loadingSpinner from "../src/images/green-loading-spinner.gif";
+import AboutUs from "./components/AboutUs/AboutUs";
 
 function App() {
   const sessionUser = useSelector(state => state.session.user);
@@ -25,8 +26,7 @@ function App() {
   useEffect(() => {
     (async () => {
       await dispatch(authenticate());
-      await dispatch(getPortfolio()).then(() => setLoaded(true))
-
+      await dispatch(getPortfolio()).then(() => setLoaded(true));
     })();
   }, [dispatch]);
 
@@ -39,39 +39,42 @@ function App() {
   }
 
   return (
-		<BrowserRouter>
-			<Navigation></Navigation>
-			<Switch>
-				<Route exact path="/">
-					{sessionUser? <Redirect to='/portfolio' />: null}
-					<SplashPage />
-				</Route>
-				<ProtectedRoute exact path="/portfolio">
-					{sessionUser ? (
-						<div style={{ marginTop: "50px" }}>
-							<ScrollingStock style={{ height: "30px" }} />
-						</div>
-					) : null}
-						{sessionUser && portfolio ? <HomePage />: null}
-				</ProtectedRoute>
-				<Route path="/login" exact={true}>
-					<LoginForm />
-				</Route>
-				<Route path="/sign-up" exact={true}>
-					<SignUpForm />
-				</Route>
-				<ProtectedRoute path="/account">
-					<Account />
-				</ProtectedRoute>
-				<ProtectedRoute path="/stocks/:stockId" exact={true}>
-					<div style={{ marginTop: "50px" }}>
-						<ScrollingStock style={{ height: "30px" }} />
-					</div>
-					<Stock />
-				</ProtectedRoute>
-			</Switch>
-		</BrowserRouter>
-	);
+    <BrowserRouter>
+      <Navigation></Navigation>
+      <Switch>
+        <Route exact path="/">
+          {sessionUser ? <Redirect to="/portfolio" /> : null}
+          <SplashPage />
+        </Route>
+        <ProtectedRoute exact path="/portfolio">
+          {sessionUser ? (
+            <div style={{ marginTop: "50px" }}>
+              <ScrollingStock style={{ height: "30px" }} />
+            </div>
+          ) : null}
+          {sessionUser && portfolio ? <HomePage /> : null}
+        </ProtectedRoute>
+        <Route path="/login" exact={true}>
+          <LoginForm />
+        </Route>
+        <Route path="/sign-up" exact={true}>
+          <SignUpForm />
+        </Route>
+        <Route path="/about-us" exact={true}>
+          <AboutUs />
+        </Route>
+        <ProtectedRoute path="/account">
+          <Account />
+        </ProtectedRoute>
+        <ProtectedRoute path="/stocks/:stockId" exact={true}>
+          <div style={{ marginTop: "50px" }}>
+            <ScrollingStock style={{ height: "30px" }} />
+          </div>
+          <Stock />
+        </ProtectedRoute>
+      </Switch>
+    </BrowserRouter>
+  );
 }
 
 export default App;
