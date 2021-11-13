@@ -1,8 +1,9 @@
 body {
   margin: 0px;
-  padding: 0px;}
+  padding: 0px;
+}
 
-.navigation-container{
+.navigation-container {
   max-height: calc(100% - 0px- env(safe-area-inset-bottom));
   position: sticky;
   top: 0;
@@ -11,46 +12,42 @@ body {
   background-color: white;
   display: flex;
   justify-content: space-between;
-  z-index:100;
+  z-index: 100;
 }
 
-*{
+* {
   margin: 0;
   padding: 0;
-  box-sizing:border-box;
-
+  box-sizing: border-box;
 }
 
-.logo{
-  margin-top: .5rem;
+.logo {
+  margin-top: 0.5rem;
   margin-left: 1rem;
-  margin-right: 1.0rem;
+  margin-right: 1rem;
 }
 
-.navigation-item{
+.navigation-item {
   width: 200px;
   margin: 10px;
   background-color: white;
 }
 
-.navigation-item1{
+.navigation-item1 {
   width: 55rem;
   display: flex;
 }
 
-.navigation-item2{
+.navigation-item2 {
   display: flex;
   justify-content: space-between;
   width: 20rem;
-
 }
 
-
-nav{
+nav {
   background: white;
   min-width: 800px;
 }
-
 
 /* nav:after{
   content:"";
@@ -58,18 +55,18 @@ nav{
   display: table;
 } */
 
-nav ul{
+nav ul {
   list-style: none;
-  margin-top: -.9rem;
+  margin-top: -0.9rem;
 }
 
-nav ul li{
+nav ul li {
   display: inline-block;
   background: white;
   margin: 0 23px;
 }
 
-nav ul li a{
+nav ul li a {
   color: black;
   text-decoration: none;
   line-height: 70px;
@@ -77,24 +74,24 @@ nav ul li a{
   padding: 8px 15px;
 }
 
-nav ul li a:hover{
+nav ul li a:hover {
   color: rgb(0, 185, 5);
 }
 
-nav ul ul{
+nav ul ul {
   position: absolute;
   top: 70px;
   opacity: 0;
   visibility: hidden;
-  transition: top .3s;
+  transition: top 0.3s;
 }
 
-nav ul li:hover > ul{
+nav ul li:hover > ul {
   opacity: 1;
   visibility: visible;
 }
 
-nav ul ul li{
+nav ul ul li {
   position: relative;
   margin: 0px;
   width: 150px;
@@ -103,7 +100,7 @@ nav ul ul li{
   border-bottom: 1px solid rgba(0, 0, 0, 0.3);
 }
 
-.navSignUpButton{
+.navSignUpButton {
   border: none;
   outline: none;
   margin-left: -1rem;
@@ -111,11 +108,11 @@ nav ul ul li{
   background-color: white;
 }
 
-.navSignUpText:hover{
-  background-color:rgb(1, 160, 7);;
+.navSignUpText:hover {
+  background-color: rgb(1, 160, 7);
 }
 
-.navSignUpText{
+.navSignUpText {
   text-decoration: none;
   align-items: center;
   display: inline-flex;
@@ -136,15 +133,14 @@ nav ul ul li{
   outline: none;
   font-weight: bold;
   font-size: 17px;
-  margin-top: -.3rem;
-
+  margin-top: -0.3rem;
 }
 
-.navLogInText:hover{
+.navLogInText:hover {
   color: rgb(0, 185, 5);
 }
 
-.navLogInButton{
+.navLogInButton {
   overflow: hidden;
   position: static;
   text-align: start;
@@ -152,16 +148,16 @@ nav ul ul li{
   cursor: pointer;
   border: none;
   outline: none;
-  background-color:white
+  background-color: white;
 }
 
-.navLogInText{
+.navLogInText {
   font-weight: bold;
   font-size: 17px;
   text-decoration: none;
   color: black;
 }
-.demo-loginNav{
+.demo-loginNav {
   font-weight: bold;
   font-size: 17px;
   text-decoration: none;
@@ -173,7 +169,7 @@ nav ul ul li{
   cursor: pointer;
 }
 
-.demo-loginNav:hover{
+.demo-loginNav:hover {
   color: rgb(0, 185, 5);
 }
 
@@ -181,80 +177,77 @@ nav ul ul li{
   .navLogInButton {
     display: none;
   }
-  .navSignUpButton{
+  .navSignUpButton {
     display: none;
   }
-  .demo-loginNav{
+  .demo-loginNav {
     display: none;
   }
-  .nav ul{
+  .nav ul {
     display: none;
   }
-  .nav ul li{
+  .nav ul li {
     display: none;
   }
-  .nav ul li a{
+  .nav ul li a {
     display: none;
   }
-  .NavigationBar{
+  .NavigationBar {
     display: none;
   }
-
 }
 
 @media screen and (max-width: 1170px) {
   .navLogInButton {
     display: none;
   }
-  .navSignUpButton{
+  .navSignUpButton {
     display: none;
   }
-  .demo-loginNav{
+  .demo-loginNav {
     display: none;
   }
-  .nav ul{
+  .nav ul {
     display: none;
   }
-  .nav ul li{
+  .nav ul li {
     display: none;
   }
-  .nav ul li a{
+  .nav ul li a {
     display: none;
   }
-  .NavigationBar{
+  .NavigationBar {
     display: none;
   }
 }
 
-.arrowNav{
+.arrowNav {
   position: relative;
   top: 3px;
-
 }
 
-.arrowNav:hover{
+.arrowNav:hover {
   color: rgb(0, 185, 5);
 }
 
 /* Logged in Dashboard CSS */
 
-
-.dashboard-container{
-  position:sticky;
+.dashboard-container {
+  position: sticky;
   background-color: white;
   top: 0;
   width: 100%;
   z-index: 105;
-  height:64px;
+  height: 64px;
 }
 
-.dashboard-wrapper{
+.dashboard-wrapper {
   display: flex;
   align-items: center;
-  height:64px;
+  height: 64px;
 }
 
-.dashboard-logo{
+.dashboard-logo {
   margin-left: 40px;
   height: 48px;
   min-height: 32px;
@@ -262,61 +255,70 @@ nav ul ul li{
   width: 48px;
 }
 
-.dashboard-logo-2{
+.dashboard-logo-2 {
   fill: black;
 }
-.dashboard-logo-2:hover{
-  fill:rgb(0, 200, 5);
+.dashboard-logo-2:hover {
+  fill: rgb(0, 200, 5);
   cursor: pointer;
 }
 
-input[type=search]::-ms-clear { display: none; width : 0; height: 0; }
-input[type=search]::-ms-reveal { display: none; width : 0; height: 0; }
+input[type="search"]::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
+}
+input[type="search"]::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
+}
 input[type="search"]::-webkit-search-decoration,
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-results-button,
-input[type="search"]::-webkit-search-results-decoration { display: none; }
-.search{
+input[type="search"]::-webkit-search-results-decoration {
+  display: none;
+}
+.search {
   position: absolute;
   background-color: white;
-  border: 1px solid #E3E9ED;
+  border: 1px solid #e3e9ed;
   margin-top: 10px;
   border-radius: 4px;
   left: 50px;
   right: 0px;
   top: 0px;
   width: 35%;
-  margin-left:70px;
+  margin-left: 70px;
   transition: border-color 300ms ease 0s, box-shadow 300ms ease 0s;
   overflow: visible;
 }
 
-
-.search:hover{
+.search:hover {
   box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 8px;
 }
 
-.searchIcon{
+.searchIcon {
   display: flex;
   flex-direction: column;
   justify-content: start;
   height: 100%;
 }
 
-.dashboard-search{
+.dashboard-search {
   display: flex;
   flex: 0 0 auto;
 }
 
-.search-logo{
-  fill:rgb(106,114,120);
-  height:24;
+.search-logo {
+  fill: rgb(106, 114, 120);
+  height: 24;
   margin: 10px;
-  width:24;
+  width: 24;
   position: relative;
 }
 
-.searchbar{
+.searchbar {
   text-decoration: unset;
   background: none;
   border: none;
@@ -325,31 +327,26 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
   width: 100%;
 }
 .searchResults {
-
   flex-direction: column;
-
 }
-
 
 .result {
   text-decoration: none;
   color: rgb(98, 98, 98);
   padding-bottom: 7px;
   padding-left: 10px;
-  display:flex;
+  display: flex;
   padding-top: 7px;
 }
 
-
 .result:hover {
-  background-color: rgba(230,230,230,1);
+  background-color: rgba(230, 230, 230, 1);
 }
 
 .searchTitle {
-
-  padding-right:5px;
+  padding-right: 5px;
   font-size: 13px;
-  letter-spacing: -.1px;
+  letter-spacing: -0.1px;
   line-height: 20px;
   font-weight: 500;
 }
@@ -362,36 +359,54 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 
 /* logged in user nav list bar */
 
-.dashboard-list{
-margin-left: auto;
+.dashboard-list {
+  margin-left: auto;
 }
 
-.dashboard-list-container{
+.dashboard-list-container {
   display: flex;
   align-items: center;
 }
 
-.dashboard-list-container > :not(:first-child){
+.dashboard-list-container > :not(:first-child) {
   margin-left: 33px;
 }
 
-.nav-hyper{
+.nav-hyper {
   color: black;
   text-decoration: none;
   font-size: 14px;
   font-weight: 900;
 }
 
-.nav-hyper:hover{
+.nav-hyper:hover {
   cursor: pointer;
-  color:rgb(0, 200, 5);
-
+  color: rgb(0, 200, 5);
 }
 
-.nav-messages:hover{
+.nav-messages:hover {
   cursor: pointer;
-  color:rgb(0, 200, 5);
-
+  color: rgb(0, 200, 5);
 }
 
 /* search results CSS */
+
+#logout-button {
+  background-color: #fff;
+  color: rgb(1, 149, 6);
+  border: 2.2px solid rgb(1, 149, 6);
+  border-radius: 7px;
+  font-size: 10pt;
+  font-weight: 400;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  min-width: 4.83rem;
+  min-height: 2.17rem;
+}
+
+#logout-button:hover {
+  color: rgb(0, 200, 5);
+  border: 2.2px solid rgb(0, 200, 5);
+  cursor: pointer;
+}
