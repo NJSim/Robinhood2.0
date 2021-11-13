@@ -41,8 +41,7 @@ function HomePage() {
           setLoaded(true);
           if (portfolio["isEmpty"]) {
             setMainStock(1);
-          }
-          if (!stock) {
+          }else{
             setMainStock(assets[0].asset_id);
           }
           //   assets = Object.values(portfolio.positions);
