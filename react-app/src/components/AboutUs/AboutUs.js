@@ -29,20 +29,20 @@ function AboutUs() {
             </div>
           </div>
           <div style={{ width: "60%" }}>
-            <h3>
-              After spending 4 years at a tech startup in business development,
-              I decided I wanted to pivot my career and build the future. Summer
-              2021 I joined App Academy's 6-month immersive full-time web
-              development bootcamp, which has a 3% acceptance rate. Throughout
-              the program I have attained an understanding of multiple
-              full-stack programming skills including, JavaScript, Data
-              Structures and Algorithms, Object-Oriented Programming, HTML, CSS,
-              and Relational Databases.
-            </h3>
+            <h4 style={{ fontWeight: "1000" }}>
+              After spending 4 years at a tech startup in various business
+              development roles, I decided to take a pivot in my career and help
+              build the future. Summer 2021 I was accepted into App Academy's
+              6-month immersive full-time web development bootcamp, which has a
+              3% acceptance rate. Throughout the program I have attained an
+              understanding of multiple full-stack programming skills including,
+              JavaScript, Data Structures and Algorithms, Object-Oriented
+              Programming, HTML, CSS, and Relational Databases.
+            </h4>
             <h6>
               My interests are blockchain technology, macroeconomics, philosophy
               and computer science. I am fascinated with with "the next
-              revolutionary technology" and can't wait to build it.
+              revolutionary tech" and can't wait to build it.
             </h6>
             <h6>
               Full-Stack Software Engineer | JavaScript | Python | React | Redux
