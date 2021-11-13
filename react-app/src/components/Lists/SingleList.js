@@ -44,6 +44,7 @@ function SingleList({ watchlist }) {
 					className="edit-list"
 					placeholder={watchlist.name}
 					value={newEditName}
+					className="ELInput"
 				></input>
 				<div className="modal-footer">
 					{/* <button onClick={props.onClose} className="button">Close</button> */}
