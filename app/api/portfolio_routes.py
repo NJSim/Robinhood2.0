@@ -28,11 +28,16 @@ def updatePortfolio():
             db.session.expire_all()
             return "Successful"
         else:
-            portfolio_instance.qty_owned = (portfolio_instance.qty_owned) - transaction.shares
-            portfolio_instance.updated_at = today
-            db.session.commit()
-            db.session.expire_all()
-            return "Successful"
+            if ((portfolio_instance.qty_owned) - transaction.shares) == 0:
+                db.session.delete(portfolio_instance)
+                db.session.commit()
+                return {'Message':"Successful"}
+            else:
+                portfolio_instance.qty_owned = (portfolio_instance.qty_owned) - transaction.shares
+                portfolio_instance.updated_at = today
+                db.session.commit()
+                db.session.expire_all()
+                return {'Message':"Successful"}
 
     else:
         newPortinstance = Portfolio(
