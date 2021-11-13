@@ -75,7 +75,7 @@ function SingleList({ watchlist }) {
 				}}
 			>
 				{watchlist.name}
-				<div id="watchlist-options" onClick={showOptions}>
+				<div id="watchlist-options"  onClick={showOptions}>
 					{showDots ? <i class="fas fa-ellipsis-h"></i> : null}
 					{options ? (
 						<div id="show-watchlist-options">

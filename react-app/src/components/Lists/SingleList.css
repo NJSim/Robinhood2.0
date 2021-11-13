@@ -59,6 +59,10 @@
   /* margin-right: 5rem; */
 }
 
+.submit-edit-list:hover{
+    background-color: rgb(0, 185, 5);
+    color:white;
+}
 
 .submit-edit-list{
     color: rgb(0, 185, 5);
