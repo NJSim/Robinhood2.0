@@ -1,6 +1,7 @@
 import "./AboutUs.css";
 import image from "./AJ-Headshot.jpg";
 
+
 function AboutUs() {
   return (
     <div id="main-about-container">
@@ -49,6 +50,43 @@ function AboutUs() {
               | Node.js | Express.js | Sequelize | Flask | SQLAlchemy
             </h6>
             <h6>University of Houston, Bachelors degree, Finance, 2016</h6>
+          </div>
+        </div>
+
+         <div id="inner-about">
+          <div id="name-pic-links">
+            <h2>Brandon Laursen</h2>
+            <img id="aj-headshot" src={"https://media-exp1.licdn.com/dms/image/C4E03AQE6HzTYkP3dog/profile-displayphoto-shrink_800_800/0/1630269214395?e=1642636800&v=beta&t=32xt1i2Rd7kt0i_cVnJOiWvnaQxsu48uJtxsJfW1CMU"} />
+            <div>
+              <a target="_blank" href="https://github.com/brandonlaursen">
+                <img
+                  id="github-about"
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+                />
+              </a>
+              <a
+                target="_blank"
+                href="https://www.linkedin.com/in/brandon-laursen-398563218/"
+              >
+                <img
+                  id="linkedin-about"
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original-wordmark.svg"
+                />
+              </a>
+            </div>
+          </div>
+          <div style={{ width: "60%" }}>
+            <h4 style={{ fontWeight: "1000" }}>
+              TBD
+            </h4>
+            <h6>
+             TBD
+            </h6>
+            <h6>
+              Full-Stack Software Engineer | JavaScript | Python | React | Redux
+              | Node.js | Express.js | Sequelize | Flask | SQLAlchemy
+            </h6>
+            <h6>University of South Florida, Bachelors degree, Health Sciences, 2020</h6>
           </div>
         </div>
       </div>
