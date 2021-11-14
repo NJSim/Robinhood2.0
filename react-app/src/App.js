@@ -53,7 +53,7 @@ function App() {
               <ScrollingStock style={{ height: "30px" }} />
             </div>
           ) : null}
-          {sessionUser && portfolio ? <HomePage /> : null}
+          {portfolio ? <HomePage /> : null}
         </ProtectedRoute>
 
         <Route path="/login" exact={true}>

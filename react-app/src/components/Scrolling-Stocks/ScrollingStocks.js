@@ -38,14 +38,14 @@ function ScrollingStock() {
           {allStocks ? (
 
             allStocks.map((stock, i) => (
-
+              <div key={i}>
               <Card
                 title={stock[0]}
                 stock={stock}
                 itemId={stock[0]} // NOTE: itemId is required for track items
-                key={stock[0]}
                 routeId={i + 1}
               />
+              </div>
             ))
           ) : (
             <div id="loadingSmall">
