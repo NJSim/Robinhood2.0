@@ -1,6 +1,5 @@
 # To the Moon
 
-## Demo
 <a href="https://to-the--moon.herokuapp.com/">Try To the Moon</a>
 
 ## Introduction
