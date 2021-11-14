@@ -190,8 +190,6 @@ function SplashPage() {
           ></img>
         </div>
       </div>
-
-      <Footer />
     </>
   );
 }

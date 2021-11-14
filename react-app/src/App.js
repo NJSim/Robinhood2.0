@@ -16,6 +16,7 @@ import { getPortfolio } from "./store/portfolio";
 import ScrollingStock from "./components/Scrolling-Stocks/ScrollingStocks";
 import loadingSpinner from "../src/images/green-loading-spinner.gif";
 import AboutUs from "./components/AboutUs/AboutUs";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   const sessionUser = useSelector(state => state.session.user);
@@ -79,6 +80,7 @@ function App() {
           <Stock />
         </ProtectedRoute>
       </Switch>
+      <Footer />
     </BrowserRouter>
   );
 }
