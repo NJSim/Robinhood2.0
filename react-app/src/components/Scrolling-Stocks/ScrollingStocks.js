@@ -10,11 +10,7 @@ let allStocks;
 function ScrollingStock() {
   const stocks = useSelector(state => state.stocks.allStocks);
 
-
-
-
   const dispatch = useDispatch();
-
 
   useEffect(() => {
     (async () => {
@@ -24,6 +20,13 @@ function ScrollingStock() {
 
   if (stocks) {
     allStocks = Object.entries(stocks);
+    // allStocks = [
+    //   ...allStocks,
+    //   ...allStocks,
+    //   ...allStocks,
+    //   ...allStocks,
+    //   ...allStocks,
+    // ];
   }
 
   return (
@@ -34,11 +37,8 @@ function ScrollingStock() {
           RightArrow={RightArrow}
           // onWheel={onWheel}
         >
-
           {allStocks ? (
-
             allStocks.map((stock, i) => (
-
               <Card
                 title={stock[0]}
                 stock={stock}
@@ -49,7 +49,12 @@ function ScrollingStock() {
             ))
           ) : (
             <div id="loadingSmall">
-              <img src={loadingSpinner} alt="Loading..." width="50" height="50"/>
+              <img
+                src={loadingSpinner}
+                alt="Loading..."
+                width="50"
+                height="50"
+              />
             </div>
           )}
         </ScrollMenu>
