@@ -100,6 +100,7 @@ export const signUp = (name, email, password) => async (dispatch) => {
   if (response.ok) {
     const data = await response.json();
     dispatch(setUser(data))
+    await dispatch(getPortfolio());
     return null;
   } else if (response.status < 500) {
     const data = await response.json();
