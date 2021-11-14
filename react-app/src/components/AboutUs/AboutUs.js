@@ -92,6 +92,48 @@ function AboutUs() {
             <h6>University of South Florida, Bachelors degree, Health Sciences, 2020</h6>
           </div>
         </div>
+
+        <div id="inner-about">
+          <div id="name-pic-links">
+            <h2>Nicolas Sim</h2>
+            <img id="aj-headshot" src={image} />
+            <div>
+              <a target="_blank" href="https://github.com/NJSim">
+                <img
+                  id="github-about"
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+                />
+              </a>
+              <a
+                target="_blank"
+                href="https://www.linkedin.com/in/nicolas-sim/"
+              >
+                <img
+                  id="linkedin-about"
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original-wordmark.svg"
+                />
+              </a>
+            </div>
+          </div>
+          <div style={{ width: "60%" }}>
+            <h4 style={{ fontWeight: "1000" }}>
+            I'm a passionate software developer with a lot of customer service experience.
+            I'm an enthusiastic teammate and a patient communicator. I love building solutions in the form of code.
+            I've always wanted to be apart of something bigger than me, and coding applications has helped me build
+            that fantasy into a closer reality. Being innovative is something I strive for everyday!
+            </h4>
+            <h6>
+              Always looking for the next big thing, I enjoy learning new skills and adapting to unfamiliar
+              environments.
+            </h6>
+            <h6>
+              Full-Stack Software Engineer | JavaScript | Python | React | Redux
+              | Node.js | Express.js | Sequelize | Flask | SQLAlchemy
+            </h6>
+            <h6>University of Oregon, Bachelors degree, General Science, 2017 </h6>
+          </div>
+        </div>
+
       </div>
     </div>
   );
