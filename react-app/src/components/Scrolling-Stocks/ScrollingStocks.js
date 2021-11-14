@@ -27,7 +27,7 @@ function ScrollingStock() {
   }
 
   return (
-    <>
+
       <div style={{ marginRight: "30px", marginLeft: "30px", height: "50px" }}>
         <ScrollMenu
           LeftArrow={LeftArrow}
@@ -38,14 +38,13 @@ function ScrollingStock() {
           {allStocks ? (
 
             allStocks.map((stock, i) => (
-              <div key={i}>
               <Card
                 title={stock[0]}
                 stock={stock}
                 itemId={stock[0]} // NOTE: itemId is required for track items
                 routeId={i + 1}
               />
-              </div>
+     
             ))
           ) : (
             <div id="loadingSmall">
@@ -54,7 +53,7 @@ function ScrollingStock() {
           )}
         </ScrollMenu>
       </div>
-    </>
+
   );
 }
 
