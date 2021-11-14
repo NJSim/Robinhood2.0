@@ -5,7 +5,8 @@
 ## Introduction
 To the Moon is a stock trading platform clone based off of Robinhood. To the Moon's purpose is to emulate stock trading and investments for beginners. Purchase and sell shares of stock to view your portfolio's progress. View live data straight from real API fetch calls.
 
-<-- Splash page picture for logged in user? -->
+![Alt Text](https://github.com/NJSim/Robinhood2.0/blob/main/readme_images/homepage_gif.gif)
+![Alt Text](https://github.com/NJSim/Robinhood2.0/blob/main/readme_images/splash.png)
 
 ## Technologies Used
 
