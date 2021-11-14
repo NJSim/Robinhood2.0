@@ -15,7 +15,9 @@ JavaScript | React | Redux
 Python | Flask | SQLAlchemy
 
 ### API's utilized
-<-- APIs here -->
+<a href="https://pyex.readthedocs.io/en/latest/">pyEX</a> - Stock Data
+
+<a href="https://finnhub.io/">FinnHub</a> - Stock News Data
 
 ## Features
 
