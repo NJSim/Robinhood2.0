@@ -77,10 +77,13 @@ function AboutUs() {
           </div>
           <div style={{ width: "60%" }}>
             <h4 style={{ fontWeight: "1000" }}>
-              TBD
+              As a health science major turned full stack development student, my goal is to bridge the gap between healthcare and programming.
+              Always having a passion to make a difference and help people, decided to start my journey at App Academy.
+              Throughout the rigors of App Academy I have learnt various skills of full stack stack development ranging from backend(Sequelize, Express, SQLAlchemy, Flask) to frontend(React, Redux) utilizing languages such as Python, JavaScript, CSS, and HTML.
             </h4>
             <h6>
-             TBD
+             As a forever student, I am always striving to learn something new. I have a passion for science, programming, psycology and more.
+             I enjoy powerlifting, cryptocurrencies, and keeping up with the latest tech.
             </h6>
             <h6>
               Full-Stack Software Engineer | JavaScript | Python | React | Redux
