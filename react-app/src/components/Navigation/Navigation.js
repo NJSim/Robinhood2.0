@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import * as sessionActions from "../../store/session";
 import "./Navigation.css";
 import { getQuery, clearQuery } from "../../store/search";
@@ -13,18 +13,21 @@ function Navigation() {
   const sessionUser = useSelector(state => state.session.user);
   const queryResults = useSelector(state => state.search.results);
   const allStocks = useSelector(state => state.stocks.allStocks);
-
+  const searchRef = useRef();
   const [logoSource, setLogoSource] = useState(MoonRocket);
   const dispatch = useDispatch();
   const history = useHistory();
   const [query, setQuery] = useState("");
 
   useEffect(() => {
-    dispatch(getQuery(query));
     if (query == "") {
       dispatch(clearQuery());
+    } else {
+      dispatch(getQuery(query));
     }
   }, [dispatch, query]);
+
+
 
   const logout = e => {
     e.preventDefault();
@@ -54,16 +57,36 @@ function Navigation() {
     dispatch(clearQuery());
   };
 
-  let searchBar = (
+const SearchBar = () => {
+    useEffect(() => {
+		// add when mounted
+		document.addEventListener("mousedown", handleClick);
+		// return function to be called when unmounted
+		return () => {
+			document.removeEventListener("mousedown", handleClick);
+		};
+	}, [])
+
+  const handleClick = e => {
+  if (searchRef.current.contains(e.target)) {
+    // inside click
+    return showResults()
+  }
+  return hideResults();
+}
+return(
     <div className="searchBarQuery">
       <div className="searchResults">
-        {Object.keys(queryResults).map(key => {
+        {Object.keys(queryResults).map((key,i) => {
           return (
             <NavLink
               className="result"
               to={`/stocks/${key}`}
               value={key}
-              onClick={submitSearch}
+              key={i}
+              onClick={(e) => {
+                hideResults();
+                submitSearch()}}
             >
               {queryResults[key]} -{" "}
               {allStocks[queryResults[key]].quote.companyName}{" "}
@@ -72,7 +95,7 @@ function Navigation() {
         })}
       </div>
     </div>
-  );
+)}
 
   let isRegistered = (
     <div className="navigation-container">
@@ -177,90 +200,95 @@ function Navigation() {
   );
   if (sessionUser) {
     isRegistered = (
-      <div className="dashboard-container">
-        <div className="dashboard-wrapper">
-          <div className="dashboard-logo" style={{ marginTop: 20 }}>
-            <NavLink
-              to="/"
-              onMouseEnter={() => setLogoSource(MoonRocketGreen)}
-              onMouseLeave={() => setLogoSource(MoonRocket)}
-            >
-              <img src={logoSource} alt="ToTheMoonRocket" width="30" />
-            </NavLink>
-          </div>
-          <div className="search">
-            <div className="dashboard-search">
-              <div className="searchIcon">
-                <svg
-                  className="search-logo"
-                  fill="none"
-                  height="24"
-                  role="img"
-                  viewBox="0 0 24 24"
-                  width="24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    clipRule="evenodd"
-                    d="M15.3201 16.7344C14.0741 17.5354 12.5913 18 11 18C6.58172 18 3 14.4183 3 10C3
+			<div className="dashboard-container">
+				<div className="dashboard-wrapper">
+					<div className="dashboard-logo" style={{ marginTop: 20 }}>
+						<NavLink
+							to="/"
+							onMouseEnter={() => setLogoSource(MoonRocketGreen)}
+							onMouseLeave={() => setLogoSource(MoonRocket)}
+						>
+							<img src={logoSource} alt="ToTheMoonRocket" width="30" />
+						</NavLink>
+					</div>
+					<div className="search">
+						<div className="dashboard-search">
+							<div className="searchIcon">
+								<svg
+									className="search-logo"
+									fill="none"
+									height="24"
+									role="img"
+									viewBox="0 0 24 24"
+									width="24"
+									xmlns="http://www.w3.org/2000/svg"
+								>
+									<path
+										clipRule="evenodd"
+										d="M15.3201 16.7344C14.0741 17.5354 12.5913 18 11 18C6.58172 18 3 14.4183 3 10C3
                   5.58172 6.58172 2 11 2C15.4183 2 19 5.58172 19 10C19 12.1038 18.1879 14.0179 16.8601 15.446L21.7071
                   20.293L20.2928 21.7072L15.3201 16.7344ZM17 10C17 13.3137 14.3137 16 11 16C7.68629 16 5 13.3137 5 10C5 6.68629
                   7.68629 4 11 4C14.3137 4 17 6.68629 17 10Z"
-                    fillRule="evenodd"
-                  ></path>
-                </svg>
-              </div>
+										fillRule="evenodd"
+									></path>
+								</svg>
+							</div>
 
-              <div
-                className="searchbar"
-                onMouseEnter={showResults}
-                onMouseLeave={hideResults}
-              >
-                <input
-                  type="search"
-                  onKeyUp={e => setQuery(e.target.value)}
-                  style={{
-                    width: "100%",
-                    height: 44,
-                    border: "none",
-                    outline: "none",
-                    fontSize: 15,
-                  }}
-                  placeholder="Search"
-                  type="search"
-                  className="SB"
-                ></input>
+							<div
+								className="searchbar"
+                ref={searchRef}
+								// onMouseEnter={showResults}
 
-                {searchBar}
-              </div>
-            </div>
-          </div>
+								// onMouseLeave={hideResults}
+							>
+								<input
+									type="search"
+									onKeyUp={(e) => {
+										setQuery(e.target.value);
+										showResults();
+									}}
+									style={{
+										width: "100%",
+										height: 44,
+										border: "none",
+										outline: "none",
+										fontSize: 15,
+									}}
+									placeholder="Search"
+									type="search"
+									className="SB"
+								></input>
 
-          <div className="dashboard-list">
-            <div className="dashboard-list-container">
-              <NavLink to="/" className="nav-hyper">
-                <span>Portfolio</span>
-              </NavLink>
+								<SearchBar />
+							</div>
+						</div>
+					</div>
 
-              <NavLink
-                to="/account/history"
-                className="nav-hyper"
-                style={{ marginRight: 20 }}
-              >
-                <span>Account</span>
-              </NavLink>
-            </div>
-          </div>
-          <button
-            onClick={logout}
-            id="logout-button"
-            style={{ marginRight: 30 }}
-          >
-            Log Out
-          </button>
-        </div>
-      </div>
-    );
+					<div className="dashboard-list">
+						<div className="dashboard-list-container">
+							<NavLink to="/" className="nav-hyper">
+								<span>Portfolio</span>
+							</NavLink>
+
+							<NavLink
+								to="/account/history"
+								className="nav-hyper"
+								style={{ marginRight: 20 }}
+							>
+								<span>Account</span>
+							</NavLink>
+						</div>
+					</div>
+					<button
+						onClick={logout}
+						id="logout-button"
+						style={{ marginRight: 30 }}
+					>
+						Log Out
+					</button>
+				</div>
+			</div>
+		);
   }
 
   return <>{isRegistered}</>;

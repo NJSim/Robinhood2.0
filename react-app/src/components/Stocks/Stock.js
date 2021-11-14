@@ -143,8 +143,8 @@ function Stock() {
 							? "+$" + stock["change"] + " "
 							: "$" + stock["change"] + " "}
 						{stock["changePercent"] > 0
-							? "(" + "+" + stock["changePercent"].toFixed(3) * 100 + "%) "
-							: "(" + stock["changePercent"].toFixed(3) * 100 + "%) "}
+							? "(" + "+" + (stock["changePercent"] * 100).toFixed(3) + "%) "
+							: "(" + (stock["changePercent"] * 100).toFixed(3) + "%) "}
 						<span style={{ fontWeight: 0, color: "#697277" }}>Today</span>
 					</h4>
 					<Chart
@@ -153,7 +153,7 @@ function Stock() {
 						color={"#00a806"}
 						childToParent={childToParent}
 						height={250}
-            width="50vw"
+						width="50vw"
 					/>
 					<div id="timeFrameDiv">
 						<button
@@ -288,7 +288,15 @@ function Stock() {
 										</span>
 									</div>
 								)}
-								<div style={{ maxWidth: 240, color: "black", fontWeight:900, fontSize:15, textAlign:"center" }}>
+								<div
+									style={{
+										maxWidth: 240,
+										color: "black",
+										fontWeight: 900,
+										fontSize: 15,
+										textAlign: "center",
+									}}
+								>
 									{errors.map((error, ind) => (
 										<div key={ind}>{error}</div>
 									))}
@@ -299,7 +307,7 @@ function Stock() {
 							Add to Watchlist
 						</button>
 						<Modal
-							title={stock["symbol"]}
+							title={`Add ${stock["symbol"]} to a Watchlist`}
 							show={show}
 							onClose={() => setShow(false)}
 						>

@@ -32,20 +32,25 @@ function HomePage() {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(async () => {
-    if (sessionUser) {
+    let stock;
       await dispatch(getPortfolio())
         .then(() => {
           setLoaded(true);
           if (portfolio["isEmpty"]) {
-            setMainStock(1);
-          }
-          if (!stock) {
-            setMainStock(assets[0].asset_id);
+            stock = 1;
+          }else {
+            stock = assets[0].asset_id;
           }
         })
-        .then(() => dispatch(getStock(mainStock)));
+        .then(() => dispatch(getStock(stock)));
+
+  }, [dispatch, sessionUser]);
+
+  useEffect(async() => {
+    if (mainStock){
+      await dispatch(getStock(mainStock))
     }
-  }, [dispatch, sessionUser, mainStock]);
+  }, [dispatch, mainStock])
 
   const childToParent = data => {
     setChartPrice(data);
