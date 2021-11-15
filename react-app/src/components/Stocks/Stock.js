@@ -221,7 +221,7 @@ function Stock() {
 								<div
 									style={{ fontSize: 13, fontWeight: 900, paddingBottom: 10 }}
 								>
-									Week 52 High
+									52 Week High
 								</div>
 								<div>
 									{stock["week52High"] ? `$${stock["week52High"]}` : "----"}
@@ -231,7 +231,7 @@ function Stock() {
 								<div
 									style={{ fontSize: 13, fontWeight: 900, paddingBottom: 10 }}
 								>
-									Week 52 Low
+									52 Week Low
 								</div>
 								<div>
 									{stock["week52Low"] ? `$${stock["week52Low"]}` : "----"}
