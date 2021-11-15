@@ -5,8 +5,7 @@
 ## Introduction
 To the Moon is a stock trading platform clone based off of Robinhood. To the Moon's purpose is to emulate stock trading and investments for beginners. Purchase and sell shares of stock to view your portfolio's progress. View live data straight from real API fetch calls.
 
-![Alt Text](https://github.com/NJSim/Robinhood2.0/blob/main/readme_images/homepage_gif.gif)
-![Alt Text](https://github.com/NJSim/Robinhood2.0/blob/main/readme_images/splash.png)
+![Alt Text](https://github.com/NJSim/Robinhood2.0/blob/main/readme_images/Splash.gif)
 
 ## Technologies Used
 
@@ -27,19 +26,19 @@ Python | Flask | SQLAlchemy
 ### View Stock Chart History
 Click on a stock from our navigation bar or search for a stock to access information about it.
 
-<-- gif here -->
+![Alt Text](https://github.com/NJSim/Robinhood2.0/blob/main/readme_images/viewStock.gif)
 
 ### Create, Edit, and Delete a Watchlist
 Log in to view your personalized watch list in which you can add, edit and delete from.
 
-<-- gif here -->
+![Alt Text](https://github.com/NJSim/Robinhood2.0/blob/main/readme_images/WatchlistCRUD.gif)
 
 ### Buy and Sell Stock Shares
 Navigate to the stock page to Buy and Sell shares based off the current market price. You can also add the stock to one of your watchlists.
 
-<-- gif here -->
+![Alt Text](https://github.com/NJSim/Robinhood2.0/blob/main/readme_images/StockCRUD.gif)
 
 ### View your Stock Portfolio
 Access your portfolio statistics by purchasing stock and returning to the home page.
 
-<-- gif here -->
+![Alt Text](https://github.com/NJSim/Robinhood2.0/blob/main/readme_images/homepagePNG.png)
