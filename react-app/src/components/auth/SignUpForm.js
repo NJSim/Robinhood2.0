@@ -156,14 +156,14 @@ const SignUpForm = () => {
           <h6>Commission-free trading</h6>
           <p>
             Break free from commission-fees and make unlimited commission-free
-            trades in stocks, funds, and options with Robinhood Financial. Other
+            trades in stocks, funds, and options with To the Moon Financial. Other
             fees may apply. View our fee schedule to learn more.
           </p>
         </div>
         <div>
           <h6>Account Protection</h6>
           <p>
-            Robinhood Financial is a member of SIPC. Securities in your account
+            To the Moon Financial is a member of SIPC. Securities in your account
             protected up to $500,000. For details, please see www.sipc.org.
           </p>
         </div>
