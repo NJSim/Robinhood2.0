@@ -1,5 +1,6 @@
 import "./AboutUs.css";
 import image from "./AJ-Headshot.jpg";
+import nick from "./nick.JPG";
 
 
 function AboutUs() {
@@ -96,7 +97,7 @@ function AboutUs() {
         <div id="inner-about">
           <div id="name-pic-links">
             <h2>Nicolas Sim</h2>
-            <img id="aj-headshot" src={image} />
+            <img id="aj-headshot" src={nick} />
             <div>
               <a target="_blank" href="https://github.com/NJSim">
                 <img
