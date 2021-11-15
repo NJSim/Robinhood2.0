@@ -194,6 +194,53 @@ function Stock() {
 					</div>
 					<div id="news-container">
 						<div style={{ borderBottom: "1px solid #E3E9ED" }}>
+							<h1 style={{ textAlign: "left", marginBottom: "10px" }}>
+								Key Statistics
+							</h1>
+						</div>
+						<div style={{ display: "flex" }}>
+							<div id="statistic-div">
+								<div
+									style={{ fontSize: 13, fontWeight: 900, paddingBottom: 10 }}
+								>
+									Average Volume
+								</div>
+								<div>
+									{stock["avgTotalVolume"] ? stock["avgTotalVolume"] : "----"}
+								</div>
+							</div>
+							<div id="statistic-div">
+								<div
+									style={{ fontSize: 13, fontWeight: 900, paddingBottom: 10 }}
+								>
+									Price-Earnings Ratio
+								</div>
+								<div>{stock["peRatio"] ? stock["peRatio"] : "----"}</div>
+							</div>
+							<div id="statistic-div">
+								<div
+									style={{ fontSize: 13, fontWeight: 900, paddingBottom: 10 }}
+								>
+									Week 52 High
+								</div>
+								<div>
+									{stock["week52High"] ? `$${stock["week52High"]}` : "----"}
+								</div>
+							</div>
+							<div id="statistic-div">
+								<div
+									style={{ fontSize: 13, fontWeight: 900, paddingBottom: 10 }}
+								>
+									Week 52 Low
+								</div>
+								<div>
+									{stock["week52Low"] ? `$${stock["week52Low"]}` : "----"}
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="news-container">
+						<div style={{ borderBottom: "1px solid #E3E9ED" }}>
 							<h1 style={{ textAlign: "left", marginBottom: "10px" }}>News</h1>
 						</div>
 						{stock["news"].map((article) => {
@@ -336,7 +383,7 @@ function Stock() {
 									) : null}
 									{transResult ? (
 										<div style={{ textAlign: "left" }}>
-											<div style={{ paddingBottom: 10, fontWeight:900 }}>
+											<div style={{ paddingBottom: 10, fontWeight: 900 }}>
 												<i
 													className="far fa-check-circle"
 													style={{ color: "#00a806" }}

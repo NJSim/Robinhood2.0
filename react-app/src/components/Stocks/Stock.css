@@ -255,6 +255,13 @@ end of - edit the card on the Stock Scroll to have a different collor on hover
   border-bottom: 1px solid #e3e9ed;
 }
 
+#statistic-div{
+  display: flex;
+  flex-direction: column;
+  padding: 10px 60px 10px 10px;
+  font-size: 14px;
+}
+
 .timeFrameButton {
   background-color: #fff;
   color: black;
