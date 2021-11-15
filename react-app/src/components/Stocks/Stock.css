@@ -12,7 +12,11 @@ div.content {
   width: auto;
 }
 #transaction-button:disabled{
-  
+  background-color: rgba(253, 111, 45, 0.454);
+  cursor: none;
+}
+#transaction-button:disabled:hover{
+  cursor: default;
 }
 #stock-change {
   font-weight: 800;

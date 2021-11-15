@@ -106,56 +106,6 @@ return(
         <nav role="navigation" className="NavigationBar">
           <ul>
             <li>
-              <a style={{ paddingTop: 10 }} href="/" id="nav-link-small">
-                {" "}
-                Products{" "}
-                <img
-                  className="arrowNav"
-                  src="https://img.icons8.com/ios-glyphs/30/000000/chevron-down.png"
-                  alt=""
-                  width="20"
-                />
-              </a>
-
-              <ul>
-                <li>
-                  <a href="/"> Stocks </a>
-                </li>
-                <li>
-                  <a href="/"> Options </a>
-                </li>
-                <li>
-                  <a href="/"> Gold </a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a href="/">
-                {" "}
-                Learn{" "}
-                <img
-                  className="arrowNav"
-                  src="https://img.icons8.com/ios-glyphs/30/000000/chevron-down.png"
-                  alt=""
-                  width="20"
-                />
-              </a>
-              <ul>
-                <li>
-                  <a href="/"> Investing </a>
-                </li>
-                <li>
-                  <a href="/"> Library </a>
-                </li>
-                <li>
-                  <a href="/"> Snacks </a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a href="/"> Support </a>
-            </li>
-            <li>
               <a href="/">
                 {" "}
                 Who we are{" "}
