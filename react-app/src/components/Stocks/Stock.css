@@ -11,6 +11,9 @@
 div.content {
   width: auto;
 }
+#transaction-button:disabled{
+  
+}
 #stock-change {
   font-weight: 800;
   font-size: 14px;

@@ -16,7 +16,7 @@ function HomePage() {
 
   let emptyPortfolio;
   let assets;
-  if (!portfolio.positions) {
+  if (portfolio["isEmpty"]) {
     emptyPortfolio = true;
   } else {
     assets = Object.values(portfolio.positions);
@@ -33,6 +33,7 @@ function HomePage() {
 
   useEffect(async () => {
     let stock;
+    if(sessionUser){
       await dispatch(getPortfolio())
         .then(() => {
           setLoaded(true);
@@ -43,7 +44,7 @@ function HomePage() {
           }
         })
         .then(() => dispatch(getStock(stock)));
-
+      }
   }, [dispatch, sessionUser]);
 
   useEffect(async() => {
@@ -70,8 +71,9 @@ function HomePage() {
           <div className="dashboardContainer">
             <div className="row">
               <div className="mainContainer">
-                <h1>{stock["companyName"]}</h1>
-                <div
+                <h1>{!emptyPortfolio?stock["companyName"]:`${sessionUser.name}, Welcome ToTheMoon.`}</h1>
+                {emptyPortfolio?(<h2>Purchase some shares to get started.</h2>):null}
+               {!emptyPortfolio?(<div
                   style={{
                     display: "flex",
                     fontWeight: 900,
@@ -92,9 +94,9 @@ function HomePage() {
                             .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
                     }
                   />
-                </div>
+                </div>):null}
 
-                <h4 id="stock-change">
+               {!emptyPortfolio?(<h4 id="stock-change">
                   {stock["change"] > 0
                     ? "+$" + stock["change"] + " "
                     : "$" + stock["change"] + " "}
@@ -102,8 +104,8 @@ function HomePage() {
                     ? "(" + "+" + stock["changePercent"].toFixed(3) + "%) "
                     : "(" + stock["changePercent"].toFixed(3) + "%) "}
                   <span style={{ fontWeight: 0, color: "#697277" }}>Today</span>
-                </h4>
-                {stock ? (
+                </h4>):null}
+                {!emptyPortfolio ? (
                   <Chart
                     childToParent={childToParent}
                     timeFrame={"chart_1d"}
@@ -113,7 +115,9 @@ function HomePage() {
                     height={250}
                   />
                 ) : (
-                  "something's not right!"
+                  <div style={{paddingTop:30}}>
+                    <img src="https://cdn.robinhood.com/assets/generated_assets/6da8e43c2ce2585fa5f4384a506a5eda.svg" width="700"/>
+                    </div>
                 )}
               </div>
 
@@ -173,7 +177,7 @@ function HomePage() {
           </tbody>
         </table>
       ) : null}
-      <div id="portfolio-table-container">
+      <div id="portfolio-table-container" style={{paddingBottom: 20}}>
         <table id="portfolio-table-heading">
           <thead id="table-row-head">
             <tr>
@@ -259,7 +263,7 @@ function HomePage() {
                     </td>
                   </tr>
                 ))
-              : "Loading assets..."}
+              : "Your portfolio is empty."}
           </tbody>
         </table>
       </div>

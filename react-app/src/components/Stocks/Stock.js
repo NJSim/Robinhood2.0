@@ -5,22 +5,19 @@ import { getStock } from "../../store/stocks";
 import { authenticate } from "../../store/session";
 import StockNews from "./StockNews";
 import Modal from "../Modal/Modal";
-import ModalList from "../Lists/List";
 import { MechanicalCounter } from "mechanical-counter";
 import "./Stock.css";
 import Chart from "./Chart";
 import loadingSpinner from "../../images/green-loading-spinner.gif";
 import { executeTransaction } from "../../store/transactions";
-import List from "../Lists/List";
-import ScrollingStock from "../Scrolling-Stocks/ScrollingStocks";
 import StockList from "../StockList/StockList";
 
 function Stock() {
   const { stockId } = useParams();
   const stock = useSelector(state => state.stocks.stock);
   const userId = useSelector(state => state.session.user.id);
-  const watchlists = useSelector(state => state.watchlists.watchlists);
 
+  const [transResult, setTransResult] = useState(false);
   const [timeFrame, setTimeFrame] = useState("chart_1d");
   const dispatch = useDispatch();
 
@@ -52,6 +49,7 @@ function Stock() {
   }
 
   const purchaseStock = async () => {
+    const purchasePrice = stock['latestPrice'];
     const data = {
       user_id: userId,
       asset_id: stockId,
@@ -64,12 +62,22 @@ function Stock() {
     if (trans.errors) {
       setErrors(trans.errors);
     } else {
+      setShare("");
       setErrors([]);
+      const transMessage =
+				share > 1
+					? `${share} shares purchased at $${purchasePrice}/share`
+					: `${share} share purchased at $${purchasePrice}`;
+      setTransResult(transMessage);
+			await setTimeout(() => {
+				setTransResult(false);
+			}, 4000);
     }
     dispatch(authenticate());
     dispatch(getStock(stockId));
   };
   const sellStock = async () => {
+    const purchasePrice = stock["latestPrice"];
     const data = {
       user_id: userId,
       asset_id: stockId,
@@ -83,7 +91,16 @@ function Stock() {
     if (trans.errors) {
       setErrors(trans.errors);
     } else {
+      setShare("");
       setErrors([]);
+      const transMessage =
+				share > 1
+					? `${share} shares sold at $${purchasePrice}/share`
+					: `${share} share sold at $${purchasePrice}`;
+			setTransResult(transMessage);
+			await setTimeout(() => {
+				setTransResult(false);
+			}, 4000);
     }
     dispatch(authenticate());
     dispatch(getStock(stockId));
@@ -252,6 +269,7 @@ function Stock() {
 								{showSell ? (
 									<div>
 										<button
+											id="transaction-button"
 											disabled={!share}
 											className="reviewOrder"
 											onClick={sellStock}
@@ -262,6 +280,7 @@ function Stock() {
 								) : (
 									<div>
 										<button
+											id="transaction-button"
 											disabled={!share}
 											className="reviewOrder"
 											onClick={purchaseStock}
@@ -297,9 +316,38 @@ function Stock() {
 										textAlign: "center",
 									}}
 								>
-									{errors.map((error, ind) => (
-										<div key={ind}>{error}</div>
-									))}
+									{errors.length ? (
+										<>
+											<div
+												style={{
+													display: "flex",
+													justifyContent: "flex-start",
+													paddingBottom: 10,
+												}}
+											>
+												<i className="fas fa-exclamation-circle"> Error</i>
+											</div>
+											{errors.map((error, ind) => (
+												<div style={{ textAlign: "left" }} key={ind}>
+													{error}
+												</div>
+											))}
+										</>
+									) : null}
+									{transResult ? (
+										<div style={{ textAlign: "left" }}>
+											<div style={{ paddingBottom: 10, fontWeight:900 }}>
+												<i
+													className="far fa-check-circle"
+													style={{ color: "#00a806" }}
+												>
+													{" "}
+													Success
+												</i>
+											</div>
+											{transResult}
+										</div>
+									) : null}
 								</div>
 							</div>
 						</div>
