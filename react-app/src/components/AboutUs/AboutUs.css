@@ -26,6 +26,7 @@
 #inner-about {
   display: flex;
   justify-content: space-around;
+  padding-top: 40px;
   width: 100%;
 }
 
