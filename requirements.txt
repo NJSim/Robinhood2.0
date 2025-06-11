@@ -49,7 +49,7 @@ python-dotenv==0.14.0
 python-editor==1.0.4
 pytz-deprecation-shim==0.1.0.post0
 pytz==2021.3
-requests==2.26.0
+requests==2.32.4
 six==1.15.0
 socketio-client-nexus==0.7.6
 sqlalchemy==1.4.19
