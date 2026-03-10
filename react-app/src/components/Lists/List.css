@@ -1,0 +1,82 @@
+.home-watchlists{
+  overflow: scroll;
+}
+
+.listItems2{
+  line-height: 35px;
+}
+
+.allLists{
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-form{
+  display:flex;
+}
+#top-watchlist-div{
+  display: flex;
+  border-bottom: 1px solid #E3E9ED;
+  margin: 0;
+  padding:0;
+  /* height: 5rem; */
+}
+#top-watchlist-div h2{
+  padding:10px;
+  margin:0;
+}
+#button-new-watchlist:hover{
+  cursor: pointer;
+  color: #00a806;
+}
+#add-new-watchlist{
+  font-size: 15px;
+  font-weight: 900;
+  z-index: 5;
+}
+.react-horizontal-scrolling-menu--item{
+  max-height: 70px;
+}
+
+.CLButton{
+  color: rgb(0, 185, 5);
+  width:6rem;
+  height: 2.2rem;
+  border-color:rgb(0, 185, 5);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
+  font-family: "Capsule Sans Text", system-ui, -apple-system, BlinkMacSystemFont,
+  "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 28px;
+  margin-right: .5rem;
+  cursor:pointer;
+  float: right;
+  position: relative;
+  margin-right: 1rem;
+  background-color: white;
+}
+.CLButton:hover{
+  background-color: rgb(0, 185, 5);
+  color:white;
+  margin-bottom: 12.5rem;
+}
+
+.CLInput{
+  width: 15rem;
+  height: 3rem;
+  border-radius: 5px;
+  outline: 1px solid rgb(0, 185, 5);
+  border: none;
+  padding: 10px;
+  margin-bottom: .5rem;
+  margin-top: 1rem;
+  margin-left: 1rem;
+}
+
+.HW1{
+  height: 22rem;
+}

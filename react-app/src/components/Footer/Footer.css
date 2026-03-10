@@ -1,0 +1,60 @@
+.footer {
+  display: flex;
+  background-color: white;
+  color: black;
+  bottom: 0;
+  /* position:fixed; */
+  left: 0;
+  width: 100%;
+  align-items: center;
+  justify-content: space-around;
+  padding-top: 22px;
+  text-align: center;
+  margin-top: 20px;
+  height: 50px;
+  position:absolute;
+  border-top: 1px solid black;
+}
+.footer a{
+  height: 50px;
+}
+#innerFooter {
+  display: flex;
+  align-items: center;
+
+}
+#footer-component{
+  display: flex;
+}
+body {
+    min-height: 100vh;
+    margin: 0;
+    position: relative;
+}
+body::after {
+  content: '';
+  display: block;
+  height: 50px;
+}
+h3 {
+font-size: 17px;
+margin-top: 7px;
+}
+
+#github,
+#linkedin {
+  margin-left: 10px;
+  cursor: pointer;
+
+}
+#github {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+#linkedin {
+  height: 5rem;
+  width: 5rem;
+  margin-right: 20px;
+  /* margin-right: 20px; */
+}

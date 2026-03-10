@@ -1,0 +1,584 @@
+.HomePageContainer {
+  background-color: rgb(195, 245, 60);
+  display: flex;
+  justify-content: space-evenly;
+  position: relative;
+  height: 41rem;
+  flex-wrap: wrap;
+  border-bottom-color: rgb(0, 0, 0);
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-top-color: lightgreen;
+  border-top-style: solid;
+  border-top-width: 1px;
+  transform: translate3d(0, 0, 0);
+  overflow: hidden;
+}
+
+.HomePageItem1 {
+  width: 30rem;
+  position: relative;
+}
+
+.HomePageItem2 {
+  margin-top: 2rem;
+  width: 45rem;
+  position: relative;
+  flex-shrink: 1;
+}
+
+.robinpic1 {
+  position: absolute;
+}
+
+.robinpic2 {
+  z-index: 10;
+  right: 1.8rem;
+}
+
+.HomeLeftContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: -5;
+  padding: 100px 0;
+}
+
+.HomeSpanText {
+  font-family: "Capsule Sans Display", system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 36px;
+  -webkit-letter-spacing: -0.24px;
+  -moz-letter-spacing: -0.24px;
+  -ms-letter-spacing: -0.24px;
+  letter-spacing: -0.24px;
+  -webkit-text-decoration: unset;
+  text-decoration: unset;
+  margin-bottom: 2rem;
+  z-index: 2;
+}
+
+.HomeH1 {
+  font-family: "Capsule Sans Display", system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 52px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 60px;
+  -webkit-letter-spacing: -1.75px;
+  -moz-letter-spacing: -1.75px;
+  -ms-letter-spacing: -1.75px;
+  letter-spacing: -1.75px;
+  -webkit-text-decoration: unset;
+  text-decoration: unset;
+  margin-bottom: 2rem;
+  width: 20rem;
+}
+
+.SignUpHomeButton {
+  margin-top: 2rem;
+  color: white;
+  text-decoration: none;
+  align-items: center;
+  box-sizing: border-box;
+  justify-content: center;
+  text-align: center;
+  padding: 0 36px;
+  height: 48px;
+  border-radius: 24px;
+  cursor: pointer;
+  background-color: rgb(0, 0, 0);
+  border: none;
+  outline: none;
+  font-family: "Capsule Sans Text", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 28px;
+}
+
+.SignUpHomeButton:hover {
+  background-color: rgb(70, 70, 70);
+}
+
+.HomeH3 {
+  margin-top: 2rem;
+  cursor: pointer;
+}
+
+.HomeH3:hover {
+  color: rgb(0, 185, 5);
+}
+
+.circle {
+  position: relative;
+  top: 7px;
+  color: red;
+}
+
+.circle:hover {
+  fill: rgb(0, 185, 5);
+}
+
+.homeSignUpText {
+  text-decoration: none;
+  color: white;
+}
+
+.HomePageContainer2 {
+  display: flex;
+  border-bottom-color: rgb(0, 0, 0);
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  height: 5.8rem;
+  justify-content: center;
+}
+
+.HomePage2Item1 {
+  display: flex;
+  align-items: center;
+}
+
+.container2Span {
+  font-family: "Capsule Sans Text", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 28px;
+  -webkit-letter-spacing: -0.25px;
+  -moz-letter-spacing: -0.25px;
+  -ms-letter-spacing: -0.25px;
+  letter-spacing: -0.25px;
+  -webkit-text-decoration: unset;
+  text-decoration: unset;
+}
+
+.HomePageContainer3 {
+  display: flex;
+  justify-content: center;
+  height: 50rem;
+  flex-wrap: wrap;
+  overflow: scroll;
+}
+
+.HomePage3Item1 {
+  width: 45rem;
+  height: 45rem;
+}
+
+.HomePage3Item2 {
+  width: 40rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.robinpic3 {
+  max-width: 100%;
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+.HomePage3Item2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 35rem;
+}
+
+.hp31 {
+  margin: 0;
+  color: rgb(0, 0, 0);
+  font-family: "Capsule Sans Display", system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 36px;
+  -webkit-letter-spacing: -0.24px;
+  -moz-letter-spacing: -0.24px;
+  -ms-letter-spacing: -0.24px;
+  letter-spacing: -0.24px;
+  -webkit-text-decoration: unset;
+  text-decoration: unset;
+  margin-bottom: 1rem;
+}
+
+.hp32 {
+  font-family: "Capsule Sans Text", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 28px;
+  -webkit-letter-spacing: -0.25px;
+  -moz-letter-spacing: -0.25px;
+  -ms-letter-spacing: -0.25px;
+  letter-spacing: -0.25px;
+  -webkit-text-decoration: unset;
+  text-decoration: unset;
+}
+
+.h1s1 {
+  font-family: "Capsule Sans Text", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 28px;
+  -webkit-letter-spacing: -0.25px;
+  -moz-letter-spacing: -0.25px;
+  -ms-letter-spacing: -0.25px;
+  letter-spacing: -0.25px;
+  -webkit-text-decoration: unset;
+  text-decoration: unset;
+  margin-left: 1rem;
+}
+
+.h1p1 {
+  font-family: "Capsule Sans Text", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 28px;
+  -webkit-letter-spacing: -0.25px;
+  -moz-letter-spacing: -0.25px;
+  -ms-letter-spacing: -0.25px;
+  letter-spacing: -0.25px;
+  -webkit-text-decoration: unset;
+  text-decoration: unset;
+  margin-left: 4rem;
+}
+
+.hpI {
+  position: relative;
+  top: 30px;
+}
+
+.IPO {
+  font-family: "Capsule Sans Text", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 28px;
+  -webkit-letter-spacing: -0.25px;
+  -moz-letter-spacing: -0.25px;
+  -ms-letter-spacing: -0.25px;
+  letter-spacing: -0.25px;
+  -webkit-text-decoration: unset;
+  text-decoration: unset;
+  margin-bottom: 1rem;
+}
+
+.IPO:hover {
+  color: rgb(0, 185, 5);
+}
+
+.circle2 {
+  margin-right: 10px;
+  position: relative;
+  top: 8px;
+}
+
+.HomePageContainer4 {
+  height: 31rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  overflow: scroll;
+  border-top-color: rgb(0, 0, 0);
+  border-top-style: solid;
+  border-top-width: 1px;
+}
+
+.hpI2 {
+  background-repeat: no-repeat;
+  max-width: 370px;
+  margin-top: 1rem;
+}
+
+.hp41 {
+  width: 50rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  overflow: wrap;
+}
+
+.hp42 {
+  float: right;
+}
+
+.hp411 {
+  height: 5rem;
+  margin-top: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.hp412 {
+  height: 15rem;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.hp411Span {
+  font-family: "Capsule Sans Display", system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 40px;
+  -webkit-letter-spacing: -0.32px;
+  -moz-letter-spacing: -0.32px;
+  -ms-letter-spacing: -0.32px;
+  letter-spacing: -0.32px;
+  -webkit-text-decoration: unset;
+  text-decoration: unset;
+  float: left;
+  clear: left;
+  margin-bottom: 1rem;
+}
+
+.hp412Span {
+  float: left;
+  clear: left;
+  font-family: "Capsule Sans Text", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 28px;
+  -webkit-letter-spacing: -0.25px;
+  -moz-letter-spacing: -0.25px;
+  -ms-letter-spacing: -0.25px;
+  letter-spacing: -0.25px;
+  -webkit-text-decoration: unset;
+  text-decoration: unset;
+  color: rgb(106, 114, 120);
+}
+
+.hp413Span {
+  float: left;
+  clear: left;
+  color: rgb(0, 0, 0);
+  font-family: "Capsule Sans Text", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  -webkit-letter-spacing: -0.1px;
+  -moz-letter-spacing: -0.1px;
+  -ms-letter-spacing: -0.1px;
+  letter-spacing: -0.1px;
+  -webkit-text-decoration: unset;
+  text-decoration: unset;
+}
+
+.hp414Span {
+  float: left;
+  clear: left;
+  margin-top: 1rem;
+  color: rgb(0, 0, 0);
+  font-family: "Capsule Sans Text", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 24px;
+  -webkit-letter-spacing: -0.1px;
+  -moz-letter-spacing: -0.1px;
+  -ms-letter-spacing: -0.1px;
+  letter-spacing: -0.1px;
+  -webkit-text-decoration: unset;
+  text-decoration: unset;
+  padding-right: 1rem;
+}
+
+.a12 {
+  color: rgb(106, 114, 120);
+  position: relative;
+  position: relative;
+}
+
+/* authenticated user dashboard CSS */
+
+.flex1 {
+  display: flex;
+  flex-grow: 1;
+  margin-left: calc(100vw - 100%);
+  margin-right: 0px;
+}
+
+.flex2 {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  min-width: 600px;
+  margin-bottom: 64px;
+}
+
+.dashboardContainer {
+  padding-top: 36px;
+  margin: 0 auto;
+  width: 1024px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 -6px;
+}
+
+.row > * {
+  display: block;
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+.row > :last-child {
+  margin-right: 0;
+}
+
+.mainContainer {
+  min-width: 500px;
+  width: auto;
+
+}
+
+/* start of list on home page */
+
+.listsContainer {
+  display: flex;
+  flex-direction: column;
+  width: 17rem;
+  height: 450px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 8px;
+  padding: 0;
+  border-radius: 5px;
+}
+
+.Stocks-Nav {
+  display: flex;
+  justify-content: left;
+  align-content: flex-end;
+  align-items: center;
+  height: 3rem;
+  background-color: blueviolet;
+}
+
+.lists-Nav {
+  background-color: yellow;
+  height: 3rem;
+  display: flex;
+  justify-content: left;
+  align-content: flex-end;
+  align-items: center;
+}
+
+.listItems {
+  background-color: aqua;
+  border-bottom: solid black 1px;
+  list-style: none;
+}
+
+/* portfolio table css below */
+
+#portfolio-table-heading {
+  width: 100%;
+  margin-right: 80px;
+}
+
+.portfolio-table-heading-ele {
+  color: rgb(143, 143, 143);
+  padding-bottom: 15px;
+}
+
+#portfolio-asset {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 40px;
+  margin-right: 80px;
+}
+
+#portfolio-asset:hover {
+  cursor: pointer;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+tr {
+  border-bottom: 1px solid lightgrey;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+#table-row-pointer:hover {
+  cursor: pointer;
+  background-color: rgb(227, 233, 237);
+}
+
+.table-row-ele {
+  padding: 18px;
+  margin: 8px;
+  text-align: center;
+}
+
+#table-row-ele:hover {
+  cursor: pointer;
+}
+
+#table-row-head {
+  padding-left: 18px;
+  padding-right: 18px;
+  margin: 8px;
+}
+
+#asset-symbol {
+  font-weight: 600;
+  color: rgb(133, 133, 133);
+}
+
+#portfolio-ticker {
+  width: 60%;
+  margin-right: 300px;
+  margin-left: 150px;
+  margin-bottom: 50px;
+}
+
+#portfolio-table-container {
+  margin-left: 150px;
+  margin-right: 150px;
+  width: 75%;
+}
+
+td {
+  font-weight: 600;
+}
+
+#ticker-headings {
+  border-bottom: none;
+  font-size: smaller;
+}
+
+.ticker-headings-ele {
+  text-align: left;
+}
+
+.ticker-number {
+  border-bottom: none;
+  font-size: 24pt;
+}

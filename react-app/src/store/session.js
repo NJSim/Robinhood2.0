@@ -1,6 +1,8 @@
 // constants
+import { getPortfolio } from "./portfolio";
 const SET_USER = 'session/SET_USER';
 const REMOVE_USER = 'session/REMOVE_USER';
+
 
 const setUser = (user) => ({
   type: SET_USER,
@@ -24,7 +26,7 @@ export const authenticate = () => async (dispatch) => {
     if (data.errors) {
       return;
     }
-  
+
     dispatch(setUser(data));
   }
 }
@@ -40,12 +42,12 @@ export const login = (email, password) => async (dispatch) => {
       password
     })
   });
-  
-  
+
+
   if (response.ok) {
     const data = await response.json();
     dispatch(setUser(data))
-    return null;
+    await dispatch(getPortfolio())
   } else if (response.status < 500) {
     const data = await response.json();
     if (data.errors) {
@@ -69,23 +71,36 @@ export const logout = () => async (dispatch) => {
   }
 };
 
+export const deleteUser = () => async (dispatch) => {
+  const response = await fetch("/api/users/delete", {
+		headers: {
+			"Content-Type": "application/json",
+		},
+	});
+  if (response.ok) {
+		dispatch(removeUser());
+	}
 
-export const signUp = (username, email, password) => async (dispatch) => {
+}
+
+
+export const signUp = (name, email, password) => async (dispatch) => {
   const response = await fetch('/api/auth/signup', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      username,
+      name,
       email,
       password,
     }),
   });
-  
+
   if (response.ok) {
     const data = await response.json();
     dispatch(setUser(data))
+    await dispatch(getPortfolio());
     return null;
   } else if (response.status < 500) {
     const data = await response.json();

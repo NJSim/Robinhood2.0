@@ -1,0 +1,283 @@
+#main-stock-div {
+  margin-top: 50px;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+#stock-graph-trans {
+  display: flex;
+  justify-content: center;
+}
+div.content {
+  width: auto;
+}
+#transaction-button:disabled{
+  background-color: rgba(253, 111, 45, 0.454);
+  cursor: none;
+}
+#transaction-button:disabled:hover{
+  cursor: default;
+}
+#stock-change {
+  font-weight: 800;
+  font-size: 14px;
+}
+.buy-stock-div1 {
+  border: solid transparent 1px;
+  width: 18rem;
+  height: 25rem;
+  display: flex;
+  justify-content: space-between;
+  /* padding: 1rem; */
+  justify-content: center;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 8px;
+}
+.stock-graph-plotly {
+  width: 50vw;
+  max-width: 750px;
+}
+
+.buy-stock-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.spanBuy {
+  margin: 0px;
+  color: rgb(255, 80, 0, 1);
+  font-style: normal;
+  font-weight: bold;
+  text-decoration: unset;
+  font-family: "Capsule Sans Display", system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  cursor: pointer;
+}
+.spanBuy:hover {
+  color: rgb(255, 80, 0, 1);
+}
+
+/* fixes additional margin on stock scroll bar below */
+
+html {
+  overflow: scroll;
+  overflow-x: hidden;
+}
+::-webkit-scrollbar {
+  width: 0; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+/* ::-webkit-scrollbar-thumb {
+  background: #ff0000;
+} */
+/* end of block for margin on scoll bar*/
+
+/*
+
+edit the card on the Stock Scroll to have a different collor on hover
+*/
+.card:hover {
+  background-color: rgb(227, 233, 237);
+}
+
+/*
+
+end of - edit the card on the Stock Scroll to have a different collor on hover
+*/
+
+.spanSell {
+  margin-left: 1rem;
+  /* margin: 0px; */
+  color: black;
+  font-style: normal;
+  font-weight: bold;
+  text-decoration: unset;
+  font-family: "Capsule Sans Display", system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  cursor: pointer;
+}
+.spanSell:hover {
+  color: rgb(255, 80, 0, 1);
+}
+
+.InvestLabel {
+  font-family: "Capsule Sans Display", system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  width: auto;
+  /* overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; */
+}
+
+.reviewOrder {
+  appearance: none;
+  color: white;
+  font-weight: bold;
+  border: 0px;
+  font-size: 13px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  text-align: unset;
+  -webkit-box-align: center;
+  align-items: center;
+  box-sizing: border-box;
+  display: inline-flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: var(--rh__size-palette__borderRadius);
+  background-color: rgb(253, 111, 45);
+  height: var(--rh__size-palette__cellHeight);
+  max-width: 420px;
+  min-width: 120px;
+  padding-left: calc(4 * var(--rh__size-palette__gutterWidth));
+  padding-right: calc(4 * var(--rh__size-palette__gutterWidth));
+  white-space: nowrap;
+  width: 14rem;
+  height: 2.8rem;
+  border-radius: 0.2rem;
+}
+.reviewOrder:hover {
+  background-color: rgb(209, 67, 1);
+}
+.buy-stock-div {
+  margin-left: 5vw;
+}
+.addTolist {
+  width: 18rem;
+  height: 2.5rem;
+  border-radius: 0.2rem;
+  border: 1px solid;
+  border-color: rgb(255, 80, 0, 1);
+  color: rgb(255, 80, 0, 1);
+  font-weight: bold;
+  background-color: white;
+  float: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.addTolist:hover {
+  background-color: rgb(255, 80, 0, 0.8);
+  color: white;
+  cursor: pointer;
+}
+
+.buyInput {
+  border-width: 1px;
+  border-color: black;
+  border-radius: 0.2rem;
+  width: 4.5rem;
+  height: 2rem;
+  float: right;
+  text-align: right;
+  padding: 5px;
+}
+.buyInput:focus {
+  outline: 1px solid rgb(255, 80, 0, 1);
+  border: none;
+}
+
+.il4 {
+  color: rgb(255, 80, 0, 1);
+  font-weight: bold;
+  font-size: 14px;
+  float: left;
+}
+.il4s {
+  color: black;
+  float: right;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.il5 {
+  color: rgb(255, 80, 0, 1);
+  font-weight: bold;
+  font-size: 12px;
+  text-align: center;
+}
+
+.il6 {
+  color: rgb(255, 80, 0, 1);
+  font-weight: bold;
+  font-size: 12px;
+  text-align: center;
+}
+
+.assestSymboldiv {
+  /* background-color: red; */
+  /* background-color: blue; */
+  /* align-content: center; */
+  /* border-top: solid black 1px;
+  border-left: solid black 1px;
+  border-right: solid black 1px;
+  width: 19rem;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  padding: .4rem; */
+  border-bottom: solid black 1px;
+  border-color: grey;
+}
+
+.il4div {
+  border-bottom: solid 1px grey;
+  width: 100%;
+  padding-bottom: 1rem;
+}
+
+.InvestLabelSpan {
+  float: right;
+}
+
+.ES1 {
+  font-weight: bold;
+}
+
+.ES2 {
+  float: right;
+  overflow: hidden;
+  text-overflow: hidden;
+  /* text-overflow: ellipsis; */
+}
+
+/* timeFrame buttons under stock chart */
+
+#timeFrameDiv {
+  margin: 0;
+  width: 100%;
+  display: flex;
+  border-bottom: 1px solid #e3e9ed;
+}
+
+#statistic-div{
+  display: flex;
+  flex-direction: column;
+  padding: 10px 60px 10px 10px;
+  font-size: 14px;
+}
+
+.timeFrameButton {
+  background-color: #fff;
+  color: black;
+  border: none;
+  border-radius: 7px;
+  font-size: 13pt;
+  font-weight: 400;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  width: 30px;
+  min-height: 2.67rem;
+  text-align: center;
+}
+
+.timeFrameButton:hover {
+  color: #00a806;
+  cursor: pointer;
+}
